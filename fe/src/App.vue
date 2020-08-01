@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="parent">
+      <div class="div1">
+        left Bar Section<br/>
+        Name<br/>
+        Title<br/>
+        * Home<br/>
+        * About/CV<br/>
+        * Project Diary<br/>
+        * Daily Diary<br/>
+        * Contact<br/>
+        gif img<br/>
+      </div>
+      <div class="div2">
+        right Main Body Section<br/>
+        (home)<br/>
+        finished projects<br/>
+        a / b / c<br/>
+        project on progress / daily post (wiggle wiggle)<br/>
+        * title / ''<br/>
+        # contents / ''<br/>
+        * title / ''<br/>
+        # contents / ''<br/>
+        * title / ''<br/>
+        # contents / ''
+        Planning projects<br/>
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+  .div1 { grid-area: 2 / 1 / 11 / 4; }
+  .div2 { grid-area: 1 / 4 / 11 / 11; }
 </style>
