@@ -2,6 +2,9 @@
   <div id="app">
     <div class="parent">
       <div class="div1">
+        <left-nav-bar>
+
+        </left-nav-bar>
         left Bar Section<br/>
         Name<br/>
         Title<br/>
@@ -32,11 +35,11 @@
 </template>
 
 <script>
-
+import leftNavBar from "@/components/leftNavBar";
 export default {
   name: 'App',
   components: {
-
+    leftNavBar
   }
 }
 </script>
