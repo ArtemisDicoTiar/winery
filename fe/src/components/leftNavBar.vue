@@ -1,33 +1,34 @@
-<component>
+<template>
     <div class="leftNavBar">
-        <div class="div1">
-            Name
+        <div class="row name">
+            John<br/>
+            Jongyoon Kim
         </div>
-        <div class="div2">
-            Title
+        <div class="row titleName">
+            Bachelor of Electrical and Electronics Engineering
         </div>
-        <div class="div3">
-            Button 1
+        <div class="row menuHome">
+            Home
         </div>
-        <div class="div4">
-            Button 2
+        <div class="row aboutCv">
+            about/cv
         </div>
-        <div class="div5">
-            Button 3
+        <div class="row projectDiary">
+            project diary
         </div>
-        <div class="div6">
-            Button 4
+        <div class="row lifeDiary">
+            life diary
         </div>
-        <div class="div7">
-            Button 5
+        <div class="row contacts">
+            contacts
         </div>
-        <div class="div8">
-            Button 6
+        <div class="row gifCharacter">
+            gif
         </div>
     </div>
 
 
-</component>
+</template>
 
 <script>
     export default {
@@ -44,20 +45,5 @@
 </script>
 
 <style>
-    .leftNavBar {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(9, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-    }
 
-    .div1 { grid-area: 1 / 1 / 3 / 3; }
-    .div2 { grid-area: 3 / 1 / 4 / 4; }
-    .div3 { grid-area: 4 / 1 / 5 / 3; }
-    .div4 { grid-area: 5 / 1 / 6 / 3; }
-    .div5 { grid-area: 6 / 1 / 7 / 3; }
-    .div6 { grid-area: 7 / 1 / 8 / 3; }
-    .div7 { grid-area: 8 / 1 / 9 / 3; }
-    .div8 { grid-area: 9 / 1 / 10 / 3; }
 </style>
