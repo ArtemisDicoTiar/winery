@@ -89,7 +89,6 @@
 </script>
 
 <style>
-
     .leftNavBar{
         margin-top: 20px;
         margin-left: 15px;
