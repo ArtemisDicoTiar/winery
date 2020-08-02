@@ -67,7 +67,7 @@
         </div>
 
         <div class="row gifCharacter">
-            <img src="../images/gif/hexagon.gif" width="200" height="200">
+            <img src="../images/gif/hexagon.gif" width="150" height="150">
         </div>
     </div>
 
@@ -92,6 +92,7 @@
     .leftNavBar{
         margin-top: 20px;
         margin-left: 15px;
+        margin-bottom: 50px;
     }
     .name{
         font-family: "Times New Roman", times, serif;
@@ -107,7 +108,7 @@
     }
     .contacts{
         font-family: "Times New Roman", times, serif;
-        font-size: 11pt;
+        font-size: 13pt;
         font-weight: initial;
         margin-top: 40px;
     }
