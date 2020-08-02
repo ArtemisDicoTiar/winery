@@ -24,7 +24,7 @@
       </div>
 
       <div class="row body">
-        <div class="col-md-4 leftNavBar">
+        <div class="col-md-4 leftNavBarComp">
           <LeftNavBar>
 
           </LeftNavBar>
@@ -80,9 +80,13 @@ export default {
     background: darkseagreen;
     border-radius: 10px;
   }
-  .leftNavBar{
-    background: burlywood;
-    border-radius: 20px;
+  .leftNavBarComp{
+    background: #e7eaee;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-color: gray;
   }
   .mainBody{
     background: darksalmon;
