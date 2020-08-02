@@ -67,7 +67,7 @@
         </div>
 
         <div class="row gifCharacter">
-            <img src="../images/ripplenet-section-1.gif" width="200" height="200">
+            <img src="../images/gif/hexagon.gif" width="200" height="200">
         </div>
     </div>
 
