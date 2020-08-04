@@ -11,13 +11,13 @@
             </div>
 
             <div class="row body">
-                <div class="col-md-5 leftNavBarComp">
+                <div class="col-md-4 leftNavBarComp">
                     <LeftNavBar>
 
                     </LeftNavBar>
                 </div>
 
-                <div class="col-md-7 mainBody">
+                <div class="col-md-8 mainBody">
                     going to be routed<br/>
                     <div class="row">
                         <div class="col-md-12">

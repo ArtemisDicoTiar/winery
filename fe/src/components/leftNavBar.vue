@@ -18,11 +18,13 @@
                             <img src="../images/mono/github.png" width="25" height="25">
                         </a>
                     </div>
+
                     <div class="col-md-2">
                         <a href="https://www.linkedin.com/in/jongyoon-kim-9a1941143/">
                             <img src="../images/mono/linkedin.webp" width="25" height="25">
                         </a>
                     </div>
+
                     <div class="col-md-2">
                         <a href="https://www.instagram.com/john_yoooon/">
                             <img src="../images/mono/instagram.png" width="25" height="25">
@@ -37,7 +39,7 @@
                 </a>
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 contactsPhone">
                 +82 10-7530-9365
             </div>
 
@@ -111,6 +113,12 @@
         font-size: 13pt;
         font-weight: initial;
         margin-top: 40px;
+    }
+    .contactsEmail{
+        font-size: 11pt;
+    }
+    .contactsPhone{
+        font-size: 12pt;
     }
     .contactIcons{
         padding: 0;
