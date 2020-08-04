@@ -16,7 +16,6 @@
                 </div>
 
                 <div class="col-md-8 mainBody">
-                    going to be routed<br/>
                     <router-view/>
                 </div>
             </div>
@@ -59,12 +58,10 @@
         border-color: gray;
     }
     .mainBody{
-        background: darksalmon;
-        border: #42b983;
-        border-radius: 10px;
+        background: #e7eaee;
     }
     .footer {
         background: gray;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 </style>
