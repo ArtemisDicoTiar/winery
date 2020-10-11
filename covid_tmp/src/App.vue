@@ -5,8 +5,7 @@
     <router-view>
 
     </router-view>
-<!--    <covidGraph/>-->
-<!--    <covidGraphbyUK/>-->
+
   </div>
 </template>
 

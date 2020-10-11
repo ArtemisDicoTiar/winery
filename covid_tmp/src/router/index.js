@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import covidGraph from "../components/covidGraphbyRegion";
-import covidGraphbyUK from "../components/covidGraphbyUK";
+import covidGraphbyRegion from "@/components/covidStatusGraph/covidGraphbyRegion";
+import covidGraphbyUK from "@/components/covidStatusGraph/covidGraphbyUK";
 
 Vue.use(VueRouter)
 
@@ -16,7 +16,7 @@ Vue.use(VueRouter)
 // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체입니다.
 const routes = [
     { path: '/', redirect: '/global'},
-    { path: '/global', component: covidGraph},
+    { path: '/global', component: covidGraphbyRegion},
     { path: '/uk', component: covidGraphbyUK },
 
 

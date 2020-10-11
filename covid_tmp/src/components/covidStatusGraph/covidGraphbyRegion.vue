@@ -9,9 +9,6 @@
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
                     <span>
-                        {{ this.$store.state.covidGraph.target.continent }}
-                        {{ this.$store.state.covidGraph.target.country }}
-                        <br/>
                         This page is for temporary demo.<br/>
                         This page will be renewed with detailed information.<br/>
                         <br/>
@@ -27,7 +24,7 @@
                     <div class="md-layout md-gutter">
 
                         <div class="md-layout-item">
-                            <md-autocomplete v-model="continent" :md-options="continents" :md-open-on-focus="true">
+                            <md-autocomplete v-model="continent" :md-options="continents" :md-open-on-focus="true" :md-dense="true">
                                 <label>Continents</label>
                                 <template slot="md-autocomplete-item" slot-scope="{ item, term }">
                                     <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
@@ -360,19 +357,29 @@
         watch: {
             continent: function (val) {
                 //do something when the data changes.
-                if (val) {
-                    this.$store.commit('covidGraph/SET_CONTINENT_NAME', val)
-                    console.log(this.$store.state.covidGraph.target.continent)
-                    if (val === null) {
-                        this.$store.commit('covidGraph/SET_COUNTRY_NAME', '')
-                        this.country = ''
-                    }
+
+                this.$store.commit('covidGraph/SET_CONTINENT_NAME', val)
+                this.continent = val
+                if (val === '') {
+                    this.$store.commit('covidGraph/SET_COUNTRY_NAME', '')
+                    this.country = ''
+
+                    this.dataRequested = false
+                    this.$store.state.covidGraph.plot.data = []
+                    this.$store.state.covidGraph.plot.layout = []
                 }
+
             },
             country: function (val) {
                 //do something when the data changes.
-                if (val) {
-                    this.$store.commit('covidGraph/SET_COUNTRY_NAME', val)
+
+                this.$store.commit('covidGraph/SET_COUNTRY_NAME', val)
+                this.country = val
+
+                if (val === '') {
+                    this.dataRequested = false
+                    this.$store.state.covidGraph.plot.data = []
+                    this.$store.state.covidGraph.plot.layout = []
                 }
             },
         },
@@ -384,10 +391,8 @@
                 return this.$store.state.covidGraph.plot.layout
             },
             requestButtonDisabled () {
-                if (this.$store.state.covidGraph.target.continent === '' || this.$store.state.covidGraph.target.country === '') {
-                    return true
-                }
-                return false
+                return this.$store.state.covidGraph.target.continent === '' || this.$store.state.covidGraph.target.country === '';
+
             }
         },
         methods: {
