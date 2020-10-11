@@ -1,7 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import covidGraphbyRegion from "@/components/covidStatusGraph/covidGraphbyRegion";
-import covidGraphbyUK from "@/components/covidStatusGraph/covidGraphbyUK";
+import covidGraphGlobalHome from "@/components/covidStatusGraph/covidGlobal/covidGraphGlobalHome";
+import covidGraphbyRegion from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionCumul";
+import covidGraphbyRegionNew from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionNew";
+import covidGraphbyUK from "@/components/covidStatusGraph/covidUK/covidGraphbyUK";
 
 Vue.use(VueRouter)
 
@@ -16,7 +18,11 @@ Vue.use(VueRouter)
 // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체입니다.
 const routes = [
     { path: '/', redirect: '/global'},
-    { path: '/global', component: covidGraphbyRegion},
+
+    { path: '/global', component: covidGraphGlobalHome},
+    { path: '/global/cumulative', component: covidGraphbyRegion},
+    { path: '/global/new', component: covidGraphbyRegionNew},
+
     { path: '/uk', component: covidGraphbyUK },
 
 

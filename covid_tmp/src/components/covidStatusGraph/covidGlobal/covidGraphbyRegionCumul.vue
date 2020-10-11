@@ -2,22 +2,21 @@
     <div id="covidGraph" class="page-container">
         <md-app md-mode="reveal">
             <md-app-toolbar class="md-primary">
-                <span class="md-title">COVID - 19 Analysis ver 2.</span>
+                <span class="md-title">COVID - 19 Global Cumulative Data</span>
             </md-app-toolbar>
 
 
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
-                    <span>
+                    <span class="md-headline">
                         This page is for temporary demo.<br/>
                         This page will be renewed with detailed information.<br/>
                         <br/>
-                        You must select Continent first. Then you may select detail region.<br/>
-                        <br/>
-                        <br/>
-                        <br/>
-
                     </span>
+
+                    <h3>
+                        This page provides <u>cumulative</u> data. <br/>
+                    </h3>
                 </div>
 
                 <div id="selection">
