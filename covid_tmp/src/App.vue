@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <nav-bar/>
+    <router-view/>
 
-    <router-view>
-
-    </router-view>
 
   </div>
 </template>
 
 <script>
-import navBar from "@/components/navBar";
-
 export default {
   name: 'App',
   components: {
-      navBar
+
   }
 }
 </script>
 
 <style>
-
+  body, html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+  }
 </style>

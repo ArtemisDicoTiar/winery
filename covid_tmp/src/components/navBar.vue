@@ -1,25 +1,46 @@
 <template>
     <div id="navBar">
-        <md-app-content>
-            <div id="pageSelection">
-                <md-tabs>
-                    <md-tab id="tab-home" md-label="global cumulative cases" md-icon="home" to="/global/cumulative"></md-tab>
-                    <md-tab id="tab-pages" md-label="global new cases" md-icon="pages" to="/global/new"></md-tab>
-                    <md-tab id="tab-posts" md-label="UK cumulative cases" md-icon="/assets/icon-whatshot.svg" to="/uk/cumulative"></md-tab>
-                    <md-tab id="tab-favorites" md-label="UK new cases" md-icon="favorite" to="/uk/new"></md-tab>
-                </md-tabs>
+        <md-toolbar class="md-transparent" md-elevation="0">
+                <span class="md-subheading">
+                    Navigation
+                </span>
+        </md-toolbar>
 
-            </div>
-        </md-app-content>
+        <md-list>
+            <md-list-item>
+                <md-icon>send</md-icon>
+                <span class="md-list-item-text">global cumulative</span>
+            </md-list-item>
+
+            <md-list-item>
+                <md-icon>delete</md-icon>
+                <span class="md-list-item-text">global new</span>
+            </md-list-item>
+
+            <md-list-item>
+                <md-icon>error</md-icon>
+                <span class="md-list-item-text">UK cumulative</span>
+            </md-list-item>
+
+            <md-list-item>
+                <md-icon>move_to_inbox</md-icon>
+                <span class="md-list-item-text">UK new</span>
+            </md-list-item>
+        </md-list>
     </div>
+
 </template>
 
 <script>
     export default {
-        name: 'navigation',
+        name: 'navBar',
         data () {
+            return {
 
-        }
+            }
+        },
+
+
     }
 </script>
 
