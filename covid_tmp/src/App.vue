@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <covidGraph/>
+
+<!--    <nav-bar/>-->
+    <router-view>
+
+    </router-view>
+<!--    <covidGraph/>-->
+<!--    <covidGraphbyUK/>-->
   </div>
 </template>
 
 <script>
-import covidGraph from "@/components/covidGraphbyRegion";
+
 
 export default {
   name: 'App',
   components: {
-    covidGraph
+
   }
 }
 </script>
