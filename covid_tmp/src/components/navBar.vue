@@ -7,22 +7,22 @@
         </md-toolbar>
 
         <md-list>
-            <md-list-item>
+            <md-list-item to="/global/cumulative">
                 <md-icon>send</md-icon>
                 <span class="md-list-item-text">global cumulative</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item to="/global/new">
                 <md-icon>delete</md-icon>
                 <span class="md-list-item-text">global new</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item to="/uk/cumulative">
                 <md-icon>error</md-icon>
                 <span class="md-list-item-text">UK cumulative</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item to="/uk/new">
                 <md-icon>move_to_inbox</md-icon>
                 <span class="md-list-item-text">UK new</span>
             </md-list-item>
@@ -36,7 +36,7 @@
         name: 'navBar',
         data () {
             return {
-
+                menuVisible: false,
             }
         },
 

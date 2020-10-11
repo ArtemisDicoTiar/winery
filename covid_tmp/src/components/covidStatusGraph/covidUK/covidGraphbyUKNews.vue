@@ -7,7 +7,8 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 Global Cumulative Data</span>
+                    <span class="md-title">COVID - 19 Global New Cases</span>
+
                 </div>
             </md-app-toolbar>
 
@@ -24,7 +25,7 @@
                     </span>
 
                     <span class="md-subheading">
-                        This page provides <u>cumulative</u> data. <br/>
+                        This page provides <u>New cases</u> data. <br/>
                     </span>
                 </div>
 
@@ -135,7 +136,7 @@
     import navBar from "@/components/navBar";
 
     export default {
-        name: 'covidGraphGlobalCum',
+        name: 'covidGraphGlobalNew',
         components: {
             Plotly,
             navBar

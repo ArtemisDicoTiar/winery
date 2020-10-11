@@ -1,22 +1,31 @@
 <template>
     <div id="covidGraph" class="page-container">
-        <md-app md-mode="reveal">
-            <md-app-toolbar class="md-primary">
-                <span class="md-title">COVID - 19 Global New Cases</span>
+        <md-app md-waterfall md-mode="overlap">
+            <md-app-toolbar class="md-primary md-large">
+                <div class="md-toolbar-row">
+                    <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
+                        <md-icon>menu</md-icon>
+                    </md-button>
+
+                    <span class="md-title">COVID - 19 Global Cumulative Data</span>
+                </div>
             </md-app-toolbar>
 
+            <md-app-drawer :md-active.sync="menuVisible">
+                <navBar/>
+            </md-app-drawer>
 
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
-                    <h2>
+                    <span class="md-headline">
                         This page is for temporary demo.<br/>
                         This page will be renewed with detailed information.<br/>
                         <br/>
-                    </h2>
+                    </span>
 
-                    <h3>
+                    <span class="md-subheading">
                         This page provides <u>cumulative</u> data. <br/>
-                    </h3>
+                    </span>
                 </div>
 
                 <div id="selection">
@@ -123,14 +132,17 @@
 
 <script>
     import { Plotly } from 'vue-plotly'
+    import navBar from "@/components/navBar";
 
     export default {
-        name: 'covidGraph',
+        name: 'covidGraphGlobalCum',
         components: {
-            Plotly
+            Plotly,
+            navBar
         },
         data () {
             return {
+                menuVisible: false,
                 test: null,
                 continents: [
                     // "All",
@@ -381,6 +393,10 @@
                     this.$store.state.covidGraph.plot.layout = []
                 }
             },
+            menuVisible: function (val) {
+                this.menuVisible = val
+
+            }
         },
         computed: {
             plotData () {

@@ -1,9 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 import covidGraphGlobalHome from "@/components/covidStatusGraph/covidGlobal/covidGraphGlobalHome";
 import covidGraphbyRegion from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionCumul";
-import covidGraphbyRegionNew from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionNew";
+import covidGraphbyRegionNews from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionNews";
+
 import covidGraphbyUK from "@/components/covidStatusGraph/covidUK/covidGraphbyUK";
+import covidGraphbyUKCumul from "@/components/covidStatusGraph/covidUK/covidGraphbyUKCumul";
+import covidGraphbyUKNews from "@/components/covidStatusGraph/covidUK/covidGraphbyUKNews";
 
 Vue.use(VueRouter)
 
@@ -21,9 +25,12 @@ const routes = [
 
     { path: '/global', component: covidGraphGlobalHome},
     { path: '/global/cumulative', component: covidGraphbyRegion},
-    { path: '/global/new', component: covidGraphbyRegionNew},
+    { path: '/global/new', component: covidGraphbyRegionNews},
 
     { path: '/uk', component: covidGraphbyUK },
+    { path: '/uk/new', component: covidGraphbyUKNews },
+    { path: '/uk/cumulative', component: covidGraphbyUKCumul },
+
 
 
 ]
