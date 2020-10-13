@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 Global New Cases</span>
+                    <span class="md-title">COVID - 19 UK New Cases</span>
 
                 </div>
             </md-app-toolbar>
@@ -19,13 +19,13 @@
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
                     <span class="md-headline">
-                        This page is for temporary demo.<br/>
+                        This page is for temporary demo. (*On Construction.)<br/>
                         This page will be renewed with detailed information.<br/>
                         <br/>
                     </span>
 
                     <span class="md-subheading">
-                        This page provides <u>New cases</u> data. <br/>
+                        THIS PAGE IS SHOWING SAME AS GLOBAL PAGE.
                     </span>
                 </div>
 
