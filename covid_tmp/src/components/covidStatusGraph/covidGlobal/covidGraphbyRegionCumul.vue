@@ -18,13 +18,17 @@
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
                     <span class="md-headline">
-                        This page is for temporary demo.<br/>
-                        This page will be renewed with detailed information.<br/>
+                        This page provides cumulative data.<br/>
+                        All data are provided by CSSE-github (John's Hopkins University).<br/>
                         <br/>
                     </span>
 
                     <span class="md-subheading">
-                        This page provides <u>cumulative</u> data. <br/>
+                        <b>Confirmed</b>: number of people being confirmed.<br/>
+                        <b>Active</b>: number of people being hospitalised due to COVID-19.<br/>
+                        <b>Deaths</b>: number of people died.<br/>
+                        <b>Recovered</b>: number of people recovered.<br/>
+                        <b>Removed</b>: number of people recovered + died.<br/>
                     </span>
                 </div>
 

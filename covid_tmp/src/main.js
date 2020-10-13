@@ -6,7 +6,8 @@ import store from './store/index';
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
+// import 'vue-material/dist/theme/default.css'
+import './assets/customTheme.scss'
 
 Vue.use(VueMaterial)
 Vue.use(Vuex)

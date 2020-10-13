@@ -18,18 +18,16 @@
 
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
-                    <span class="md-display-1">
-                        This page shows same data from <b>cumulative page.</b><br/>
-                        <u><b>This page is preparing dataset.</b></u><br/>
-                    </span>
                     <span class="md-headline">
-                        This page is for temporary demo.<br/>
-                        This page will be renewed with detailed information.<br/>
+                        This page provides daily new data.<br/>
+                        All data are provided by CSSE-github (John's Hopkins University).<br/>
                         <br/>
                     </span>
 
                     <span class="md-subheading">
-                        This page provides <u>New cases</u> data. <br/>
+                        <b>Confirmed</b>: number of people daily confirmed.<br/>
+                        <b>Deaths</b>: number of people daily died.<br/>
+                        <b>Recovered</b>: number of people daily recovered.<br/>
                     </span>
                 </div>
 
@@ -117,12 +115,12 @@
 
                 <div v-if="dataRequested === true">
                     <md-progress-spinner
-                            v-if="this.$store.state.covidGraph.loading === true"
+                            v-if="this.$store.state.covidNewGraph.loading === true"
                             md-mode="indeterminate"
                     />
 
                     <Plotly
-                            v-if="this.$store.state.covidGraph.loading === false"
+                            v-if="this.$store.state.covidNewGraph.loading === false"
                             :data="plotData"
                             :layout="plotLayout"
                             :display-mode-bar="false"
@@ -374,28 +372,28 @@
             continent: function (val) {
                 //do something when the data changes.
 
-                this.$store.commit('covidGraph/SET_CONTINENT_NAME', val)
+                this.$store.commit('covidNewGraph/SET_CONTINENT_NAME', val)
                 this.continent = val
                 if (val === '') {
-                    this.$store.commit('covidGraph/SET_COUNTRY_NAME', '')
+                    this.$store.commit('covidNewGraph/SET_COUNTRY_NAME', '')
                     this.country = ''
 
                     this.dataRequested = false
-                    this.$store.state.covidGraph.plot.data = []
-                    this.$store.state.covidGraph.plot.layout = []
+                    this.$store.state.covidNewGraph.plot.data = []
+                    this.$store.state.covidNewGraph.plot.layout = []
                 }
 
             },
             country: function (val) {
                 //do something when the data changes.
 
-                this.$store.commit('covidGraph/SET_COUNTRY_NAME', val)
+                this.$store.commit('covidNewGraph/SET_COUNTRY_NAME', val)
                 this.country = val
 
                 if (val === '') {
                     this.dataRequested = false
-                    this.$store.state.covidGraph.plot.data = []
-                    this.$store.state.covidGraph.plot.layout = []
+                    this.$store.state.covidNewGraph.plot.data = []
+                    this.$store.state.covidNewGraph.plot.layout = []
                 }
             },
             menuVisible: function (val) {
@@ -405,20 +403,20 @@
         },
         computed: {
             plotData () {
-                return this.$store.state.covidGraph.plot.data
+                return this.$store.state.covidNewGraph.plot.data
             },
             plotLayout () {
-                return this.$store.state.covidGraph.plot.layout
+                return this.$store.state.covidNewGraph.plot.layout
             },
             requestButtonDisabled () {
-                return this.$store.state.covidGraph.target.continent === '' || this.$store.state.covidGraph.target.country === '';
+                return this.$store.state.covidNewGraph.target.continent === '' || this.$store.state.covidNewGraph.target.country === '';
 
             }
         },
         methods: {
             requestData: function() {
                 this.dataRequested = true
-                this.$store.dispatch('covidGraph/SEARCH_COVID_INFO_BY_REGION')
+                this.$store.dispatch('covidNewGraph/SEARCH_COVID_INFO_BY_REGION')
             },
 
         }
