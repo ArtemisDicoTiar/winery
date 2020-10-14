@@ -11,6 +11,8 @@ import covidGraphbyUKNews from "@/components/covidStatusGraph/covidUK/covidGraph
 
 import error404 from "@/components/error404";
 
+import store from '../store/index'
+
 Vue.use(VueRouter)
 
 // 1. 라우트 컴포넌트를 정의하세요.
@@ -23,18 +25,18 @@ Vue.use(VueRouter)
 // "component"는 `Vue.extend()`를 통해 만들어진
 // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체입니다.
 const routes = [
-    { path: '/', component: covidGraphGlobalHome},
+    { path: '/', redirect: '/global'},
 
-    { path: '/global', component: covidGraphGlobalHome},
+    { path: '/global', component: covidGraphGlobalHome },
     { path: '/global/cumulative', component: covidGraphbyRegion},
     { path: '/global/new', component: covidGraphbyRegionNews},
+
 
     { path: '/uk', component: covidGraphbyUK },
     { path: '/uk/new', component: covidGraphbyUKNews },
     { path: '/uk/cumulative', component: covidGraphbyUKCumul },
+
     { path: '*', component: error404}
-
-
 
 ]
 
@@ -46,8 +48,16 @@ const router = new VueRouter({
     routes // `routes: routes`의 줄임
 })
 
-// router.beforeEach((to, from){
-//     if (from.name === '')
-// })
+router.beforeEach((to, from, next) => {
+    if (from.path === '/global/cumulative') {
+        store.commit('covidGraph/SET_CLEAR')
+        next()
+    } else if (from.path === '/global/new') {
+        store.commit('covidNewGraph/SET_CLEAR')
+        next()
+    }
+    next()
+
+})
 
 export default router

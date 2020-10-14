@@ -40,6 +40,24 @@ export default {
 
     },
     mutations: {
+        SET_CLEAR: (state) => {
+            state.loading = false
+
+            state.plot.data = []
+            state.plot.layout = {}
+
+            state.target.continent = ''
+            state.target.continent = ''
+
+            state.data.timeStamp = {}
+            state.data.confirmed = {}
+            state.data.active = {}
+            state.data.deaths = {}
+            state.data.removed = {}
+            state.data.recovered = {}
+
+        },
+
         SET_LOADING: (state, status) => {state.loading = status},
 
         SET_PLOT_DATA: (state, data) => {state.plot.data = data},
