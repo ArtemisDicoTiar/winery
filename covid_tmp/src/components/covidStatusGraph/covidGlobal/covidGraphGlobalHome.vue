@@ -34,10 +34,10 @@
                 <md-tabs md-sync-route>
                     <md-tab id="tab-home" md-label="Global New" to="/global/new"></md-tab>
                     <md-tab id="tab-pages" md-label="Global Cumulative" to="/global/cumulative"></md-tab>
-
+                </md-tabs>
+                <md-tabs md-sync-route>
                     <md-tab id="tab-posts" md-label="UK New" to="/uk/new" md-disabled></md-tab>
                     <md-tab id="tab-favorites" md-label="UK Cumulative" to="/uk/cumulative" md-disabled></md-tab>
-
                 </md-tabs>
 
             </md-app-content>
