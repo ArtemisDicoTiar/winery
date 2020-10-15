@@ -424,10 +424,10 @@
 </script>
 
 <style lang="scss" scoped>
-    /*.md-app {*/
-    /*    max-height: 400px;*/
-    /*    border: 1px solid rgba(#000, .12);*/
-    /*}*/
+    .md-app {
+        min-height: 700px;
+        border: 1px solid rgba(#000, .12);
+    }
 
     // Demo purposes only
     .md-drawer {
