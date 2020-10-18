@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 UK New Cases</span>
+                    <span class="md-title">COVID - 19 UK All type of Data</span>
 
                 </div>
             </md-app-toolbar>
@@ -25,72 +25,71 @@
                     </span>
 
                     <span class="md-subheading">
-                        THIS PAGE IS SHOWING SAME AS GLOBAL PAGE.
+                        <span class="md-title">Description of Graph</span>
+                        <md-table>
+                            <md-table-row>
+                                <md-table-head>Graph Index</md-table-head>
+                                <md-table-head>Meaning</md-table-head>
+                            </md-table-row>
+
+                            <md-table-row>
+                                <md-table-cell>Conf Dly</md-table-cell>
+                                <md-table-cell>Confirmed Daily</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>Conf Cuml</md-table-cell>
+                                <md-table-cell>Confirmed Cumulative</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>CumlD/DD</md-table-cell>
+                                <md-table-cell>Cumulative Deaths by Death Date (in 28days)</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>CumlD/DR</md-table-cell>
+                                <md-table-cell>Rate of Cumulative Deaths by Death Date (in 28days)</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>CumlD/PD</md-table-cell>
+                                <md-table-cell>Cumulative Deaths by Publish Date (in 28days)</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>CumlD/PR</md-table-cell>
+                                <md-table-cell>Rate of Cumulative Deaths by Publish Date (in 28days)</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>NewD/PD</md-table-cell>
+                                <md-table-cell>New Deaths by Publish Date (in 28days)</md-table-cell>
+                            </md-table-row>
+                        </md-table>
+
                     </span>
                 </div>
 
                 <div id="selection">
+                    <span class="md-title">Search Section</span>
                     <div class="md-layout md-gutter">
 
                         <div class="md-layout-item">
-                            <md-autocomplete v-model="continent" :md-options="continents" :md-open-on-focus="true" :md-dense="true">
-                                <label>Continents</label>
-                                <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-                                    <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-                                </template>
-                            </md-autocomplete>
+                            <span class="md-subhead">Local Authority Type</span><br/>
+                            <md-radio v-model="localAuthorityType" value="utla">
+                                Upper Tier Local Authority
+                            </md-radio>
+                            <md-radio v-model="localAuthorityType" value="ltla">
+                                Lower Tier Local Authority
+                            </md-radio>
                         </div>
 
                         <div class="md-layout-item">
-                            <div v-if="continent === null">
+                            <div v-if="localAuthorityType === null">
                                 <label>
-                                    Select Continent first.
+                                    Select Local Authority first.
                                 </label>
                             </div>
-                            <div v-if="continent === 'Africa'">
-                                <md-autocomplete v-model="country" :md-options="africa" :md-open-on-focus="true">
+
+                            <div v-if="localAuthorityType !== null">
+                                <md-autocomplete v-model="areaName" :md-options="Object.values(areaNames)" :md-open-on-focus="true">
                                     <label>
-                                        Countries from Africa
-                                    </label>
-                                    <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-                                        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-                                    </template>
-                                </md-autocomplete>
-                            </div>
-                            <div v-if="continent === 'America'">
-                                <md-autocomplete v-model="country" :md-options="america" :md-open-on-focus="true">
-                                    <label>
-                                        Countries from America
-                                    </label>
-                                    <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-                                        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-                                    </template>
-                                </md-autocomplete>
-                            </div>
-                            <div v-if="continent === 'Asia'">
-                                <md-autocomplete v-model="country" :md-options="asia" :md-open-on-focus="true">
-                                    <label>
-                                        Countries from Asia
-                                    </label>
-                                    <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-                                        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-                                    </template>
-                                </md-autocomplete>
-                            </div>
-                            <div v-if="continent === 'Europe'">
-                                <md-autocomplete v-model="country" :md-options="europe" :md-open-on-focus="true">
-                                    <label>
-                                        Countries from Europe
-                                    </label>
-                                    <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-                                        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-                                    </template>
-                                </md-autocomplete>
-                            </div>
-                            <div v-if="continent === 'Oceania'">
-                                <md-autocomplete v-model="country" :md-options="oceania" :md-open-on-focus="true">
-                                    <label>
-                                        Countries from Oceania
+                                        Area Names from {{ this.localAuthorityType.toUpperCase() }}
                                     </label>
                                     <template slot="md-autocomplete-item" slot-scope="{ item, term }">
                                         <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
@@ -144,254 +143,53 @@
         data () {
             return {
                 menuVisible: false,
-                test: null,
-                continents: [
-                    // "All",
-                    "Africa",
-                    "America",
-                    "Asia",
-                    "Europe",
-                    "Oceania"
-                ],
 
-                africa: [
-                    "All",
-                    "Angola",
-                    "Burundi",
-                    "Benin",
-                    "Burkina Faso",
-                    "Botswana",
-                    "Central African Republic",
-                    "Cote d'",
-                    "Cameroon",
-                    "DR Congo",
-                    "Congo Republic",
-                    "Comoros",
-                    "Cabo Verde",
-                    "Djibouti",
-                    "Algeria",
-                    "Egypt",
-                    "Eritrea",
-                    "Western Sahara",
-                    "Ethiopia",
-                    "Gabon",
-                    "Ghana",
-                    "Guinea",
-                    "Gambia",
-                    "Guinea-Bissau",
-                    "Equatorial Guinea",
-                    "Kenya",
-                    "Liberia",
-                    "Libya",
-                    "Lesotho",
-                    "Morocco",
-                    "Madagascar",
-                    "Mali",
-                    "Mozambique",
-                    "Mauritania",
-                    "Mauritius",
-                    "Malawi",
-                    "Namibia",
-                    "Niger",
-                    "Nigeria",
-                    "Rwanda",
-                    "Sudan",
-                    "Senegal",
-                    "Sierra Leone",
-                    "Somalia",
-                    "South Sudan",
-                    "Sao Tome and Principe",
-                    "Eswatini",
-                    "Seychelles",
-                    "Chad",
-                    "Togo",
-                    "Tunisia",
-                    "Tanzania",
-                    "Uganda",
-                    "South Africa",
-                    "Zambia",
-                    "Zimbabwe",
-                ],
-                asia: [
-                    "All",
-                    "Afghanistan",
-                    "Armenia",
-                    "Azerbaijan",
-                    "Bahrain",
-                    "Bangladesh",
-                    "Bhutan",
-                    "Brunei Darussalam",
-                    "Cambodia",
-                    "China",
-                    "Cyprus",
-                    "Georgia",
-                    "India",
-                    "Indonesia",
-                    "Iran",
-                    "Iraq",
-                    "Israel",
-                    "Japan",
-                    "Jordan",
-                    "Kazakhstan",
-                    "Kuwait",
-                    "Kyrgyz Republic",
-                    "Laos",
-                    "Lebanon",
-                    "Malaysia",
-                    "Maldives",
-                    "Mongolia",
-                    "Myanmar",
-                    "Nepal",
-                    "Oman",
-                    "Pakistan",
-                    "Palestine",
-                    "Philippines",
-                    "Qatar",
-                    "Saudi Arabia",
-                    "Singapore",
-                    "South Korea",
-                    "Sri Lanka",
-                    "Syria",
-                    "Taiwan",
-                    "Tajikistan",
-                    "Thailand",
-                    "Timor-Leste",
-                    "Turkey",
-                    "United Arab Emirates",
-                    "Uzbekistan",
-                    "Vietnam",
-                    "Yemen",
-                ],
-                america: [
-                    "All",
-                    "Argentina",
-                    "Antigua and Barbuda",
-                    "Bahamas",
-                    "Belize",
-                    "Bolivia",
-                    "Brazil",
-                    "Barbados",
-                    "Canada",
-                    "Chile",
-                    "Colombia",
-                    "Costa Rica",
-                    "Cuba",
-                    "Dominica",
-                    "Dominican Republic",
-                    "Ecuador",
-                    "Grenada",
-                    "Guatemala",
-                    "Guyana",
-                    "Honduras",
-                    "Haiti",
-                    "Jamaica",
-                    "St. Kitts and Nevis",
-                    "St. Lucia",
-                    "Mexico",
-                    "Nicaragua",
-                    "Panama",
-                    "Peru",
-                    "Paraguay",
-                    "El Salvador",
-                    "Suriname",
-                    "Trinidad and Tobago",
-                    "Uruguay",
-                    "United States",
-                    "St. Vincent and the Grenadines",
-                    "Venezuela",
-                ],
-                europe: [
-                    "All",
-                    "Albania",
-                    "Andorra",
-                    "Austria",
-                    "Belarus",
-                    "Belgium",
-                    "Bosnia and Herzegovina",
-                    "Bulgaria",
-                    "Croatia",
-                    "Czech Republic",
-                    "Denmark",
-                    "Estonia",
-                    "Finland",
-                    "France",
-                    "Germany",
-                    "Greece",
-                    "Hungary",
-                    "Ireland",
-                    "Iceland",
-                    "Italy",
-                    "Kosovo",
-                    "Liechtenstein",
-                    "Lithuania",
-                    "Luxembourg",
-                    "Latvia",
-                    "Macedonia",
-                    "Malta",
-                    "Moldova",
-                    "Monaco",
-                    "Montenegro",
-                    "Netherlands",
-                    "Norway",
-                    "Poland",
-                    "Portugal",
-                    "Romania",
-                    "Russia",
-                    "San Marino",
-                    "Serbia",
-                    "Slovakia",
-                    "Slovenia",
-                    "Spain",
-                    "Sweden",
-                    "Switzerland",
-                    "Ukraine",
-                    "United Kingdom",
-                    "Vatican",
-                ],
-                oceania: [
-                    "All",
-                    "Australia",
-                    "Fiji",
-                    "New Zealand",
-                    "Papua New Guinea",
-                ],
-
-                continent: null,
-                country: null,
+                localAuthorityType: null,
+                areaName: null,
+                areaCode: null,
 
                 dataRequested: false,
-
             }
+        },
+        beforeMount() {
+
         },
         mounted () {
 
         },
         watch: {
-            continent: function (val) {
+            localAuthorityType: function (val) {
                 //do something when the data changes.
 
-                this.$store.commit('covidGraph/SET_CONTINENT_NAME', val)
-                this.continent = val
+                this.$store.commit('covidUKGraph/SET_LOCAL_AUTHORITY_TYPE', val)
+                this.localAuthorityType = val
+                this.$store.dispatch('covidUKGraph/RECEIVE_AREA_NAMES')
+
                 if (val === '') {
-                    this.$store.commit('covidGraph/SET_COUNTRY_NAME', '')
-                    this.country = ''
+                    this.$store.commit('covidUKGraph/SET_AREA_NAME', '')
+                    this.areaName = ''
+
+                    this.$store.commit('covidUKGraph/SET_AREA_CODE', '')
+                    this.areaName = ''
 
                     this.dataRequested = false
-                    this.$store.state.covidGraph.plot.data = []
-                    this.$store.state.covidGraph.plot.layout = []
+                    this.$store.state.covidUKGraph.plot.data = []
+                    this.$store.state.covidUKGraph.plot.layout = []
                 }
-
             },
-            country: function (val) {
+            areaName: function (val) {
                 //do something when the data changes.
 
-                this.$store.commit('covidGraph/SET_COUNTRY_NAME', val)
-                this.country = val
+                this.$store.commit('covidUKGraph/SET_AREA_NAME', val)
+                this.areaName = val
+
+                this.$store.commit('covidUKGraph/SET_AREA_CODE', this.getKeyByValue(this.areaNames, val))
+                this.areaName = val
 
                 if (val === '') {
                     this.dataRequested = false
-                    this.$store.state.covidGraph.plot.data = []
-                    this.$store.state.covidGraph.plot.layout = []
+                    this.$store.state.covidUKGraph.plot.data = []
+                    this.$store.state.covidUKGraph.plot.layout = []
                 }
             },
             menuVisible: function (val) {
@@ -401,20 +199,25 @@
         },
         computed: {
             plotData () {
-                return this.$store.state.covidGraph.plot.data
+                return this.$store.state.covidUKGraph.plot.data
             },
             plotLayout () {
-                return this.$store.state.covidGraph.plot.layout
+                return this.$store.state.covidUKGraph.plot.layout
             },
             requestButtonDisabled () {
-                return this.$store.state.covidGraph.target.continent === '' || this.$store.state.covidGraph.target.country === '';
-
+                return this.$store.state.covidUKGraph.target.localAuthority === '' || this.$store.state.covidUKGraph.target.areaCode === '';
+            },
+            areaNames () {
+                return this.$store.state.covidUKGraph.baseAreas
             }
         },
         methods: {
+            getKeyByValue: function(object, value) {
+                return Object.keys(object).find(key => object[key] === value);
+            },
             requestData: function() {
                 this.dataRequested = true
-                this.$store.dispatch('covidGraph/SEARCH_COVID_INFO_BY_REGION')
+                this.$store.dispatch('covidUKGraph/SEARCH_COVID_INFO_BY_REGION')
             },
 
         }

@@ -5,10 +5,7 @@ export default {
     state: {
         loading: false,
 
-        baseData: {
-            areaCodes: [],
-            areaNames: []
-        },
+        baseAreas: {},
 
         plot: {
             data: [],
@@ -38,8 +35,7 @@ export default {
 
     },
     getters: {
-        GET_BASE_AREA_CODES: (state) => {return state.baseData.areaCodes},
-        GET_BASE_AREA_NAMES: (state) => {return state.baseData.areaNames},
+        GET_BASE_AREAS: (state) => {return state.baseAreas},
 
         GET_LOCAL_AUTHORITY_TYPE: (state) => {return state.target.localAuthority},
         GET_AREA_NAME: (state) => {return state.target.areaName},
@@ -62,8 +58,7 @@ export default {
         SET_CLEAR: (state) => {
             state.loading = false
 
-            state.baseData.areaNames = []
-            state.baseData.areaCodes = []
+            state.baseAreas = {}
 
             state.plot.data = []
             state.plot.layout = {}
@@ -86,8 +81,12 @@ export default {
             state.data.newDeaths28DaysByPublishDate = {}
         },
 
-        SET_BASE_AREA_CODES: (state, data) => {state.baseData.areaCodes = data},
-        SET_BASE_AREA_NAMES: (state, data) => {state.baseData.areaNames = data},
+        SET_LOADING: (state, status) => {state.loading = status},
+
+        SET_PLOT_DATA: (state, data) => {state.plot.data = data},
+        SET_PLOT_LAYOUT: (state, infos) => {state.plot.layout = infos},
+
+        SET_BASE_AREAS: (state, data) => {state.baseAreas = data},
 
         SET_LOCAL_AUTHORITY_TYPE: (state, data) => {state.target.localAuthority = data},
         SET_AREA_NAME: (state, data) => {state.target.areaName = data},
@@ -107,6 +106,16 @@ export default {
         SET_DEATHS_NEW_BY_PUBDATE_RATE: (state, data) => {state.data.newDeaths28DaysByPublishDate = data},
     },
     actions: {
+        RECEIVE_AREA_NAMES: async ({commit, state}) => {
+            await axios.get(process.env.VUE_APP_API+`/covid_uk/code/${state.target.localAuthority}`, {})
+                .then(function(response) {
+                    if (response.status !== 200) {
+                        alert('ERROR: ' + response)
+                    } else {
+                        commit('SET_BASE_AREAS', response.data)
+                    }
+            })
+        },
         SEARCH_COVID_INFO_BY_REGION: async ({commit, state}) => {
             commit('SET_LOADING', true)
 
@@ -136,52 +145,48 @@ export default {
                     {
                         y: state.data.confirmedDaily,
                         x: state.data.date,
-                        mode: 'bar',
                         marker: {color: '#DC3912'},
-                        type: "scatter",
-                        name: 'Confirmed Daily'
+                        type: "bar",
+                        name: 'Conf Dly'
                     },{
                         y: state.data.confirmedCumulative,
                         x: state.data.date,
                         mode: 'lines',
                         marker: {color: '#EF553B'},
                         type: "scatter",
-                        name: 'Confirmed Cumulative'
+                        name: 'Conf Cuml'
                     },{
                         y: state.data.cumDeaths28DaysByDeathDate,
                         x: state.data.date,
-                        mode: 'bar',
                         marker: {color: '#620042'},
-                        type: "scatter",
-                        name: 'Cumulative Deaths by Death Date (in 28days)'
+                        type: "bar",
+                        name: 'CumlD/DD'
                     },{
                         y: state.data.cumDeaths28DaysByDeathDateRate,
                         x: state.data.date,
                         mode: 'lines',
                         marker: {color: '#782AB6'},
                         type: "scatter",
-                        name: 'Rate of Cumulative Deaths by Death Date (in 28days)'
+                        name: 'CumlD/DR'
                     },{
                         y: state.data.cumDeaths28DaysByPublishDate,
                         x: state.data.date,
-                        mode: 'bar',
                         marker: {color: '#1F77B4'},
-                        type: "scatter",
-                        name: 'Cumulative Deaths by Publish Date (in 28days)'
+                        type: "bar",
+                        name: 'CumlD/PD'
                     }, {
                         y: state.data.cumDeaths28DaysByPublishDateRate,
                         x: state.data.date,
                         mode: 'lines',
                         marker: {color: '#72B7B2'},
                         type: "scatter",
-                        name: 'Rate of Cumulative Deaths by Publish Date (in 28days)'
+                        name: 'CumlD/PR'
                     },{
                         y: state.data.newDeaths28DaysByPublishDate,
                         x: state.data.date,
-                        mode: 'bar',
                         marker: {color: '#8f8F8F'},
-                        type: "scatter",
-                        name: 'New Deaths by Publish Date (in 28days)'
+                        type: "bar",
+                        name: 'NewD/PD'
                     },
                 ]
             )
