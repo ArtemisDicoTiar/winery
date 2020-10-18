@@ -7,6 +7,10 @@
         </md-toolbar>
 
         <md-list>
+            <md-list-item to="/">
+                <md-icon>home</md-icon>
+                <span class="md-list-item-text">Home</span>
+            </md-list-item>
             <md-list-item to="/global/cumulative">
                 <md-icon>send</md-icon>
                 <span class="md-list-item-text">global cumulative</span>
@@ -17,14 +21,9 @@
                 <span class="md-list-item-text">global new</span>
             </md-list-item>
 
-            <md-list-item to="/uk/cumulative">
+            <md-list-item to="/uk">
                 <md-icon>error</md-icon>
-                <span class="md-list-item-text">UK cumulative</span>
-            </md-list-item>
-
-            <md-list-item to="/uk/new">
-                <md-icon>move_to_inbox</md-icon>
-                <span class="md-list-item-text">UK new</span>
+                <span class="md-list-item-text">UK data by Region</span>
             </md-list-item>
         </md-list>
     </div>

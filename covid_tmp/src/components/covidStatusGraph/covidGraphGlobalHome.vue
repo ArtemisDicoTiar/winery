@@ -1,6 +1,5 @@
 <template>
-
-    <div id="globalHome" class="page-container">
+    <div id="Home" class="page-container">
         <md-app md-waterfall md-mode="overlap">
             <md-app-toolbar class="md-primary md-large">
                 <div class="md-toolbar-row">
@@ -49,7 +48,7 @@
     import navBar from "@/components/navBar";
 
     export default {
-        name: 'globalHome',
+        name: 'Home',
         components:{
             navBar
         },

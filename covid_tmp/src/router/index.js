@@ -1,13 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import covidGraphGlobalHome from "@/components/covidStatusGraph/covidGlobal/covidGraphGlobalHome";
+import Home from "@/components/covidStatusGraph/covidGraphGlobalHome";
+
 import covidGraphbyRegion from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionCumul";
 import covidGraphbyRegionNews from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionNews";
 
-import covidGraphbyUK from "@/components/covidStatusGraph/covidUK/covidGraphbyUK";
-import covidGraphbyUKCumul from "@/components/covidStatusGraph/covidUK/covidGraphbyUKCumul";
-import covidGraphbyUKNews from "@/components/covidStatusGraph/covidUK/covidGraphbyUKNews";
+import covidGraphbyUKAll from "@/components/covidStatusGraph/covidUK/covidGraphbyUKAll";
 
 import error404 from "@/components/error404";
 
@@ -25,16 +24,12 @@ Vue.use(VueRouter)
 // "component"는 `Vue.extend()`를 통해 만들어진
 // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체입니다.
 const routes = [
-    { path: '/', redirect: '/global'},
 
-    { path: '/global', component: covidGraphGlobalHome },
+    { path: '/', component: Home },
     { path: '/global/cumulative', component: covidGraphbyRegion},
     { path: '/global/new', component: covidGraphbyRegionNews},
 
-
-    { path: '/uk', component: covidGraphbyUK },
-    { path: '/uk/new', component: covidGraphbyUKNews },
-    { path: '/uk/cumulative', component: covidGraphbyUKCumul },
+    { path: '/uk', component: covidGraphbyUKAll },
 
     { path: '*', component: error404}
 
@@ -54,6 +49,9 @@ router.beforeEach((to, from, next) => {
         next()
     } else if (from.path === '/global/new') {
         store.commit('covidNewGraph/SET_CLEAR')
+        next()
+    } else if (from.path === '/uk') {
+        store.commit('covidUKGraph/SET_CLEAR')
         next()
     }
     next()
