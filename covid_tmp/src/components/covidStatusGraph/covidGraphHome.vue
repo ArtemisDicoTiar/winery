@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 Global Home</span>
+                    <span class="md-headline">COVID - 19 Global Home</span>
                 </div>
             </md-app-toolbar>
 
@@ -17,28 +17,20 @@
 
             <md-app-content>
                 <span class="md-title">
-                    Global Home page.<br/>
-                    On Construction. <br/>
+                    COVID DATA Analysis Home page.<br/>
                 </span>
                 <span class="md-subheading">
                     Pleas have a look on <b><u>left-side drawer</u></b>. <br/>
                     You can open it my clicking <b><u>left top</u></b>, three lines icon.<br/>
                 </span>
-                <span class="md-">
-                    <b>UK pages are preparing datasets.</b>
-                </span>
 
                 <h2>Pages connecting to ...</h2>
 
-                <md-tabs md-sync-route>
+                <md-tabs md-sync-route class="md-accent">
                     <md-tab id="tab-home" md-label="Global New" to="/global/new"></md-tab>
                     <md-tab id="tab-pages" md-label="Global Cumulative" to="/global/cumulative"></md-tab>
+                    <md-tab id="tab-posts" md-label="UK Data" to="/uk"></md-tab>
                 </md-tabs>
-                <md-tabs md-sync-route>
-                    <md-tab id="tab-posts" md-label="UK New" to="/uk/new" md-disabled></md-tab>
-                    <md-tab id="tab-favorites" md-label="UK Cumulative" to="/uk/cumulative" md-disabled></md-tab>
-                </md-tabs>
-
             </md-app-content>
         </md-app>
     </div>

@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 Global New Cases</span>
+                    <span class="md-headline">COVID - 19 Global New Cases</span>
 
                 </div>
             </md-app-toolbar>
@@ -23,17 +23,34 @@
                         All data are provided by CSSE-github (John's Hopkins University).<br/>
                         <br/>
                     </span>
-
-                    <span class="md-subheading">
-                        <b>Confirmed</b>: number of people daily confirmed.<br/>
-                        <b>Deaths</b>: number of people daily died.<br/>
-                        <b>Recovered</b>: number of people daily recovered.<br/>
-                    </span>
+                    <md-toolbar class="md-accent">
+                        <span class="md-title">Description of Graph</span>
+                    </md-toolbar>
+                    <md-table>
+                        <md-table-row>
+                            <md-table-head>Graph Legends</md-table-head>
+                            <md-table-head>Meaning</md-table-head>
+                        </md-table-row>
+                        <md-table-row>
+                            <md-table-cell>Confirmed</md-table-cell>
+                            <md-table-cell>number of people being confirmed</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                            <md-table-cell>Deaths</md-table-cell>
+                            <md-table-cell>number of people died</md-table-cell>
+                        </md-table-row>
+                        <md-table-row>
+                            <md-table-cell>Recovered</md-table-cell>
+                            <md-table-cell>number of people recovered</md-table-cell>
+                        </md-table-row>
+                    </md-table>
                 </div>
 
                 <div id="selection">
+                    <md-toolbar class="md-accent" style="margin-bottom: 30px">
+                        <span class="md-title">Search Section</span>
+                    </md-toolbar>
                     <div class="md-layout md-gutter">
-
                         <div class="md-layout-item">
                             <md-autocomplete v-model="continent" :md-options="continents" :md-open-on-focus="true" :md-dense="true">
                                 <label>Continents</label>

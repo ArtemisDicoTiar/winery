@@ -145,54 +145,170 @@ export default {
                     {
                         y: state.data.confirmedDaily,
                         x: state.data.date,
-                        marker: {color: '#DC3912'},
+                        marker: {color: '#FF6FA9'},
                         type: "bar",
-                        name: 'Conf Dly'
+                        name: 'Conf Dly',
+                        xaxis: 'x',
+                        yaxis: 'y'
                     },{
                         y: state.data.confirmedCumulative,
                         x: state.data.date,
                         mode: 'lines',
-                        marker: {color: '#EF553B'},
+                        marker: {color: '#000'},
                         type: "scatter",
-                        name: 'Conf Cuml'
+                        name: 'Conf Cuml',
+                        xaxis: 'x',
+                        yaxis: 'y2'
                     },{
                         y: state.data.cumDeaths28DaysByDeathDate,
                         x: state.data.date,
                         marker: {color: '#620042'},
                         type: "bar",
-                        name: 'CumlD/DD'
+                        name: 'CumlD/DD',
+                        xaxis: 'x2',
+                        yaxis: 'y3'
                     },{
                         y: state.data.cumDeaths28DaysByDeathDateRate,
                         x: state.data.date,
                         mode: 'lines',
-                        marker: {color: '#782AB6'},
+                        marker: {color: '#000'},
                         type: "scatter",
-                        name: 'CumlD/DR'
+                        name: 'CumlD/DR',
+                        xaxis: 'x2',
+                        yaxis: 'y4'
                     },{
                         y: state.data.cumDeaths28DaysByPublishDate,
                         x: state.data.date,
                         marker: {color: '#1F77B4'},
                         type: "bar",
-                        name: 'CumlD/PD'
+                        name: 'CumlD/PD',
+                        xaxis: 'x3',
+                        yaxis: 'y5'
                     }, {
                         y: state.data.cumDeaths28DaysByPublishDateRate,
                         x: state.data.date,
                         mode: 'lines',
                         marker: {color: '#72B7B2'},
                         type: "scatter",
-                        name: 'CumlD/PR'
+                        name: 'CumlD/PR',
+                        xaxis: 'x3',
+                        yaxis: 'y6'
                     },{
                         y: state.data.newDeaths28DaysByPublishDate,
                         x: state.data.date,
-                        marker: {color: '#8f8F8F'},
+                        marker: {color: '#69173A'},
                         type: "bar",
-                        name: 'NewD/PD'
+                        name: 'NewD/PD',
+                        xaxis: 'x4',
+                        yaxis: 'y7'
                     },
                 ]
             )
 
             commit('SET_PLOT_LAYOUT', {
-                title: 'COVID 19 UK status ' + ' >>> ' + state.target.areaName
+                title: 'COVID 19 UK status ' + ' >>> ' + state.target.areaName,
+                width: 1000,
+                height: 2000,
+                autosize: true,
+                legend: {
+                    orientation: 'h',
+                    traceorder: 'reversed',
+                    x: 0.05, // I’m editing this one
+                    y: 1.02,
+                },
+
+                grid: {
+                    rows: 4,
+                    columns: 1,
+                    pattern: 'independent',
+
+                    subplots:[['x4y7'], ['x3y5'], ['x2y3'], ['xy']],
+                    roworder:'bottom to top'
+                },
+
+                xaxis: {
+                    ticks: 'outside',
+                    tickcolor: '#000',
+                },
+                yaxis: {
+                    ticks: 'outside',
+                    title: 'Daily Confirmed',
+                    color: '#FF6FA9'
+                },
+                yaxis2: {
+                    ticks: 'outside',
+                    title: 'Cumulative Confirmed',
+                    color: '#000',
+                    anchor: 'x',
+                    match: 'y',
+                    rangemode: 'tozero',
+                    overlaying: 'y',
+                    side: 'right'
+                },
+
+                xaxis2: {
+                    autotick: true,
+                    ticks: 'outside',
+                    tickcolor: '#000'
+                },
+                yaxis3: {
+                    autotick: true,
+                    ticks: 'outside',
+                    title: 'Cumulative Deaths per DeathDate in 28days',
+                    rangemode: 'tozero',
+                    color: '#620042'
+                },
+                yaxis4: {
+                    autotick: true,
+                    ticks: 'outside',
+                    title: 'Rate of Cumulative Deaths per DeathDate in 28days',
+                    color: '#000',
+                    anchor: 'x2',
+                    match: 'y3',
+                    rangemode: 'tozero',
+                    overlaying: 'y3',
+                    side: 'right'
+                },
+
+                xaxis3: {
+                    autotick: true,
+                    ticks: 'outside',
+                    tickcolor: '#000'
+                },
+                yaxis5: {
+                    autotick: true,
+                    ticks: 'outside',
+                    title: 'Cumulative Deaths per PublishDate in 28days',
+                    color: '#1F77B4',
+                    rangemode: 'tozero',
+                    tickcolor: '#000'
+                },
+                yaxis6: {
+                    autotick: true,
+                    ticks: 'outside',
+                    title: 'Rate of Cumulative Deaths per PublishDate in 28days',
+                    color: '#000',
+                    anchor: 'x3',
+                    match: 'y5',
+                    rangemode: 'tozero',
+                    overlaying: 'y5',
+                    side: 'right'
+                },
+
+                xaxis4: {
+                    autotick: true,
+                    ticks: 'outside',
+                    tickcolor: '#000'
+                },
+                yaxis7: {
+                    autotick: true,
+                    ticks: 'outside',
+                    title: 'New Deaths per PublishDate in 28days',
+                    color: '#69173A',
+                    rangemode: 'tozero',
+                    tickcolor: '#000'
+                },
+
             })
 
 

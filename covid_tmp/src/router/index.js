@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "@/components/covidStatusGraph/covidGraphGlobalHome";
+import Home from "@/components/covidStatusGraph/covidGraphHome";
 
 import covidGraphbyRegion from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionCumul";
 import covidGraphbyRegionNews from "@/components/covidStatusGraph/covidGlobal/covidGraphbyRegionNews";

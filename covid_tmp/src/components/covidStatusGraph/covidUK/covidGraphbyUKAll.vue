@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 UK All type of Data</span>
+                    <span class="md-headline">COVID - 19 UK All type of Data</span>
 
                 </div>
             </md-app-toolbar>
@@ -19,46 +19,60 @@
             <md-app-content>
                 <div id="description" style="margin-bottom: 30px">
                     <span class="md-headline">
-                        This page is for temporary demo. (*On Construction.)<br/>
-                        This page will be renewed with detailed information.<br/>
+                        This page provides all kind of COVID data from UK.<br/>
+                        All data are provided by UK Government.<br/>
                         <br/>
                     </span>
 
                     <span class="md-subheading">
-                        <span class="md-title">Description of Graph</span>
+                        <md-toolbar class="md-accent">
+                            <span class="md-title">Description of Graph</span>
+                        </md-toolbar>
+                        <md-toolbar md-elevation="10">
+                            <span class="md-heading">* [Caution]: -10 from graph represents data missing.</span>
+                        </md-toolbar>
+
                         <md-table>
                             <md-table-row>
-                                <md-table-head>Graph Index</md-table-head>
+                                <md-table-head>Graph Legends</md-table-head>
                                 <md-table-head>Meaning</md-table-head>
+                                <md-table-head>Detailed Meaning (by UK GOV)</md-table-head>
                             </md-table-row>
 
                             <md-table-row>
                                 <md-table-cell>Conf Dly</md-table-cell>
                                 <md-table-cell>Confirmed Daily</md-table-cell>
+                                <md-table-cell>New cases by publish date</md-table-cell>
                             </md-table-row>
                             <md-table-row>
                                 <md-table-cell>Conf Cuml</md-table-cell>
                                 <md-table-cell>Confirmed Cumulative</md-table-cell>
+                                <md-table-cell>Cumulative cases by publish date</md-table-cell>
                             </md-table-row>
                             <md-table-row>
                                 <md-table-cell>CumlD/DD</md-table-cell>
                                 <md-table-cell>Cumulative Deaths by Death Date (in 28days)</md-table-cell>
+                                <md-table-cell>Cumulative deaths within 28 days of positive test</md-table-cell>
                             </md-table-row>
                             <md-table-row>
                                 <md-table-cell>CumlD/DR</md-table-cell>
                                 <md-table-cell>Rate of Cumulative Deaths by Death Date (in 28days)</md-table-cell>
+                                <md-table-cell>Rate of cumulative deaths within 28 days of positive test per 100k resident population</md-table-cell>
                             </md-table-row>
                             <md-table-row>
                                 <md-table-cell>CumlD/PD</md-table-cell>
                                 <md-table-cell>Cumulative Deaths by Publish Date (in 28days)</md-table-cell>
+                                <md-table-cell>Cumulative deaths within 28 days of positive test by death date</md-table-cell>
                             </md-table-row>
                             <md-table-row>
                                 <md-table-cell>CumlD/PR</md-table-cell>
                                 <md-table-cell>Rate of Cumulative Deaths by Publish Date (in 28days)</md-table-cell>
+                                <md-table-cell>Rate of cumulative deaths within 28 days of positive test by death date per 100k resident population</md-table-cell>
                             </md-table-row>
                             <md-table-row>
                                 <md-table-cell>NewD/PD</md-table-cell>
                                 <md-table-cell>New Deaths by Publish Date (in 28days)</md-table-cell>
+                                <md-table-cell>Deaths within 28 days of positive test</md-table-cell>
                             </md-table-row>
                         </md-table>
 
@@ -66,7 +80,15 @@
                 </div>
 
                 <div id="selection">
-                    <span class="md-title">Search Section</span>
+                    <md-toolbar class="md-accent">
+                        <span class="md-title">Search Section</span>
+                    </md-toolbar>
+                    <md-toolbar style="margin-bottom: 30px">
+                        <span class="md-subheading">
+                            If your city is well known UTLA will fit to you.<br/>
+                            If your city is small and unknown LTLA may fit to you.
+                        </span>
+                    </md-toolbar>
                     <div class="md-layout md-gutter">
 
                         <div class="md-layout-item">
@@ -121,7 +143,7 @@
                             :data="plotData"
                             :layout="plotLayout"
                             :display-mode-bar="false"
-
+                            :isAsync="true"
                     />
                 </div>
 

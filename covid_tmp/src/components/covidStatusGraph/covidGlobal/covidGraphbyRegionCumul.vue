@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 Global Cumulative Data</span>
+                    <span class="md-headline">COVID - 19 Global Cumulative Data</span>
                 </div>
             </md-app-toolbar>
 
@@ -22,19 +22,46 @@
                         All data are provided by CSSE-github (John's Hopkins University).<br/>
                         <br/>
                     </span>
-
                     <span class="md-subheading">
-                        <b>Confirmed</b>: number of people being confirmed.<br/>
-                        <b>Active</b>: number of people being hospitalised due to COVID-19.<br/>
-                        <b>Deaths</b>: number of people died.<br/>
-                        <b>Recovered</b>: number of people recovered.<br/>
-                        <b>Removed</b>: number of people recovered + died.<br/>
+                        <md-toolbar class="md-accent">
+                            <span class="md-title">Description of Graph</span>
+                        </md-toolbar>
+
+                        <md-table>
+                            <md-table-row>
+                                <md-table-head>Graph Legends</md-table-head>
+                                <md-table-head>Meaning</md-table-head>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>Confirmed</md-table-cell>
+                                <md-table-cell>number of people being confirmed</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>Active</md-table-cell>
+                                <md-table-cell>number of people being hospitalised due to COVID-19</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>Deaths</md-table-cell>
+                                <md-table-cell>number of people died</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>Recovered</md-table-cell>
+                                <md-table-cell>number of people recovered</md-table-cell>
+                            </md-table-row>
+                            <md-table-row>
+                                <md-table-cell>Removed</md-table-cell>
+                                <md-table-cell>number of people recovered + died</md-table-cell>
+                            </md-table-row>
+                        </md-table>
+
                     </span>
                 </div>
 
                 <div id="selection">
+                    <md-toolbar class="md-accent" style="margin-bottom: 30px">
+                        <span class="md-title">Search Section</span>
+                    </md-toolbar>
                     <div class="md-layout md-gutter">
-
                         <div class="md-layout-item">
                             <md-autocomplete v-model="continent" :md-options="continents" :md-open-on-focus="true" :md-dense="true">
                                 <label>Continents</label>
