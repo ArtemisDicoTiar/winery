@@ -29,7 +29,7 @@
                             <span class="md-title">Description of Graph</span>
                         </md-toolbar>
                         <md-toolbar md-elevation="10">
-                            <span class="md-heading">* [Caution]: -10 from graph represents data missing.</span>
+                            <span class="md-heading">* [Caution]: "-1" from graph represents data missing.</span>
                         </md-toolbar>
 
                         <md-table>
