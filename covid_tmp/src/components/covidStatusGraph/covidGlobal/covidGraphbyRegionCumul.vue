@@ -1,5 +1,5 @@
 <template>
-    <div id="covidGraph" class="page-container">
+    <div id="covidGraph" class="page-container" style="margin-bottom: 200px">
         <md-app md-waterfall md-mode="overlap">
             <md-app-toolbar class="md-primary md-large">
                 <div class="md-toolbar-row">
@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-headline">COVID - 19 Global Cumulative Data</span>
+                    <span class="md-title">COVID - 19 Global Cumulative</span>
                 </div>
             </md-app-toolbar>
 
@@ -70,7 +70,9 @@
                                 </template>
                             </md-autocomplete>
                         </div>
+                    </div>
 
+                    <div class="md-layout md-gutter">
                         <div class="md-layout-item">
                             <div v-if="continent === null">
                                 <label>

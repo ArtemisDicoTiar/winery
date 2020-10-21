@@ -6,6 +6,7 @@ export default {
         loading: false,
 
         plot: {
+            dateRange: [],
             data: [],
             layout: {}
         },
@@ -59,6 +60,8 @@ export default {
         },
 
         SET_LOADING: (state, status) => {state.loading = status},
+
+        SET_DATE_RANGE: (state, status) => {state.plot.dateRange = status},
 
         SET_PLOT_DATA: (state, data) => {state.plot.data = data},
         SET_PLOT_LAYOUT: (state, infos) => {state.plot.layout = infos},
@@ -138,6 +141,9 @@ export default {
                         commit('SET_CONFIRMED_DATA', response.data)
                     }
                 })
+            commit('SET_DATE_RANGE',
+                [state.data.timeStamp[state.data.timeStamp.length - 28], state.data.timeStamp[state.data.timeStamp.length - 1]])
+
             commit('SET_LOADING', false)
             commit('SET_PLOT_DATA',
                 [
@@ -176,7 +182,33 @@ export default {
             )
 
             commit('SET_PLOT_LAYOUT', {
-                title: 'COVID 19 current status ' + state.target.continent + ' >>> ' + state.target.country
+                title: {
+                    // y : 1,
+                    text: state.target.continent + ' >>> ' + state.target.country,
+                    size: 15,
+                },
+                legend: {
+                    itemsizing: "constant",
+                    xanchor:"center",//"auto" | "left" | "center" | "right"
+                    yanchor:"bottom",//"auto" | "top" | "middle" | "bottom"
+                    y: -0.5,//number between or equal to -2 and 3
+                    x: 0.5,//number between or equal to -2 and 3
+                    orientation: "h",
+                    font: {
+                        size: 13,
+                    }
+                },
+                xaxis: {
+                    ticks: 'outside',
+                    tickcolor: '#000',
+                    range: state.plot.dateRange,
+                },
+                margin: {
+                    l: 50,
+                    r: 50,
+                    t: 30,
+                    b: 15,
+                },
             })
 
 

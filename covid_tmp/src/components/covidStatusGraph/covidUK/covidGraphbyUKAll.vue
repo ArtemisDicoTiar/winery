@@ -1,5 +1,5 @@
 <template>
-    <div id="covidGraph" class="page-container">
+    <div id="covidGraph" class="page-container" style="margin-bottom: 200px">
         <md-app md-waterfall md-mode="overlap">
             <md-app-toolbar class="md-primary md-large">
                 <div class="md-toolbar-row">
@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-headline">COVID - 19 UK All type of Data</span>
+                    <span class="md-title">COVID - 19 UK All type of Data</span>
 
                 </div>
             </md-app-toolbar>
@@ -100,13 +100,16 @@
                                 Lower Tier Local Authority
                             </md-radio>
                         </div>
-
+                    </div>
+                    <div class="md-layout md-gutter" style="margin-top: 25px">
                         <div class="md-layout-item">
                             <div v-if="localAuthorityType === null">
                                 <label>
                                     Select Local Authority first.
                                 </label>
                             </div>
+
+
 
                             <div v-if="localAuthorityType !== null">
                                 <md-autocomplete v-model="areaName" :md-options="Object.values(areaNames)" :md-open-on-focus="true">
@@ -257,5 +260,7 @@
         width: 230px;
         max-width: calc(100vw - 125px);
     }
+
+
 </style>
 

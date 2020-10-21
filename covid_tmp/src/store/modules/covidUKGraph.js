@@ -8,6 +8,7 @@ export default {
         baseAreas: {},
 
         plot: {
+            dateRange: [],
             data: [],
             layout: {}
         },
@@ -83,6 +84,8 @@ export default {
 
         SET_LOADING: (state, status) => {state.loading = status},
 
+        SET_DATE_RANGE: (state, status) => {state.plot.dateRange = status},
+
         SET_PLOT_DATA: (state, data) => {state.plot.data = data},
         SET_PLOT_LAYOUT: (state, infos) => {state.plot.layout = infos},
 
@@ -138,6 +141,8 @@ export default {
                         commit('SET_DEATHS_NEW_BY_PUBDATE_RATE', response.data.newDeaths28DaysByPublishDate)
                     }
                 })
+            commit('SET_DATE_RANGE',
+                [state.data.date[state.data.date.length - 28], state.data.date[state.data.date.length - 1]])
 
             commit('SET_LOADING', false)
             commit('SET_PLOT_DATA',
@@ -206,17 +211,19 @@ export default {
             )
 
             commit('SET_PLOT_LAYOUT', {
-                title: 'COVID 19 UK status ' + ' >>> ' + state.target.areaName,
-                width: 1000,
+                title: {
+                    y : -2,
+                    text: state.target.areaName,
+                    size: 15,
+                },
+                showlegend: false,
                 height: 2000,
                 autosize: true,
-                legend: {
-                    orientation: 'h',
-                    traceorder: 'reversed',
-                    x: 0.05, // I’m editing this one
-                    y: 1.02,
+                margin: {
+                    l: 65,
+                    r: 65,
+                    t: 100,
                 },
-
                 grid: {
                     rows: 4,
                     columns: 1,
@@ -229,6 +236,7 @@ export default {
                 xaxis: {
                     ticks: 'outside',
                     tickcolor: '#000',
+                    range: state.plot.dateRange,
                 },
                 yaxis: {
                     ticks: 'outside',
@@ -249,6 +257,7 @@ export default {
                 xaxis2: {
                     autotick: true,
                     ticks: 'outside',
+                    range: state.plot.dateRange,
                     tickcolor: '#000'
                 },
                 yaxis3: {
@@ -273,6 +282,7 @@ export default {
                 xaxis3: {
                     autotick: true,
                     ticks: 'outside',
+                    range: state.plot.dateRange,
                     tickcolor: '#000'
                 },
                 yaxis5: {
@@ -298,6 +308,7 @@ export default {
                 xaxis4: {
                     autotick: true,
                     ticks: 'outside',
+                    range: state.plot.dateRange,
                     tickcolor: '#000'
                 },
                 yaxis7: {
