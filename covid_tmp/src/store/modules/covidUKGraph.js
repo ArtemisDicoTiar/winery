@@ -211,6 +211,17 @@ export default {
             )
 
             commit('SET_PLOT_LAYOUT', {
+                annotations: [
+                    {
+                        x: "2020-09-28",
+                        y: 0,
+                        text: "Most University Starts 20/21 Academic year",
+                        showarrow: true,
+                        arrowhead: 10,
+                        ax: 0,
+                        ay: -100
+                    }
+                ],
                 title: {
                     y : -2,
                     text: state.target.areaName,
