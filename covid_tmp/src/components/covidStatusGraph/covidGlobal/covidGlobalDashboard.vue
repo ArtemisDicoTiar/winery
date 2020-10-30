@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-headline">COVID - 19 Analysis Home</span>
+                    <span class="md-headline">COVID - 19 Global Dashboard</span>
                 </div>
             </md-app-toolbar>
 
@@ -17,23 +17,17 @@
 
             <md-app-content>
                 <span class="md-title">
-                    COVID DATA Analysis Home page.<br/>
+                    COVID DATA Analysis Global dashboard.<br/>
                 </span>
                 <span class="md-subheading">
-                    To enhance User eXperience, the graph will initially show recent 28 days data.<br/>
-                    To widen the time range, double click anywhere of the graph you want to make it widen.<br/>
-                </span>
-                <br/>
-                <span class="md-subheading">
-                    Please have a look on <b><u>left-side drawer</u></b>. <br/>
-                    You can open it my clicking <b><u>left top</u></b>, three lines icon.<br/>
+                    some text for global dashboard.<br/>
                 </span>
 
                 <h2>Pages connecting to ...</h2>
 
                 <md-tabs md-sync-route class="md-accent">
-                    <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
-                    <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
+                    <md-tab id="tab-home" md-label="Global New" to="/global/new"></md-tab>
+                    <md-tab id="tab-pages" md-label="Global Cumulative" to="/global/cumulative"></md-tab>
                 </md-tabs>
             </md-app-content>
         </md-app>
@@ -44,7 +38,7 @@
     import navBar from "@/components/navBar";
 
     export default {
-        name: 'Home',
+        name: 'globalDashBoard',
         components:{
             navBar
         },
