@@ -20,6 +20,7 @@
                     COVID DATA Analysis Home page.<br/>
                 </span>
                 <span class="md-subheading">
+                    This page is version 2 built with Vue-js.<br/>
                     To enhance User eXperience, the graph will initially show recent 28 days data.<br/>
                     To widen the time range, double click anywhere of the graph you want to make it widen.<br/>
                 </span>
@@ -35,6 +36,31 @@
                     <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
                     <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
                 </md-tabs>
+
+                <br/>
+
+                <span class="md-title">
+                    <b>Update Lists</b>
+                </span><br/><br/>
+
+                <span class="md-subheading"><b>Front End</b></span><br/>
+                <b>* Last Source Code Update: 2020-11-08</b><br/>
+                <br/>
+                <span class="md-body-1">
+                    * Update contents (11-xx):<br/>
+                    Now dashboard is available. Dashboard contains today's COVID cases.<br/>
+                    Furthermore, it provides prediction of confirmed cases. Predicted values for tomorrow and 7 days later will be provided.<br/>
+                    The dashboard is produced both for Global info and UK info.
+                </span><br/><br/>
+                <md-divider/>
+                <span class="md-subheading"><b>Back End</b></span><br/>
+                <b>* Last Source Code Update: 2020-11-07</b><br/>
+                <span class="md-body-1">
+                    * Update contents (11-07):<br/>
+                    Now post-processor is updated. The post-processor predicts confirmed cases for both UK and Global for 7 days.<br/>
+                    In addition, the accuracy of prediction model (ARIMA model) for the data will be provided.<br/>
+
+                </span><br/>
             </md-app-content>
         </md-app>
     </div>

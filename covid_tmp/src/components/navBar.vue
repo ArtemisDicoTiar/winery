@@ -52,7 +52,7 @@
                     </md-list>
                 </md-list-item>
 
-                <md-list-item to="/error">
+                <md-list-item to="/about">
                     <md-icon>new_releases</md-icon>
                     <span class="md-list-item-text">Producer Info</span>
                 </md-list-item>

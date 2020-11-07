@@ -10,6 +10,7 @@ import covidGraphbyRegionNews from "@/components/covidStatusGraph/covidGlobal/co
 import covidUKDashboard from "@/components/covidStatusGraph/covidUK/covidUKDashboard";
 import covidGraphbyUKAll from "@/components/covidStatusGraph/covidUK/covidGraphbyUKAll";
 
+import ProjectOwner from "@/components/ProjectOwner";
 import error404 from "@/components/error404";
 
 import store from '../store/index'
@@ -37,6 +38,7 @@ const routes = [
     { path: '/uk/dashboard', component: covidUKDashboard},
     { path: '/uk/graph', component: covidGraphbyUKAll },
 
+    { path: '/about', component: ProjectOwner},
     { path: '*', component: error404}
 
 ]

@@ -1,5 +1,5 @@
 <template>
-    <div id="Home" class="page-container">
+    <div id="owner" class="page-container">
         <md-app md-waterfall md-mode="overlap">
             <md-app-toolbar class="md-primary md-large">
                 <div class="md-toolbar-row">
@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-headline">COVID - 19 Global Dashboard</span>
+                    <span class="md-headline">COVID - 19 Analysis Home</span>
                 </div>
             </md-app-toolbar>
 
@@ -17,20 +17,32 @@
 
             <md-app-content>
                 <span class="md-title">
-                    COVID DATA Analysis Global dashboard.<br/>
+                    COVID DATA Analysis Project Information.<br/>
                 </span>
+                <br/>
                 <span class="md-subheading">
-                    some text for global dashboard.<br/>
+                    Hello. I am the owner of this project, <h2><b>John Kim</b></h2>
+                    If you have any query or feedback please send to following email address.<br/>
+
+                    * Email: mw18074@bristol.ac.uk<br/>
+                </span><br/>
+                <md-divider/>
+                <span class="md-title">
+                    About Project<br/>
+                </span>
+                <br/>
+                <span class="md-subheading">
+                    Crawler: python3.7<br/>
+                    Pre-process: python3.7<br/>
+                    Post-process: python3.7<br/>
+                    DataBase: MariaDB<br/>
+                    <br/>
+                    Webserver: Docker wrapped nginx web server engine<br/>
+                    Webpage(Front): Vuejs Framework (JavaScript, HTML, CSS)<br/>
+                    Webpage(Back) : Flask Framework (python)<br/>
+
                 </span>
 
-                <h2>Pages connecting to ...</h2>
-
-                <md-tabs md-sync-route class="md-accent">
-                    <md-tab id="tab-home" md-label="Global New" to="/global/new"></md-tab>
-                    <md-tab id="tab-pages" md-label="Global Cumulative" to="/global/cumulative"></md-tab>
-                </md-tabs>
-
-                
             </md-app-content>
         </md-app>
     </div>
@@ -40,7 +52,7 @@
     import navBar from "@/components/navBar";
 
     export default {
-        name: 'globalDashBoard',
+        name: 'owner',
         components:{
             navBar
         },
