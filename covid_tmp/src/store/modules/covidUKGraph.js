@@ -220,6 +220,15 @@ export default {
                         arrowhead: 10,
                         ax: 0,
                         ay: -100
+                    },
+                    {
+                        x: "2020-11-05",
+                        y: 0,
+                        text: "UK national Lockdown",
+                        showarrow: true,
+                        arrowhead: 10,
+                        ax: 0,
+                        ay: -50
                     }
                 ],
                 title: {
