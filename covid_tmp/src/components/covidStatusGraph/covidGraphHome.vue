@@ -61,10 +61,12 @@
                     * Update contents (11-17):<br/>
                     Accuracy was calculated with simple <a href="https://en.wikipedia.org/wiki/Relative_change_and_difference">Percentage Error</a> but as it shows huge error rate when actual value is small even the difference is small.<br/>
                     Therefore, accuracy of ARIMA model is now calculated by <a href="https://en.wikipedia.org/wiki/Symmetric_mean_absolute_percentage_error">sMAPE(symmetric Mean Absolute Percentage Error)</a><br/>
-                    Both Post-processor in airflow and back-end with flask are updated.
-                    <b>As post-processor requires at least 7 days predicted data, sometime the accuracy may fluctuate.</b>
-                    <b>Furthermore, ARIMA model is not sensitive with external parameters. Therefore, country or region with demonstration or elections that can cause increase of human activity may lead to inaccuracy of ARIMA model.</b>
-                    <b>This issue will be resolved in future by collecting news information and other region related data.</b>
+                    Both Post-processor in airflow and back-end with flask are updated.<br/>
+                    <br/>
+                    <b>As post-processor requires at least 7 days predicted data, sometime the accuracy may fluctuate.</b><br/>
+                    <b>Furthermore, ARIMA model is not sensitive with external parameters. Therefore, country or region with demonstration or elections that can cause increase of human activity may lead to inaccuracy of ARIMA model.</b><br/>
+                    <b>This issue will be resolved in future by collecting news information and other region related data.</b><br/>
+                    <br/>
                     <br/>
                     * Update contents (11-07):<br/>
                     Now post-processor is updated. The post-processor predicts confirmed cases for both UK and Global for 7 days.<br/>
