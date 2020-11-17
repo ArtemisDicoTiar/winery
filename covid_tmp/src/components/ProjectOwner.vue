@@ -32,9 +32,9 @@
                 </span>
                 <br/>
                 <span class="md-subheading">
-                    Crawler: python3.7<br/>
-                    Pre-process: python3.7<br/>
-                    Post-process: python3.7<br/>
+                    Crawler: Airflow (python3.7)<br/>
+                    Pre-process: Airflow (python3.7)<br/>
+                    Post-process: Airflow (python3.7)<br/>
                     DataBase: MariaDB<br/>
                     <br/>
                     Webserver: Docker wrapped nginx web server engine<br/>
