@@ -19,9 +19,6 @@
                 <span class="md-title">
                     COVID DATA Analysis UK dashboard.<br/>
                 </span>
-                <span class="md-subheading">
-                    Some text for dashboard <br/>
-                </span>
 
                 <h2>Pages connecting to ...</h2>
                 <br/>
