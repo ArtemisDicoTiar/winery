@@ -2,6 +2,7 @@ import appBase from "@/store/modules/appBase";
 import covidGraph from "./modules/covidGraph";
 import covidNewGraph from "@/store/modules/covidNewGraph";
 import covidUKGraph from "@/store/modules/covidUKGraph";
+import covidDashBoard from "@/store/modules/covidDashBoard";
 
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -13,6 +14,8 @@ export default new Vuex.Store({
         appBase: appBase,
         covidGraph: covidGraph,
         covidNewGraph: covidNewGraph,
-        covidUKGraph: covidUKGraph
+        covidUKGraph: covidUKGraph,
+
+        covidDashBoard: covidDashBoard
     }
 })

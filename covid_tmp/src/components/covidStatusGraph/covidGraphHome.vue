@@ -19,6 +19,19 @@
                 <span class="md-title">
                     COVID DATA Analysis Home page.<br/>
                 </span>
+                <br/>
+                <md-divider/>
+                <br/>
+                <h2>Pages connecting to ...</h2>
+                <br/>
+                <md-tabs md-sync-route class="md-accent">
+                    <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
+                    <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
+                </md-tabs>
+                <br/>
+                <md-divider/>
+                <br/>
+
                 <span class="md-subheading">
                     This page is version 2 built with Vue-js.<br/>
                     To enhance User eXperience, the graph will initially show recent 28 days data.<br/>
@@ -29,16 +42,9 @@
                     Please have a look on <b><u>left-side drawer</u></b>. <br/>
                     You can open it my clicking <b><u>left top</u></b>, three lines icon.<br/>
                 </span>
-
-                <h2>Pages connecting to ...</h2>
-
-                <md-tabs md-sync-route class="md-accent">
-                    <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
-                    <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
-                </md-tabs>
-
                 <br/>
-
+                <md-divider/>
+                <br/>
                 <span class="md-title">
                     <b>Update Lists</b>
                 </span><br/><br/>

@@ -24,10 +24,17 @@
                 </span>
 
                 <h2>Pages connecting to ...</h2>
+                <br/>
+                <md-divider/>
+                <br/>
 
                 <md-tabs md-sync-route class="md-accent">
                     <md-tab id="tab-posts" md-label="UK Graph" to="/uk/graph"></md-tab>
                 </md-tabs>
+                <br/>
+                <md-divider/>
+                <br/>
+                <covid_dashboard_uk_table/>
 
             </md-app-content>
         </md-app>
@@ -36,11 +43,14 @@
 
 <script>
     import navBar from "@/components/navBar";
+    import covid_dashboard_uk_table
+        from "@/components/covidStatusGraph/covidUK/dashBoard_components/covid_dashboard_uk_table";
 
     export default {
         name: 'globalDashBoard',
         components:{
-            navBar
+            navBar,
+            covid_dashboard_uk_table
         },
         data () {
             return {
