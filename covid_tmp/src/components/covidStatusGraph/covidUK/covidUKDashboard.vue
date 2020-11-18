@@ -34,6 +34,37 @@
                 <br/>
                 <md-divider/>
                 <br/>
+
+                <span class="md-subheading">
+                    Color Index<br/>
+                </span>
+                <md-table>
+                    <md-table-row>
+                        <md-table-head>Table Color Index</md-table-head>
+                        <md-table-head>Meaning</md-table-head>
+                    </md-table-row>
+                    <md-table-row>
+                        <md-table-cell>Red</md-table-cell>
+                        <md-table-cell>prediction increment in today</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                        <md-table-cell>Orange</md-table-cell>
+                        <md-table-cell>prediction increment in tomorrow</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                        <md-table-cell>Yellow</md-table-cell>
+                        <md-table-cell>prediction increment in next week</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                        <md-table-cell>Green</md-table-cell>
+                        <md-table-cell>prediction keep DECREASING</md-table-cell>
+                    </md-table-row>
+                    <md-table-row>
+                        <md-table-cell>Light Green (Lime)</md-table-cell>
+                        <md-table-cell>Prediction shows decrease in some date.</md-table-cell>
+                    </md-table-row>
+                </md-table>
+
                 <covid_dashboard_uk_table/>
 
             </md-app-content>

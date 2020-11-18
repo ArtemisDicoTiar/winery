@@ -37,28 +37,28 @@
                 </span>
                 <md-table>
                     <md-table-row>
-                        <md-table-head>Graph Legends</md-table-head>
+                        <md-table-head>Table Color Index</md-table-head>
                         <md-table-head>Meaning</md-table-head>
                     </md-table-row>
                     <md-table-row>
-                        <md-table-cell>Confirmed</md-table-cell>
-                        <md-table-cell>number of people being confirmed</md-table-cell>
+                        <md-table-cell>Red</md-table-cell>
+                        <md-table-cell>prediction increment in today</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                        <md-table-cell>Active</md-table-cell>
-                        <md-table-cell>number of people being hospitalised due to COVID-19</md-table-cell>
+                        <md-table-cell>Orange</md-table-cell>
+                        <md-table-cell>prediction increment in tomorrow</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                        <md-table-cell>Deaths</md-table-cell>
-                        <md-table-cell>number of people died</md-table-cell>
+                        <md-table-cell>Yellow</md-table-cell>
+                        <md-table-cell>prediction increment in next week</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                        <md-table-cell>Recovered</md-table-cell>
-                        <md-table-cell>number of people recovered</md-table-cell>
+                        <md-table-cell>Green</md-table-cell>
+                        <md-table-cell>prediction keep DECREASING</md-table-cell>
                     </md-table-row>
                     <md-table-row>
-                        <md-table-cell>Removed</md-table-cell>
-                        <md-table-cell>number of people recovered + died</md-table-cell>
+                        <md-table-cell>Light Green (Lime)</md-table-cell>
+                        <md-table-cell>Prediction shows decrease in some date.</md-table-cell>
                     </md-table-row>
                 </md-table>
 

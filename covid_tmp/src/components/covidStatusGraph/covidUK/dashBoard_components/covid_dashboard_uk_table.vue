@@ -51,11 +51,11 @@
                                 :sort-desc="true"
                                 :footer-props=footerProps
                         >
-                            <template v-slot:item.area="{ item }">
+                            <template v-slot:item.code="{ item }">
                                 <v-chip
                                         :color="getDangerLevel(item)"
                                 >
-                                    {{ item.area }}
+                                    {{ item.code }}
                                 </v-chip>
                             </template>
                             <template v-slot:item.yesterday_pred_accuracy="{ item }">
@@ -118,8 +118,8 @@
                     if (yesterday <= today) return '#ff0000'
                     else if (yesterday <= tomorrow) return '#ffc100'
                     else if (yesterday <= next_week) return '#d6ff00'
-                    else if (yesterday > today && today > tomorrow && tomorrow > next_week) return '#63ff00'
-                    else return '#00B32C'
+                    else if (yesterday > today && today > tomorrow && tomorrow > next_week) return '#4c7e16'
+                    else return '#00FF00'
                 }
                 else {
                     return '#c0c0c0'
@@ -153,7 +153,7 @@
                         text: 'Area',
                         align: 'start',
                         sortable: false,
-                        value: 'area',
+                        value: 'code',
                     },
                     { text: 'Name', value: 'name' },
                     { text: 'Yesterday Death', value: 'deaths' },
