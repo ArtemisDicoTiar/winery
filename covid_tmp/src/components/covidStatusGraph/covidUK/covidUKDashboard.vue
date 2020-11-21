@@ -25,7 +25,7 @@
                 <md-divider/>
                 <br/>
 
-                <md-tabs md-sync-route class="md-accent">
+                <md-tabs md-sync-route class="md-primary">
                     <md-tab id="tab-posts" md-label="UK Graph" to="/uk/graph"></md-tab>
                 </md-tabs>
                 <br/>
@@ -61,6 +61,26 @@
                         <md-table-cell>Prediction shows decrease in some date.</md-table-cell>
                     </md-table-row>
                 </md-table>
+
+                <md-card class="md-accent" md-with-hover>
+
+                    <md-card-header>
+                        <div class="md-title">* ISSUE *</div>
+                        <div class="md-subhead">will resolve soon</div>
+                    </md-card-header>
+
+                    <md-card-content>
+                        <b>
+                            UK covid case prediction run only on LTLA regions.<br/>
+                            If the region only in UTLA, they will have blank for prediction.<br/>
+                            This issue will be resolved soon. <br/>
+                            Therefore, the regions only in UTLA will have -1% for prediction accuracy to show issue clearly.<br/>
+                            Sorry for this issue.<br/>
+                        </b>
+                    </md-card-content>
+
+                </md-card>
+                <br/>
 
                 <covid_dashboard_uk_table/>
 

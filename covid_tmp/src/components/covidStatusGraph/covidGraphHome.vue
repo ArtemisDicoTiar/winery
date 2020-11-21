@@ -24,7 +24,7 @@
                 <br/>
                 <h2>Pages connecting to ...</h2>
                 <br/>
-                <md-tabs md-sync-route class="md-accent">
+                <md-tabs md-sync-route class="md-primary">
                     <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
                     <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
                 </md-tabs>

@@ -24,7 +24,7 @@
                 <md-divider/>
                 <br/>
 
-                <md-tabs md-sync-route class="md-accent">
+                <md-tabs md-sync-route class="md-primary">
                     <md-tab id="tab-home" md-label="Global New" to="/global/new"></md-tab>
                     <md-tab id="tab-pages" md-label="Global Cumulative" to="/global/cumulative"></md-tab>
                 </md-tabs>
