@@ -62,8 +62,12 @@
                 </span><br/><br/>
                 <md-divider/>
                 <span class="md-subheading"><b>Back End</b></span><br/>
-                <b>* Last Source Code Update: 2020-11-17</b><br/>
+                <b>* Last Source Code Update: 2020-11-21</b><br/>
                 <span class="md-body-1">
+                    * Update contents (11-21):<br/>
+                    BUG FIX: There was an issue that dashboard data collector not rounding accuracy on 2nd decimal point.<br/>
+                    By filling null values to 0 now the table will round on proper decimal point.<br/>
+                    <br/>
                     * Update contents (11-17):<br/>
                     Accuracy was calculated with simple <a href="https://en.wikipedia.org/wiki/Relative_change_and_difference">Percentage Error</a> but as it shows huge error rate when actual value is small even the difference is small.<br/>
                     Therefore, accuracy of ARIMA model is now calculated by <a href="https://en.wikipedia.org/wiki/Symmetric_mean_absolute_percentage_error">sMAPE(symmetric Mean Absolute Percentage Error)</a><br/>
