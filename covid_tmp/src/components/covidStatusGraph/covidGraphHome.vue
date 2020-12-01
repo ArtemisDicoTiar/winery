@@ -50,17 +50,20 @@
                 </span><br/><br/>
 
                 <span class="md-subheading"><b>Front End</b></span><br/>
-                <span class="md-subheading"><b>## Front-end code update has been delayed...</b></span><br/>
 
-                <b>* Last Source Code Update: 2020-11-18</b><br/>
+                <b>* Last Source Code Update: 2020-12-01</b><br/>
                 <br/>
                 <span class="md-body-1">
+                    * Update contents (12-01):<br/>
+                    Now each page shows when the data have been updated and the current status of data processing.<br/>
+                    <br/>
                     * Update contents (11-18):<br/>
                     Now dashboard is available. Dashboard contains today's COVID cases.<br/>
                     Furthermore, it provides prediction of confirmed cases. Predicted values for tomorrow and 7 days later will be provided.<br/>
                     The dashboard is produced both for Global info and UK info.
                 </span><br/><br/>
                 <md-divider/>
+
                 <span class="md-subheading"><b>Back End</b></span><br/>
                 <b>* Last Source Code Update: 2020-11-21</b><br/>
                 <span class="md-body-1">
