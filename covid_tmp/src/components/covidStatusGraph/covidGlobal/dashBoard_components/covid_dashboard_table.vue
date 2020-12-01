@@ -7,76 +7,81 @@
             />
             <md-card v-if="this.$store.state.covidDashBoard.loading === false">
 
-                        <v-card>
-                            <v-container fluid>
-                                <v-card-title>
-                                    Global DashBoard
-                                </v-card-title>
-                                <v-card-subtitle>
-                                    <v-text-field
-                                            v-model="search"
-                                            append-icon="mdi-magnify"
-                                            label="Search"
-                                            single-line
-                                            hide-details
-                                    ></v-text-field>
-                                    <br/>
+                <md-toolbar class="md-secondary">
+                    <h3 class="md-title">
 
-                                    <span class="md-body-2">select target region type</span>
-                                    <v-spacer></v-spacer>
-                                    <v-radio-group
-                                            v-model="region"
-                                            row
-                                    >
-                                        <v-radio
-                                                label="Continent"
-                                                value="continent"
-                                        ></v-radio>
-                                        <v-radio
-                                                label="Country"
-                                                value="country"
-                                        ></v-radio>
-                                    </v-radio-group>
-                                </v-card-subtitle>
+                    </h3>
+                </md-toolbar>
+                    <v-card>
+                        <v-container fluid>
+                            <v-card-title>
+                                Global DashBoard
+                            </v-card-title>
+                            <v-card-subtitle>
+                                <v-text-field
+                                        v-model="search"
+                                        append-icon="mdi-magnify"
+                                        label="Search"
+                                        single-line
+                                        hide-details
+                                ></v-text-field>
+                                <br/>
 
-
-                                <v-data-table
-                                        :headers="headers"
-                                        :items="tableData"
-                                        :search="search"
-                                        :loading="this.$store.state.covidDashBoard.loading"
-                                        loading-text="LOADING..."
-                                        :items-per-page="10"
-                                        class="elevation-1 primary"
-                                        sort-by="confirmed"
-                                        :sort-desc="true"
-                                        :footer-props=footerProps
+                                <span class="md-body-2">select target region type</span>
+                                <v-spacer></v-spacer>
+                                <v-radio-group
+                                        v-model="region"
+                                        row
                                 >
-                                    <template v-slot:item.area="{ item }">
-                                        <v-chip
-                                                :color="getDangerLevel(item)"
-                                        >
-                                            {{ item.area }}
-                                        </v-chip>
-                                    </template>
-                                    <template v-slot:item.yesterday_pred_accuracy="{ item }">
-                                        <v-chip
-                                                :color="getAccuracy(item.yesterday_pred_accuracy)"
-                                        >
-                                            {{ item.yesterday_pred_accuracy }} %
-                                        </v-chip>
-                                    </template>
-                                    <template v-slot:item.last_week_pred_accuracy="{ item }">
-                                        <v-chip
-                                                :color="getAccuracy(item.last_week_pred_accuracy)"
-                                        >
-                                            {{ item.last_week_pred_accuracy }} %
-                                        </v-chip>
-                                    </template>
+                                    <v-radio
+                                            label="Continent"
+                                            value="continent"
+                                    ></v-radio>
+                                    <v-radio
+                                            label="Country"
+                                            value="country"
+                                    ></v-radio>
+                                </v-radio-group>
+                            </v-card-subtitle>
 
-                                </v-data-table>
-                            </v-container>
-                        </v-card>
+
+                            <v-data-table
+                                    :headers="headers"
+                                    :items="tableData"
+                                    :search="search"
+                                    :loading="this.$store.state.covidDashBoard.loading"
+                                    loading-text="LOADING..."
+                                    :items-per-page="10"
+                                    class="elevation-1 primary"
+                                    sort-by="confirmed"
+                                    :sort-desc="true"
+                                    :footer-props=footerProps
+                            >
+                                <template v-slot:item.area="{ item }">
+                                    <v-chip
+                                            :color="getDangerLevel(item)"
+                                    >
+                                        {{ item.area }}
+                                    </v-chip>
+                                </template>
+                                <template v-slot:item.yesterday_pred_accuracy="{ item }">
+                                    <v-chip
+                                            :color="getAccuracy(item.yesterday_pred_accuracy)"
+                                    >
+                                        {{ item.yesterday_pred_accuracy }} %
+                                    </v-chip>
+                                </template>
+                                <template v-slot:item.last_week_pred_accuracy="{ item }">
+                                    <v-chip
+                                            :color="getAccuracy(item.last_week_pred_accuracy)"
+                                    >
+                                        {{ item.last_week_pred_accuracy }} %
+                                    </v-chip>
+                                </template>
+
+                            </v-data-table>
+                        </v-container>
+                    </v-card>
 
             </md-card>
         </div>
