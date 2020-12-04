@@ -79,6 +79,13 @@
                     </span>
                 </div>
 
+                <md-toolbar class="md-secondary">
+                    <h3 class="md-title">
+                        Crawler status: {{ this.processorStatus }}
+                    </h3>
+                </md-toolbar>
+                <br/>
+
                 <div id="selection">
                     <md-toolbar class="md-accent">
                         <span class="md-title">Search Section</span>
@@ -174,10 +181,13 @@
                 areaCode: null,
 
                 dataRequested: false,
+
+                processorStatus: '',
             }
         },
         beforeMount() {
-
+            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
+            this.processorStatus = this.$store.state.airflowApi.lastUpdateStatus
         },
         mounted () {
 

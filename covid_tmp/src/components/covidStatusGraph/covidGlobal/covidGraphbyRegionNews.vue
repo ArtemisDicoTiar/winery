@@ -46,6 +46,13 @@
                     </md-table>
                 </div>
 
+                <md-toolbar class="md-secondary">
+                    <h3 class="md-title">
+                        Crawler status: {{ this.processorStatus }}
+                    </h3>
+                </md-toolbar>
+                <br/>
+
                 <div id="selection">
                     <md-toolbar class="md-accent" style="margin-bottom: 30px">
                         <span class="md-title">Search Section</span>
@@ -381,6 +388,8 @@
 
                 dataRequested: false,
 
+                processorStatus: '',
+
             }
         },
         mounted () {
@@ -437,6 +446,10 @@
                 this.$store.dispatch('covidNewGraph/SEARCH_COVID_INFO_BY_REGION')
             },
 
+        },
+        beforeMount () {
+            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
+            this.processorStatus = this.$store.state.airflowApi.lastUpdateStatus
         }
     }
 </script>

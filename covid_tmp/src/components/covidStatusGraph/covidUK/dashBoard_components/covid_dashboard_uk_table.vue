@@ -6,6 +6,13 @@
                     md-mode="indeterminate"
             />
             <md-card v-if="this.$store.state.covidDashBoard.loading === false">
+
+                <md-toolbar class="md-secondary">
+                    <h3 class="md-title">
+                        Crawler status: {{ this.processorStatus }}
+                    </h3>
+                </md-toolbar>
+
                 <v-card>
                     <v-container fluid>
                         <v-card-title>
@@ -95,6 +102,8 @@
             this.$store.dispatch('covidDashBoard/GET_DASHBOARD')
             this.dataRequested = true
             this.tableData = this.$store.state.covidDashBoard.data
+            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
+            this.processorStatus = this.$store.state.airflowApi.lastUpdateStatus
         },
         computed: {
             tableData () {
@@ -148,6 +157,7 @@
                 dataRequested: false,
                 region: '',
                 search: '',
+                processorStatus: '',
                 headers: [
                     {
                         text: 'Area',
