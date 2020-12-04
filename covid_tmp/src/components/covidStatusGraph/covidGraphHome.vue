@@ -40,7 +40,7 @@
                         md-mode="indeterminate"
                 />
                 <md-card v-if="this.$store.state.airflowApi.loading === false">
-                    <md-table md-card>
+                    <md-table>
                         <md-table-toolbar>
                             <h1 class="md-title">Crawler/Processor Status</h1>
                         </md-table-toolbar>
@@ -135,19 +135,22 @@
         data () {
             return {
                 menuVisible: false,
-                globalProcessorStatus: '',
-                UKProcessorStatus: ''
             }
         },
-        beforeCreate() {
-            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
-            console.log(this.$store.state.airflowApi.lastUpdateStatus)
-            this.globalProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
-            this.$store.commit('airflowApi/SET_CLEAR')
+        computed: {
+            globalProcessorStatus () {
+                this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
+                console.log(this.$store.state.airflowApi.lastUpdateStatus)
+                return this.$store.state.airflowApi.lastUpdateStatus
+            },
+            UKProcessorStatus () {
+                this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
+                console.log(this.$store.state.airflowApi.lastUpdateStatus)
+                return this.$store.state.airflowApi.lastUpdateStatus
+            }
+        },
+        beforeMount() {
 
-            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
-            console.log(this.$store.state.airflowApi.lastUpdateStatus)
-            this.UKProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
         }
     }
 
