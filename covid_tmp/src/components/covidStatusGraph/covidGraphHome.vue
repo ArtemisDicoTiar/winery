@@ -32,10 +32,10 @@
                 <br/>
                 <md-divider/>
                 <br/>
+                <md-card>
+                    All the crawler and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
+                </md-card>
                 <md-table md-card>
-                    <md-card>
-                        All the crawler and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
-                    </md-card>
                     <md-table-toolbar>
                         <h1 class="md-title">Crawler/Processor Status</h1>
                     </md-table-toolbar>
@@ -47,12 +47,12 @@
 
                     <md-table-row>
                         <md-table-cell>Global</md-table-cell>
-                        <md-table-cell>{{ globalProcessorStatus }}</md-table-cell>
+                        <md-table-cell>{{ this.globalProcessorStatus }}</md-table-cell>
                     </md-table-row>
 
                     <md-table-row>
                         <md-table-cell>UK</md-table-cell>
-                        <md-table-cell>{{ UKProcessorStatus }}</md-table-cell>
+                        <md-table-cell>{{ this.UKProcessorStatus }}</md-table-cell>
                     </md-table-row>
                 </md-table>
                 <br/>
@@ -136,11 +136,12 @@
         beforeMount () {
             this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
             this.globalProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
-
+            console.log(this.globalProcessorStatus)
             this.$store.commit('airflowApi/SET_CLEAR')
 
             this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
             this.UKProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
+            console.log(this.UKProcessorStatus)
         }
     }
 
