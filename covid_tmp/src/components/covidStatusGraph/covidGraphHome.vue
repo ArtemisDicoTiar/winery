@@ -24,6 +24,7 @@
                 <br/>
                 <h2>Pages connecting to ...</h2>
                 <br/>
+                <p>South Korea Information connects to external page calls 'corona-live' which is well built webpage that shows live status.</p>
                 <md-tabs md-sync-route class="md-primary">
                     <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
                     <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
@@ -35,11 +36,6 @@
                 <md-subheader>
                     All crawlers and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
                 </md-subheader>
-
-                <h1 class="md-title">
-                    <md-icon>grading</md-icon>
-                    Crawler/Processor Status
-                </h1>
                 <md-progress-spinner
                         v-if="this.$store.state.airflowApi.loading === true"
                         md-mode="indeterminate"
