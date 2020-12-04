@@ -140,12 +140,10 @@
         computed: {
             globalProcessorStatus () {
                 this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
-                console.log(this.$store.state.airflowApi.lastUpdateStatus)
                 return this.$store.state.airflowApi.lastUpdateStatus
             },
             UKProcessorStatus () {
                 this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
-                console.log(this.$store.state.airflowApi.lastUpdateStatus)
                 return this.$store.state.airflowApi.lastUpdateStatus
             }
         },
