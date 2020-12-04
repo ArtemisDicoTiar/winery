@@ -135,13 +135,13 @@
         },
         beforeMount () {
             this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
+            console.log(this.$store.state.airflowApi.lastUpdateStatus)
             this.globalProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
-            console.log(this.globalProcessorStatus)
             this.$store.commit('airflowApi/SET_CLEAR')
 
             this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
+            console.log(this.$store.state.airflowApi.lastUpdateStatus)
             this.UKProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
-            console.log(this.UKProcessorStatus)
         }
     }
 
