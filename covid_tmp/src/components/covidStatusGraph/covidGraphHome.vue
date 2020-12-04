@@ -27,7 +27,31 @@
                 <md-tabs md-sync-route class="md-primary">
                     <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
                     <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
+                    <md-tab id="tab-externalKorea" md-label="South Korea Information" href="https://corona-live.com/"></md-tab>
                 </md-tabs>
+                <br/>
+                <md-divider/>
+                <br/>
+                <md-table md-card>
+                    <md-table-toolbar>
+                        <h1 class="md-title">Crawler/Processor Status</h1>
+                    </md-table-toolbar>
+
+                    <md-table-row>
+                        <md-table-head>Target Region</md-table-head>
+                        <md-table-head>Status</md-table-head>
+                    </md-table-row>
+
+                    <md-table-row>
+                        <md-table-cell>Global</md-table-cell>
+                        <md-table-cell>{{ this.globalProcessorStatus }}</md-table-cell>
+                    </md-table-row>
+
+                    <md-table-row>
+                        <md-table-cell>UK</md-table-cell>
+                        <md-table-cell>{{ this.UKProcessorStatus }}</md-table-cell>
+                    </md-table-row>
+                </md-table>
                 <br/>
                 <md-divider/>
                 <br/>
@@ -101,8 +125,17 @@
         },
         data () {
             return {
-                menuVisible: false
+                menuVisible: false,
+                globalProcessorStatus: '',
+                UKProcessorStatus: ''
             }
+        },
+        beforeMount () {
+            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
+            this.globalProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
+
+            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
+            this.UKProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus
         }
     }
 
