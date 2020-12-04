@@ -67,7 +67,7 @@ export default {
                 alert('AREA TYPE ERROR (PAGE SECTION ERROR')
             }
 
-            airflowLink = process.env.VUE_APP_API + `/api/experimental/dags/${dagName}/dag_runs/${executionDate}T${executionTime}`
+            airflowLink = '/airflow' + `/api/experimental/dags/${dagName}/dag_runs/${executionDate}T${executionTime}`
 
             await axios.get(targetLink, {})
                 .then(function (response) {
