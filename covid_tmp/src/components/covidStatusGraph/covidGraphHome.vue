@@ -93,9 +93,12 @@
 
                 <span class="md-subheading"><b>Front End</b></span><br/>
 
-                <b>* Last Source Code Update: 2020-12-01</b><br/>
+                <b>* Last Source Code Update: 2020-12-04</b><br/>
                 <br/>
                 <span class="md-body-1">
+                    * Update contents (12-04):<br/>
+                    Now user can see whether the crawler or processor is running or finished for today's data.<br/>
+                    <br/>
                     * Update contents (12-01):<br/>
                     Now each page shows when the data have been updated and the current status of data processing.<br/>
                     <br/>
