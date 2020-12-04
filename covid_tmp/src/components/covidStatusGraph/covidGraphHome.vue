@@ -32,17 +32,26 @@
                 <br/>
                 <md-divider/>
                 <br/>
-                <md-card>
+                <md-subheader>
                     All crawlers and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
-                </md-card>
+                </md-subheader>
+
+                <h1 class="md-title">
+                    <md-icon>grading</md-icon>
+                    Crawler/Processor Status
+                </h1>
                 <md-progress-spinner
                         v-if="this.$store.state.airflowApi.loading === true"
                         md-mode="indeterminate"
                 />
                 <md-card v-if="this.$store.state.airflowApi.loading === false">
+
                     <md-table>
                         <md-table-toolbar>
-                            <h1 class="md-title">Crawler/Processor Status</h1>
+                            <h1 class="md-title">
+                                <md-icon>grading</md-icon>
+                                Crawler/Processor Status
+                            </h1>
                         </md-table-toolbar>
 
                         <md-table-row>
@@ -84,9 +93,12 @@
 
                 <span class="md-subheading"><b>Front End</b></span><br/>
 
-                <b>* Last Source Code Update: 2020-12-01</b><br/>
+                <b>* Last Source Code Update: 2020-12-04</b><br/>
                 <br/>
                 <span class="md-body-1">
+                    * Update contents (12-04):<br/>
+                    Now user can see whether the crawler or processor is running or finished for today's data.<br/>
+                    <br/>
                     * Update contents (12-01):<br/>
                     Now each page shows when the data have been updated and the current status of data processing.<br/>
                     <br/>
@@ -140,12 +152,10 @@
         computed: {
             globalProcessorStatus () {
                 this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
-                console.log(this.$store.state.airflowApi.lastUpdateStatus)
                 return this.$store.state.airflowApi.lastUpdateStatus
             },
             UKProcessorStatus () {
                 this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
-                console.log(this.$store.state.airflowApi.lastUpdateStatus)
                 return this.$store.state.airflowApi.lastUpdateStatus
             }
         },
