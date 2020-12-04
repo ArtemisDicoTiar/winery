@@ -33,28 +33,34 @@
                 <md-divider/>
                 <br/>
                 <md-card>
-                    All the crawler and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
+                    All crawlers and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
                 </md-card>
-                <md-table md-card>
-                    <md-table-toolbar>
-                        <h1 class="md-title">Crawler/Processor Status</h1>
-                    </md-table-toolbar>
+                <md-progress-spinner
+                        v-if="this.$store.state.airflowApi.loading === true"
+                        md-mode="indeterminate"
+                />
+                <md-card v-if="this.$store.state.airflowApi.loading === false">
+                    <md-table md-card>
+                        <md-table-toolbar>
+                            <h1 class="md-title">Crawler/Processor Status</h1>
+                        </md-table-toolbar>
 
-                    <md-table-row>
-                        <md-table-head>Target Region</md-table-head>
-                        <md-table-head>Status</md-table-head>
-                    </md-table-row>
+                        <md-table-row>
+                            <md-table-head>Target Region</md-table-head>
+                            <md-table-head>Status</md-table-head>
+                        </md-table-row>
 
-                    <md-table-row>
-                        <md-table-cell>Global</md-table-cell>
-                        <md-table-cell>{{ this.globalProcessorStatus }}</md-table-cell>
-                    </md-table-row>
+                        <md-table-row>
+                            <md-table-cell>Global</md-table-cell>
+                            <md-table-cell>{{ this.globalProcessorStatus }}</md-table-cell>
+                        </md-table-row>
 
-                    <md-table-row>
-                        <md-table-cell>UK</md-table-cell>
-                        <md-table-cell>{{ this.UKProcessorStatus }}</md-table-cell>
-                    </md-table-row>
-                </md-table>
+                        <md-table-row>
+                            <md-table-cell>UK</md-table-cell>
+                            <md-table-cell>{{ this.UKProcessorStatus }}</md-table-cell>
+                        </md-table-row>
+                    </md-table>
+                </md-card>
                 <br/>
                 <md-divider/>
                 <br/>
@@ -133,7 +139,7 @@
                 UKProcessorStatus: ''
             }
         },
-        beforeMount () {
+        beforeCreate() {
             this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
             console.log(this.$store.state.airflowApi.lastUpdateStatus)
             this.globalProcessorStatus = this.$store.state.airflowApi.lastUpdateStatus

@@ -61,6 +61,7 @@ export default {
                         } else {
                             commit('SET_LAST_UPDATE', 'Error occurred on Airflow DAG.')
                         }
+                        commit('SET_LOADING', false)
                     }
                 })
 
