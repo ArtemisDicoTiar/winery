@@ -32,17 +32,26 @@
                 <br/>
                 <md-divider/>
                 <br/>
-                <md-card>
+                <md-subheader>
                     All crawlers and processors run usually between 3 ~ 12AM (GMT, UK) / 12 ~ 9PM (KST, Korea).
-                </md-card>
+                </md-subheader>
+
+                <h1 class="md-title">
+                    <md-icon>grading</md-icon>
+                    Crawler/Processor Status
+                </h1>
                 <md-progress-spinner
                         v-if="this.$store.state.airflowApi.loading === true"
                         md-mode="indeterminate"
                 />
                 <md-card v-if="this.$store.state.airflowApi.loading === false">
+
                     <md-table>
                         <md-table-toolbar>
-                            <h1 class="md-title">Crawler/Processor Status</h1>
+                            <h1 class="md-title">
+                                <md-icon>grading</md-icon>
+                                Crawler/Processor Status
+                            </h1>
                         </md-table-toolbar>
 
                         <md-table-row>
