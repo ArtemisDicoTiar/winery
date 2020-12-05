@@ -61,7 +61,16 @@ export default {
                     commit('SET_LOADING', false)
                 })
                 .catch(function (error){
-                    console.log(error.message)
+                    if (error.respone) {
+                        if (error.response.status === 404) {
+                            console.log(error.response.data)
+                            commit('SET_LAST_UPDATE', 'Before Processing for yesterday data.')
+                        } else if (error.response.status % 100 === 5) {
+                            console.log(error.response.data)
+                            commit('SET_LAST_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
+                        }
+                    }
+
                 })
 
         },
