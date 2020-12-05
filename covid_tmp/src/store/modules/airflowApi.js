@@ -69,6 +69,9 @@ export default {
                         commit('SET_LOADING', false)
                     }
                 })
+                .catch(function (e){
+                    console.log(e)
+                })
 
         },
     },
