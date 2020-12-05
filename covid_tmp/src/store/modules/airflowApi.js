@@ -51,26 +51,17 @@ export default {
 
             await axios.get(airflowLink, {})
                 .then(function (response) {
-                    console.log(response)
-                    if (response.status !== 200) {
-                        if (response.status === 404) {
-                            console.log(response.data)
-                            commit('SET_LAST_UPDATE', 'Before Processing for yesterday data.')
-                        }
-                        commit('SET_LAST_UPDATE', 'ERROR: Airflow API server Dead\n' + `(${response})`)
+                    if (response.data.state === 'success') {
+                        commit('SET_LAST_UPDATE', 'Done')
+                    } else if (response.data.state === 'running') {
+                        commit('SET_LAST_UPDATE', 'Processing')
                     } else {
-                        if (response.data.state === 'success') {
-                            commit('SET_LAST_UPDATE', 'Done')
-                        } else if (response.data.state === 'running') {
-                            commit('SET_LAST_UPDATE', 'Processing')
-                        } else {
-                            commit('SET_LAST_UPDATE', 'Error occurred on Airflow DAG.')
-                        }
-                        commit('SET_LOADING', false)
+                        commit('SET_LAST_UPDATE', 'Error occurred on Airflow DAG.')
                     }
+                    commit('SET_LOADING', false)
                 })
-                .catch(function (e){
-                    console.log(e)
+                .catch(function (error){
+                    console.log(error.message)
                 })
 
         },
