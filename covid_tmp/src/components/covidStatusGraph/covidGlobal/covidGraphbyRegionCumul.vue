@@ -460,8 +460,8 @@
 
         },
         beforeMount() {
-            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
-            this.processorStatus = this.$store.state.airflowApi.lastUpdateStatus
+            this.$store.dispatch('airflowApi/GET_DASHBOARD')
+            this.processorStatus = this.$store.state.airflowApi.globalUpdateStatus
         }
     }
 </script>

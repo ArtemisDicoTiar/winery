@@ -7,12 +7,14 @@ export default {
     state: {
         loading: false,
 
-        lastUpdateStatus: ''
+        globalUpdateStatus: '',
+        UKUpdateStatus: ''
 
     },
     getters: {
 
-        GET_LAST_UPDATE: (state) => {return state.lastUpdateStatus}
+        GET_GLOB_UPDATE: (state) => {return state.globalUpdateStatus},
+        GET_UK_UPDATE: (state) => {return state.UKUpdateStatus}
 
     },
     mutations: {
@@ -25,51 +27,64 @@ export default {
 
         SET_LOADING: (state, status) => { state.loading = status },
 
-        SET_LAST_UPDATE: (state, info) => {state.lastUpdateStatus = info}
+        SET_GLOB_UPDATE: (state, info) => {state.globalUpdateStatus = info},
+        SET_UK_UPDATE: (state, info) => {state.globalUpdateStatus = info}
     },
     actions: {
-        GET_DASHBOARD: async ({commit}, payload) => {
+        GET_DASHBOARD: async ({commit}) => {
             commit('SET_LOADING', true)
-            let area = payload.area
-
-            let airflowLink = ''
-
             let executionDate = getYesterdayDate()
-            let dagName = ''
-            let executionTime = ''
-            if (area === 'global') {
-                dagName = 'csse_covid_dl_to_db_org_201117_01'
-                executionTime = '10:30:00+00:00'
-            } else if (area === 'uk') {
-                dagName = 'uk_covid_dl_to_db_org_201117_01'
-                executionTime = '03:00:00+00:00'
-            } else {
-                alert('AREA TYPE ERROR (PAGE SECTION ERROR')
-            }
+            let globDagName = 'csse_covid_dl_to_db_org_201117_01'
+            let UKDagName = 'uk_covid_dl_to_db_org_201117_01'
+            let globExecutionTime = '10:30:00+00:00'
+            let UKExecutionTime = '03:00:00+00:00'
 
-            airflowLink = '/airflow' + `/api/experimental/dags/${dagName}/dag_runs/${executionDate}T${executionTime}`
+            let globAirflowLink = '/airflow' + `/api/experimental/dags/${globDagName}/dag_runs/${executionDate}T${globExecutionTime}`
+            let UKAirflowLink = '/airflow' + `/api/experimental/dags/${UKDagName}/dag_runs/${executionDate}T${UKExecutionTime}`
 
-            await axios.get(airflowLink, {})
+            await axios.get(globAirflowLink, {})
                 .then(function (response) {
                     if (response.data.state === 'success') {
-                        commit('SET_LAST_UPDATE', 'Done')
+                        commit('SET_GLOB_UPDATE', 'Done')
                     } else if (response.data.state === 'running') {
-                        commit('SET_LAST_UPDATE', 'Processing')
+                        commit('SET_GLOB_UPDATE', 'Processing')
                     } else {
-                        commit('SET_LAST_UPDATE', 'Error occurred on Airflow DAG.')
+                        commit('SET_GLOB_UPDATE', 'Error occurred on Airflow DAG.')
                     }
-                    commit('SET_LOADING', false)
                 })
                 .catch(function (error){
                     if (error) {
                         if (error.response.status === 404) {
-                            commit('SET_LAST_UPDATE', 'Before Processing for yesterday data.')
+                            commit('SET_GLOB_UPDATE', 'Before Processing for yesterday data.')
                         } else if (error.response.status % 100 === 5) {
-                            commit('SET_LAST_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
+                            commit('SET_GLOB_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                         }
                     }
 
                 })
+
+            await axios.get(UKAirflowLink, {})
+                .then(function (response) {
+                    if (response.data.state === 'success') {
+                        commit('SET_UK_UPDATE', 'Done')
+                    } else if (response.data.state === 'running') {
+                        commit('SET_UK_UPDATE', 'Processing')
+                    } else {
+                        commit('SET_UK_UPDATE', 'Error occurred on Airflow DAG.')
+                    }
+                })
+                .catch(function (error){
+                    if (error) {
+                        if (error.response.status === 404) {
+                            commit('SET_UK_UPDATE', 'Before Processing for yesterday data.')
+                        } else if (error.response.status % 100 === 5) {
+                            commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
+                        }
+                    }
+
+                })
+
+            commit('SET_LOADING', false)
 
         },
     },
