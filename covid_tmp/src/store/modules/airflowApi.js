@@ -65,6 +65,7 @@ export default {
 
             await axios.get(UKAirflowLink, {})
                 .then(function (response) {
+                    console.log(response)
                     if (response.data.state === 'success') {
                         commit('SET_UK_UPDATE', 'Done')
                     } else if (response.data.state === 'running') {
@@ -83,7 +84,7 @@ export default {
                     }
 
                 })
-
+            console.log(this.state.UKUpdateStatus)
             commit('SET_LOADING', false)
 
         },
