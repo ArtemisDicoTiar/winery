@@ -52,6 +52,9 @@ export default {
             await axios.get(airflowLink, {})
                 .then(function (response) {
                     if (response.status !== 200) {
+                        if (response.status === 400) {
+                            commit('SET_LAST_UPDATE', 'Before Processing for yesterday data.')
+                        }
                         commit('SET_LAST_UPDATE', 'ERROR: Airflow API server Dead\n' + `(${response})`)
                     } else {
                         if (response.data.state === 'success') {
