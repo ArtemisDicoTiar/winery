@@ -64,8 +64,7 @@ export default {
                 })
 
             await axios.get(UKAirflowLink, {})
-                .then(function (response) {
-                    console.log(response)
+                .then(function (response) {10
                     if (response.data.state === 'success') {
                         commit('SET_UK_UPDATE', 'Done')
                     } else if (response.data.state === 'running') {
@@ -78,9 +77,9 @@ export default {
                     if (error) {
                         if (error.response.status === 404) {
                             commit('SET_UK_UPDATE', 'Before Processing for yesterday data.')
-                        } else if (error.response.status % 100 === 5) {
-                            commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                         }
+                    } else {
+                        commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                     }
 
                 })
