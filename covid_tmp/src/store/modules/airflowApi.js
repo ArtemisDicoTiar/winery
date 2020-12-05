@@ -28,7 +28,7 @@ export default {
         SET_LOADING: (state, status) => { state.loading = status },
 
         SET_GLOB_UPDATE: (state, info) => {state.globalUpdateStatus = info},
-        SET_UK_UPDATE: (state, info) => {state.globalUpdateStatus = info}
+        SET_UK_UPDATE: (state, info) => {state.UKUpdateStatus = info}
     },
     actions: {
         GET_DASHBOARD: async ({commit}) => {
@@ -84,7 +84,7 @@ export default {
                     }
 
                 })
-            console.log(this.state.UKUpdateStatus)
+            console.log(this.UKUpdateStatus)
             commit('SET_LOADING', false)
 
         },
