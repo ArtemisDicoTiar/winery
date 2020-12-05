@@ -42,17 +42,20 @@
         },
         data () {
             return {
-                ukAirflow: '',
-                globAirflow: ''
+                // ukAirflow: '',
+                // globAirflow: ''
             }
         },
         computed: {
-
+            ukAirflow () {
+                return this.$store.state.airflowApi.UKUpdateStatus
+            },
+            globAirflow () {
+                return this.$store.state.airflowApi.globalUpdateStatus
+            }
         },
         beforeMount() {
             this.$store.dispatch('airflowApi/GET_DASHBOARD')
-            this.ukAirflow = this.$store.state.airflowApi.UKUpdateStatus
-            this.globAirflow = this.$store.state.airflowApi.globalUpdateStatus
         }
     }
 </script>
