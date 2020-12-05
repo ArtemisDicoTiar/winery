@@ -51,6 +51,7 @@ export default {
 
             await axios.get(airflowLink, {})
                 .then(function (response) {
+                    console.log(response)
                     if (response.status !== 200) {
                         if (response.status === 404) {
                             console.log(response.data)
