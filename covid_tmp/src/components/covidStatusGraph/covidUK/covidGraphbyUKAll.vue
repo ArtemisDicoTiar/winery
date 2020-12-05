@@ -187,8 +187,8 @@
             }
         },
         beforeMount() {
-            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
-            this.processorStatus = this.$store.state.airflowApi.lastUpdateStatus
+            this.$store.dispatch('airflowApi/GET_DASHBOARD')
+            this.processorStatus = this.$store.state.airflowApi.UKUpdateStatus
         },
         mounted () {
 

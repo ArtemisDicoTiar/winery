@@ -52,12 +52,12 @@
 
                     <md-table-row>
                         <md-table-cell>Global</md-table-cell>
-                        <md-table-cell>{{ this.globalProcessorStatus }}</md-table-cell>
+                        <md-table-cell>{{ this.globAirflow }}</md-table-cell>
                     </md-table-row>
 
                     <md-table-row>
                         <md-table-cell>UK</md-table-cell>
-                        <md-table-cell>{{ this.UKProcessorStatus }}</md-table-cell>
+                        <md-table-cell>{{ this.ukAirflow }}</md-table-cell>
                     </md-table-row>
                 </md-table>
 
@@ -138,20 +138,17 @@
         data () {
             return {
                 menuVisible: false,
+                ukAirflow: '',
+                globAirflow: ''
             }
         },
         computed: {
-            globalProcessorStatus () {
-                this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'global'})
-                return this.$store.state.airflowApi.lastUpdateStatus
-            },
-            UKProcessorStatus () {
-                this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
-                return this.$store.state.airflowApi.lastUpdateStatus
-            }
+
         },
         beforeMount() {
-
+            this.$store.dispatch('airflowApi/GET_DASHBOARD')
+            this.ukAirflow = this.$store.state.airflowApi.UKUpdateStatus
+            this.globAirflow = this.$store.state.airflowApi.globalUpdateStatus
         }
     }
 

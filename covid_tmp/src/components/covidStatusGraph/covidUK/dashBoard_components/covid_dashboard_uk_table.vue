@@ -103,8 +103,8 @@
             this.$store.dispatch('covidDashBoard/GET_DASHBOARD')
             this.dataRequested = true
             this.tableData = this.$store.state.covidDashBoard.data
-            this.$store.dispatch('airflowApi/GET_DASHBOARD', {'area': 'uk'})
-            this.processorStatus = this.$store.state.airflowApi.lastUpdateStatus
+            this.$store.dispatch('airflowApi/GET_DASHBOARD')
+            this.processorStatus = this.$store.state.airflowApi.UKUpdateStatus
         },
         computed: {
             tableData () {
