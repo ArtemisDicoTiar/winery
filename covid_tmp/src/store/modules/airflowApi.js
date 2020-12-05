@@ -61,7 +61,8 @@ export default {
                     commit('SET_LOADING', false)
                 })
                 .catch(function (error){
-                    if (error.respone) {
+                    if (error) {
+                        console.log(error)
                         if (error.response.status === 404) {
                             console.log(error.response.data)
                             commit('SET_LAST_UPDATE', 'Before Processing for yesterday data.')
