@@ -74,6 +74,7 @@ export default {
                     }
                 })
                 .catch(function (error){
+                    console.log(error.response)
                     if (error) {
                         if (error.response.status === 404) {
                             commit('SET_UK_UPDATE', 'Before Processing for yesterday data.')
