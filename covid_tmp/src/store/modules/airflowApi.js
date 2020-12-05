@@ -56,9 +56,9 @@ export default {
                     if (error) {
                         if (error.response.status === 404) {
                             commit('SET_GLOB_UPDATE', 'Before Processing for yesterday data.')
+                        } else if (error.response.status === 502) {
+                            commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                         }
-                    } else {
-                        commit('SET_GLOB_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                     }
 
                 })
@@ -78,9 +78,9 @@ export default {
                     if (error) {
                         if (error.response.status === 404) {
                             commit('SET_UK_UPDATE', 'Before Processing for yesterday data.')
+                        } else if (error.response.status === 502) {
+                            commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                         }
-                    } else {
-                        commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
                     }
 
                 })
