@@ -84,7 +84,7 @@ export default {
                     }
 
                 })
-            console.log(this.UKUpdateStatus)
+
             commit('SET_LOADING', false)
 
         },
