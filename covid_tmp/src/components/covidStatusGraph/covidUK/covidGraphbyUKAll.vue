@@ -82,7 +82,7 @@
                 <md-toolbar class="md-secondary">
                     <h3 class="md-title">
                         <md-icon>grading</md-icon>
-                        Crawler status: {{ this.processorStatus }}
+                        Crawler status <br/>{{ this.processorStatus }}
                     </h3>
                 </md-toolbar>
                 <br/>

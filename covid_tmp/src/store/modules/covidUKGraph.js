@@ -229,6 +229,15 @@ export default {
                         arrowhead: 10,
                         ax: 0,
                         ay: -50
+                    },
+                    {
+                        x: "2020-12-08",
+                        y: 0,
+                        text: "UK COVID Vaccination Start",
+                        showarrow: true,
+                        arrowhead: 10,
+                        ax: 0,
+                        ay: -50
                     }
                 ],
                 title: {

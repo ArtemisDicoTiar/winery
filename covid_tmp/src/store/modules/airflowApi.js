@@ -78,7 +78,7 @@ export default {
                         if (error.response.status === 404) {
                             commit('SET_UK_UPDATE', 'Before Processing for yesterday data.')
                         } else if (error.response.status === 502) {
-                            commit('SET_UK_UPDATE', 'Airflow Web Server Dead. (will be fixed soon)')
+                            commit('SET_UK_UPDATE', 'Airflow Web Server Dead.')
                         }
                     }
 

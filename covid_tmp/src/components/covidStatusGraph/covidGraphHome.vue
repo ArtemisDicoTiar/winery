@@ -25,9 +25,12 @@
                 <h2>Pages connecting to ...</h2>
                 <br/>
                 <p>South Korea Information connects to external page calls 'corona-live' which is well built webpage that shows live status.</p>
-                <md-tabs md-sync-route class="md-primary">
+
+                <md-tabs md-sync-route class="md-primary" md-alignment="centered" style="min-width: 100%">
                     <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
                     <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
+                </md-tabs>
+                <md-tabs md-sync-route class="md-primary" md-alignment="centered" style="min-width: 100%">
                     <md-tab id="tab-externalKorea" md-label="South Korea Information" href="https://corona-live.com/"></md-tab>
                 </md-tabs>
                 <br/>
@@ -138,4 +141,5 @@
         width: 230px;
         max-width: calc(100vw - 125px);
     }
+
 </style>
