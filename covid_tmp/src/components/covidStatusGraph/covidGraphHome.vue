@@ -32,6 +32,7 @@
                 </md-tabs>
                 <md-tabs md-sync-route class="md-primary" md-alignment="centered" style="min-width: 100%">
                     <md-tab id="tab-externalKorea" md-label="South Korea Information" href="https://corona-live.com/"></md-tab>
+                    <md-tab id="tab-external_mutation" md-label="Virus Mutation Reports" href="https://nextstrain.org/ncov/global"></md-tab>
                 </md-tabs>
                 <br/>
                 <md-divider/>
@@ -59,11 +60,34 @@
                     <b>Update Lists</b>
                 </span><br/><br/>
 
-                <span class="md-subheading"><b>Front End</b></span><br/>
+                <span class="md-subheading"><b><i>Future Plans</i></b></span><br/>
+                <span class="md-body-1">
+                    <span class="md-body-2"><u>"<b><i>[Recovery]</i></b>: Correlation with "Medical Information, Public Health Information"</u></span><br/>
+                    This correlation analysis WAS on version1 of this project but removed on version2 due to backend server and database have been updated for better organisation.<br/>
+                    This correlation analysis is planning to be on this web-page again due by this Spring (2021).<br/>
+                    <br/>
 
-                <b>* Last Source Code Update: 2020-12-04</b><br/>
+                    <span class="md-body-2"><u>"<b><i>[Recovery]</i></b>: Far future prediction using SEIR"</u></span><br/>
+                    SEIR model was used to predict far future on version1 but has been removed on version2 due to backend renew.<br/>
+                    This analysis information is planned due by late Spring ~ early Summer (2021).<br/>
+                    <br/>
+
+                    <span class="md-body-2"><u>"Better prediction using ARIMA and deep-learning"</u></span><br/>
+                    ARIMA model forecast shows the range for prediction. In this web-page, it uses mid-point of 95% of confidence range.<br/>
+                    Deep-learning model with other external information such as news reports related to human activities,
+                    public health information will make the prediction more accurate in the range of 95% confidence range.<br/>
+                    This enhancement is planned due by late Summer (2021).
+                </span><br/><br/>
+                <md-divider/>
+
+                <span class="md-subheading"><b>Front End</b></span><br/>
+                <b>* Last Source Code Update: 2021-01-11</b><br/>
                 <br/>
                 <span class="md-body-1">
+                    * Update contents (01-11):<br/>
+                    Virus mutation web-page link added.<br/>
+                    Future project plan list added.<br/>
+                    <br/>
                     * Update contents (12-04):<br/>
                     Now user can see whether the crawler or processor is running or finished for today's data.<br/>
                     <br/>
