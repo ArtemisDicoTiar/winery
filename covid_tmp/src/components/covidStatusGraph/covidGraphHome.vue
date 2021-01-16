@@ -62,17 +62,25 @@
 
                 <span class="md-subheading"><b><i>Future Plans</i></b></span><br/>
                 <span class="md-body-1">
-                    <span class="md-body-2"><u>"<b><i>[Recovery]</i></b>: Correlation with "Medical Information, Public Health Information"</u></span><br/>
+                    <span class="md-body-2"><u>"<b><i>[Recover from ver1.]</i></b>: Correlation with {Medical Information, Public Health Information"</u></span><br/>
                     This correlation analysis WAS on version1 of this project but removed on version2 due to backend server and database have been updated for better organisation.<br/>
                     This correlation analysis is planning to be on this web-page again due by this Spring (2021).<br/>
                     <br/>
 
-                    <span class="md-body-2"><u>"<b><i>[Recovery]</i></b>: Far future prediction using SEIR"</u></span><br/>
+                    <span class="md-body-2"><u>"<b><i>[Recover from ver1.]</i></b>: Far future prediction using SEIR"</u></span><br/>
                     SEIR model was used to predict far future on version1 but has been removed on version2 due to backend renew.<br/>
                     This analysis information is planned due by late Spring ~ early Summer (2021).<br/>
                     <br/>
 
-                    <span class="md-body-2"><u>"Better prediction using ARIMA and deep-learning"</u></span><br/>
+                    <span class="md-body-2"><u>"<b><i>[NEW]</i></b>: Global Vaccination information and rate"</u></span><br/>
+                    Some countries started their vaccination scheme with 1 or more than 1 type of vaccine.<br/>
+                    Providing vaccination rate and the vaccine information and analysing the correlation between this and confirmed case rate will be illustrated on new page shortly.<br/>
+                    This information page is planned due by early Spring (2021) with
+                    "<a href="https://github.com/owid/covid-19-data">owid's Github</a> project".<br/>
+
+                    <br/>
+
+                    <span class="md-body-2"><u>"<b><i>[NEW]</i></b>: Better prediction using ARIMA and deep-learning"</u></span><br/>
                     ARIMA model forecast shows the range for prediction. In this web-page, it uses mid-point of 95% of confidence range.<br/>
                     Deep-learning model with other external information such as news reports related to human activities,
                     public health information will make the prediction more accurate in the range of 95% confidence range.<br/>
@@ -81,7 +89,7 @@
                 <md-divider/>
 
                 <span class="md-subheading"><b>Front End</b></span><br/>
-                <b>* Last Source Code Update: 2021-01-11</b><br/>
+                <b>* Last Source Code Update: 2021-01-16</b><br/>
                 <br/>
                 <span class="md-body-1">
                     * Update contents (01-11):<br/>

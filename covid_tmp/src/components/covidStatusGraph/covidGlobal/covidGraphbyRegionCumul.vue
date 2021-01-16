@@ -71,7 +71,7 @@
                     </md-toolbar>
                     <div class="md-layout md-gutter">
                         <div class="md-layout-item">
-                            <md-autocomplete v-model="continent" :md-options="continents" :md-open-on-focus="true" :md-dense="true">
+                            <md-autocomplete v-model.lazy="continent" :md-options="continents" :md-open-on-focus="true">
                                 <label>Continents</label>
                                 <template slot="md-autocomplete-item" slot-scope="{ item, term }">
                                     <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
@@ -88,7 +88,7 @@
                                 </label>
                             </div>
                             <div v-if="continent === 'Africa'">
-                                <md-autocomplete v-model="country" :md-options="africa" :md-open-on-focus="true">
+                                <md-autocomplete v-model.lazy="country" :md-options="africa" :md-open-on-focus="true">
                                     <label>
                                         Countries from Africa
                                     </label>
@@ -98,7 +98,7 @@
                                 </md-autocomplete>
                             </div>
                             <div v-if="continent === 'America'">
-                                <md-autocomplete v-model="country" :md-options="america" :md-open-on-focus="true">
+                                <md-autocomplete v-model.lazy="country" :md-options="america" :md-open-on-focus="true">
                                     <label>
                                         Countries from America
                                     </label>
@@ -108,7 +108,7 @@
                                 </md-autocomplete>
                             </div>
                             <div v-if="continent === 'Asia'">
-                                <md-autocomplete v-model="country" :md-options="asia" :md-open-on-focus="true">
+                                <md-autocomplete v-model.lazy="country" :md-options="asia" :md-open-on-focus="true">
                                     <label>
                                         Countries from Asia
                                     </label>
@@ -118,7 +118,7 @@
                                 </md-autocomplete>
                             </div>
                             <div v-if="continent === 'Europe'">
-                                <md-autocomplete v-model="country" :md-options="europe" :md-open-on-focus="true">
+                                <md-autocomplete v-model.lazy="country" :md-options="europe" :md-open-on-focus="true">
                                     <label>
                                         Countries from Europe
                                     </label>
@@ -128,7 +128,7 @@
                                 </md-autocomplete>
                             </div>
                             <div v-if="continent === 'Oceania'">
-                                <md-autocomplete v-model="country" :md-options="oceania" :md-open-on-focus="true">
+                                <md-autocomplete v-model.lazy="country" :md-options="oceania" :md-open-on-focus="true">
                                     <label>
                                         Countries from Oceania
                                     </label>
