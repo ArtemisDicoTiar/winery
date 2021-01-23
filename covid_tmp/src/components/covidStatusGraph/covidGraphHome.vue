@@ -62,6 +62,13 @@
 
                 <span class="md-subheading"><b><i>Future Plans</i></b></span><br/>
                 <span class="md-body-1">
+                    <span class="md-body-2"><u>"<b><i>[Front-End Update]</i></b>: Better appearance for both desktop and mobile"</u></span><br/>
+                    Although this page is built with vuejs ui framework, vue-material, there are some small issues to make the page clear and neat.<br/>
+                    To enhance the readability, pre-built dashboard theme will be applied to this page.<br/>
+                    Even though the pre-built theme is applied internal components will follow my previous components.<br/>
+                    This correlation analysis is planning to be on this web-page again due by this late Winter (2021).<br/>
+                    <br/>
+
                     <span class="md-body-2"><u>"<b><i>[Recover from ver1.]</i></b>: Correlation with {Medical Information, Public Health Information"</u></span><br/>
                     This correlation analysis WAS on version1 of this project but removed on version2 due to backend server and database have been updated for better organisation.<br/>
                     This correlation analysis is planning to be on this web-page again due by this Spring (2021).<br/>
@@ -72,7 +79,7 @@
                     This analysis information is planned due by late Spring ~ early Summer (2021).<br/>
                     <br/>
 
-                    <span class="md-body-2"><u>"<b><i>[NEW]</i></b>: Global Vaccination information and rate"</u></span><br/>
+                    <span class="md-body-2"><u>"<b><i>[NEW]</i></b>: Global Vaccination/Testing information and rate"</u></span><br/>
                     Some countries started their vaccination scheme with 1 or more than 1 type of vaccine.<br/>
                     Providing vaccination rate and the vaccine information and analysing the correlation between this and confirmed case rate will be illustrated on new page shortly.<br/>
                     This information page is planned due by early Spring (2021) with
@@ -110,8 +117,14 @@
                 <md-divider/>
 
                 <span class="md-subheading"><b>Back End</b></span><br/>
-                <b>* Last Source Code Update: 2020-11-21</b><br/>
+                <b>* Last Source Code Update: 2021-01-23</b><br/>
                 <span class="md-body-1">
+                    * Update contents (21-01-23):<br/>
+                    Now Airflow(ETL) also crawls and processes more information about COVID19.<br/>
+                    The raw data is pulled from OWID github (COVID specific) and processed/organised for vaccination, testing information.<br/>
+                    In addition, p-score(mortality compared to ordinary days) and external information such as smoker rate are also processed.<br/>
+                    This DAG is now working and storing data on database.<br/>
+                    <br/>
                     * Update contents (11-21):<br/>
                     BUG FIX: There was an issue that dashboard data collector not rounding accuracy on 2nd decimal point.<br/>
                     By filling null values to 0 now the table will round on proper decimal point.<br/>
