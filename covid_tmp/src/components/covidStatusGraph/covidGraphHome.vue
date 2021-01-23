@@ -96,7 +96,7 @@
                 <md-divider/>
 
                 <span class="md-subheading"><b>Front End</b></span><br/>
-                <b>* Last Source Code Update: 2021-01-16</b><br/>
+                <b>* Last Source Code Update: 2021-01-23</b><br/>
                 <br/>
                 <span class="md-body-1">
                     * Update contents (01-11):<br/>
