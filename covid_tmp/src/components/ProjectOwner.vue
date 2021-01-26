@@ -32,6 +32,8 @@
                 </span>
                 <br/>
                 <span class="md-subheading">
+                    CI/CD: Jenkins (Java)<br/>
+                    <br/>
                     Crawler: Airflow (python3.7)<br/>
                     Pre-process: Airflow (python3.7)<br/>
                     Post-process: Airflow (python3.7)<br/>
@@ -40,7 +42,6 @@
                     Webserver: Docker wrapped nginx web server engine<br/>
                     Webpage(Front): Vuejs Framework (JavaScript, HTML, CSS)<br/>
                     Webpage(Back) : Flask Framework (python)<br/>
-
                 </span>
 
             </md-app-content>
