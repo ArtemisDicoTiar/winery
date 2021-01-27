@@ -32,7 +32,7 @@
                 </span>
                 <br/>
                 <span class="md-subheading">
-                    CI/CD: Jenkins (Java)<br/>
+                    CI/CD: Jenkins (Java + Github webhook)<br/>
                     <br/>
                     Crawler: Airflow (python3.7)<br/>
                     Pre-process: Airflow (python3.7)<br/>
