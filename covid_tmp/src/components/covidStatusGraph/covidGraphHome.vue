@@ -20,26 +20,6 @@
                     COVID DATA Analysis Home page.<br/>
                 </span>
                 <br/>
-                <md-card class="md-accent" md-with-hover>
-
-                    <md-card-header>
-                        <div class="md-title">* MAINTENANCE *</div>
-                    </md-card-header>
-
-                    <md-card-content>
-                        <b>
-                            The Airflow version for this project is behind stable version and this version's maintenance from apache-airflow will terminate soon.<br/>
-                            Due to this issue, airflow on server will be updated soon.<br/>
-                            This <b><u>AFFECTS</u></b>:<br/>
-                            * data update daily (Global prediction is stopped since 8th of February, and other data's update stopped 9th of Feb.)<br/>
-                            * crawler/processor status<br/>
-                            * dashboard update (last update -> global: 8th of Feb, uk: 9th of Feb)<br/>
-                            Sorry for your inconvenience. I will try to update this as soon as possible.<br/>
-                            Thank you. <br/>
-                        </b>
-                    </md-card-content>
-
-                </md-card>
                 <md-divider/>
                 <br/>
                 <h2>Pages connecting to ...</h2>
