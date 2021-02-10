@@ -34,10 +34,10 @@ export default {
         GET_DASHBOARD: async ({commit}) => {
             commit('SET_LOADING', true)
             let executionDate = getYesterdayDate()
-            let globDagName = 'csse_covid_dl_to_db_org_210209_01'
-            let UKDagName = 'uk_covid_dl_to_db_org_210208_01'
-            let globExecutionTime = '10:30:00+00:00'
-            let UKExecutionTime = '03:00:00+00:00'
+            let globDagName = 'csse_covid_dl_to_db_org_210210_01'
+            let UKDagName = 'uk_covid_dl_to_db_org_210209_01'
+            let globExecutionTime = '05:00:00+00:00'
+            let UKExecutionTime = '00:00:00+00:00'
 
             let globAirflowLink = '/airflow' + `/api/experimental/dags/${globDagName}/dag_runs/${executionDate}T${globExecutionTime}`
             let UKAirflowLink = '/airflow' + `/api/experimental/dags/${UKDagName}/dag_runs/${executionDate}T${UKExecutionTime}`
