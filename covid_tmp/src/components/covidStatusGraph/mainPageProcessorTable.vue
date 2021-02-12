@@ -16,7 +16,7 @@
             </md-table-toolbar>
 
             <md-table-row>
-                <md-table-head>Target Region</md-table-head>
+                <md-table-head>Target Region/ Data Source</md-table-head>
                 <md-table-head>Status</md-table-head>
             </md-table-row>
 
@@ -28,6 +28,16 @@
             <md-table-row>
                 <md-table-cell>UK</md-table-cell>
                 <md-table-cell>{{ this.ukAirflow }}</md-table-cell>
+            </md-table-row>
+
+            <md-table-row>
+                <md-table-cell>OWID</md-table-cell>
+                <md-table-cell>{{ this.owidAirflow}}</md-table-cell>
+            </md-table-row>
+
+            <md-table-row>
+                <md-table-cell>Google Mobility</md-table-cell>
+                <md-table-cell>{{ this.gmobAirflow }}</md-table-cell>
             </md-table-row>
         </md-table>
     </div>
@@ -52,6 +62,12 @@
             },
             globAirflow () {
                 return this.$store.state.airflowApi.globalUpdateStatus
+            },
+            owidAirflow () {
+                return this.$store.state.airflowApi.OWIDUpdateStatus
+            },
+            gmobAirflow () {
+                return this.$store.state.airflowApi.G_mob_UpdateStatus
             }
         },
         beforeMount() {

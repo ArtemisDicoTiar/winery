@@ -90,7 +90,6 @@
                     Providing vaccination rate and the vaccine information and analysing the correlation between this and confirmed case rate will be illustrated on new page shortly.<br/>
                     This information page is planned due by early Spring (2021) with
                     "<a href="https://github.com/owid/covid-19-data">owid's Github</a> project".<br/>
-
                     <br/>
 
                     <span class="md-body-2"><u>"<b><i>[NEW]</i></b>: Better prediction using ARIMA and deep-learning"</u></span><br/>
@@ -105,6 +104,9 @@
                 <b>* Last Source Code Update: 2021-01-26</b><br/>
                 <br/>
                 <span class="md-body-1">
+                    * Update contents (21-02-11):<br/>
+                    Main page now shows OWID and Google Mobility information crawler status. <br/>
+                    <br/>
                     * Update contents (01-11):<br/>
                     Virus mutation web-page link added.<br/>
                     Future project plan list added.<br/>
@@ -123,8 +125,15 @@
                 <md-divider/>
 
                 <span class="md-subheading"><b>Back End</b></span><br/>
-                <b>* Last Source Code Update: 2021-01-26</b><br/>
+                <b>* Last Source Code Update: 2021-02-11</b><br/>
                 <span class="md-body-1">
+                    * Update contents (21-02-11):<br/>
+                    Airflow ETL is updated to 1.10.14 ver. Although 2.0.1 is tried, as there are some conflicts to upgrade, airflow update is stopped to 1.10.14.<br/>
+                    Airflow Security is now applied so other than admin cannot access to DAGs.<br/>
+                    <br/>
+                    Now Mobility data during COVID-19 Pandemic period is stored to DB via Google Mobility information.<br/>
+                    The OWID data and Google Mobility data crawler status is now also available on main page <br/>
+                    <br/>
                     * Update contents (21-01-26):<br/>
                     Jenkins is applied on the server.<br/>
                     Now all kind of build will be triggered by git push and no more SSH connect and manual build command will be used<br/>
