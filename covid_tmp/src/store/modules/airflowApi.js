@@ -44,7 +44,7 @@ export default {
             let globDagName = 'csse_covid_dl_to_db_org_210210_01'
             let UKDagName = 'uk_covid_dl_to_db_org_210209_01'
             let OWIDDagName = 'OWID_covid_dl_to_db_org_0208_11'
-            let G_mob_DagName = 'google_mobility_dl_210212_01'
+            let G_mob_DagName = 'google_mobility_dl_210214_04'
 
             let globExecutionTime = '09:00:00+00:00'
             let UKExecutionTime = '00:00:00+00:00'

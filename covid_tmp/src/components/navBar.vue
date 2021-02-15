@@ -54,7 +54,7 @@
 
                 <md-list-item to="/about">
                     <md-icon>new_releases</md-icon>
-                    <span class="md-list-item-text">Producer Info</span>
+                    <span class="md-list-item-text">Producer Info<br/>DataSource Reference</span>
                 </md-list-item>
             </md-list>
         </div>
