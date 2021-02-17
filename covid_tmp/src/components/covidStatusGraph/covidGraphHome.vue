@@ -20,7 +20,25 @@
                     COVID DATA Analysis Home page.<br/>
                 </span>
                 <br/>
-                <md-divider/>
+                <md-card class="md-accent" md-with-hover>
+
+                    <md-card-header>
+                        <div class="md-title">* NOTICE *</div>
+                        <div class="md-subhead">Project Freeze</div>
+                        <div class="md-subhead">Data will be updated daily <br/>BUT future Updates will not be run on time.</div>
+                    </md-card-header>
+
+                    <md-card-content>
+                        <b>
+                            Due to academic study and final year (Bachelor) project, this project will be paused and frozen for few weeks to months.<br/>
+                            As my academic project is planned to be finished by late April, all the plans on the future plans below will be postponed at least 2 months.<br/>
+                            After project thesis submission, this project will be run again around early May to June.<br/>
+                            Sorry for late updates.<br/>
+                        </b>
+                    </md-card-content>
+
+                </md-card>
+
                 <br/>
                 <h2>Pages connecting to ...</h2>
                 <br/>
