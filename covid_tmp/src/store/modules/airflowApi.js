@@ -43,7 +43,7 @@ export default {
             let executionDate = getYesterdayDate()
             let globDagName = 'csse_covid_dl_to_db_org_210210_01'
             let UKDagName = 'uk_covid_dl_to_db_org_210209_01'
-            let OWIDDagName = 'OWID_covid_dl_to_db_org_0208_11'
+            let OWIDDagName = 'OWID_covid_dl_to_db_org_010321_02'
             let G_mob_DagName = 'google_mobility_dl_210216_02'
 
             let globExecutionTime = '09:00:00+00:00'
