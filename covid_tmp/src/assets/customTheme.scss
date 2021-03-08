@@ -3,6 +3,7 @@
 @include md-register-theme("default", (
   primary: #558b2f, // The primary color of your application
   accent: #d84315, // The accent or secondary color
+  graph: #ffffff,
   theme: dark // This can be dark or light
 ));
 

@@ -119,7 +119,7 @@
                 <md-divider/>
 
                 <span class="md-subheading"><b>Front End</b></span><br/>
-                <b>* Last Source Code Update: 2021-01-26</b><br/>
+                <b>* Last Source Code Update: 2021-02-11</b><br/>
                 <br/>
                 <span class="md-body-1">
                     * Update contents (21-02-11):<br/>
@@ -143,8 +143,15 @@
                 <md-divider/>
 
                 <span class="md-subheading"><b>Back End</b></span><br/>
-                <b>* Last Source Code Update: 2021-02-11</b><br/>
+                <b>* Last Source Code Update: 21-03-08</b><br/>
                 <span class="md-body-1">
+                    * Update contents (21-03-08):<br/>
+                    Now api server provides vaccination, testing and p_score information based on crawled data from OWID.<br/>
+                    regional information is also provided based on OWID data.<br/>
+                    Furthermore, mobility information is provided with crawled data from Google-Mobility-report.<br/>
+                    As the api endpoints are not clearly organised, all the endpoints will not be provided to public until api server migrates to 'SpringBoot (with Scala)'.<br/>
+                    The front-end page addition will be done shortly by using this updated apis.<br/>
+                    <br/>
                     * Update contents (21-02-11):<br/>
                     Airflow ETL is updated to 1.10.14 ver. Although 2.0.1 is tried, as there are some conflicts to upgrade, airflow update is stopped to 1.10.14.<br/>
                     Airflow Security is now applied so other than admin cannot access to DAGs.<br/>

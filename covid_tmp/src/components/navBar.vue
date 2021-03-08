@@ -8,12 +8,20 @@
         </md-toolbar>
 
         <div class="list">
-            <md-list :md-expand-single="expandSingle">
+            <md-list>
                 <md-list-item to="/" exact>
                     <md-icon>home</md-icon>
                     <span class="md-list-item-text">Home</span>
                 </md-list-item>
 
+                <md-list-item to="/dashboard" exact>
+                    <md-icon>dashboard</md-icon>
+                    <span class="md-list-item-text">Dashboard</span>
+                </md-list-item>
+
+            </md-list>
+
+            <md-list :md-expand-single="true" md-dense>
                 <md-list-item md-expand :md-expanded.sync="expandNews">
                     <md-icon>public</md-icon>
                     <span class="md-list-item-text">Global Info</span>
@@ -51,7 +59,9 @@
                         </md-list-item>
                     </md-list>
                 </md-list-item>
+            </md-list>
 
+            <md-list>
                 <md-list-item to="/about">
                     <md-icon>new_releases</md-icon>
                     <span class="md-list-item-text">Producer Info<br/>DataSource Reference</span>

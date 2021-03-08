@@ -10,6 +10,8 @@ import covidGraphbyRegionNews from "@/components/covidStatusGraph/covidGlobal/co
 import covidUKDashboard from "@/components/covidStatusGraph/covidUK/covidUKDashboard";
 import covidGraphbyUKAll from "@/components/covidStatusGraph/covidUK/covidGraphbyUKAll";
 
+// import DashboardView from "@/components/covidRegionDashboard/DashboardView";
+
 import ProjectOwner from "@/components/ProjectOwner";
 import error404 from "@/components/error404";
 
@@ -20,6 +22,9 @@ Vue.use(VueRouter)
 const routes = [
 
     { path: '/', component: Home },
+
+    // { path: '/dashboard', component: DashboardView},
+
     { path: '/global', redirect: '/global/dashboard'},
     { path: '/global/dashboard', component: covidGlobalDashboard},
     { path: '/global/cumulative', component: covidGraphbyRegion},
