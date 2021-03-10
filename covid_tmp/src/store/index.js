@@ -3,6 +3,9 @@ import covidGraph from "./modules/covidGraph";
 import covidNewGraph from "@/store/modules/covidNewGraph";
 import covidUKGraph from "@/store/modules/covidUKGraph";
 import covidDashBoard from "@/store/modules/covidDashBoard";
+
+import owidVaccination from "@/store/modules/owidVaccination";
+
 import airflowApi from "@/store/modules/airflowApi";
 
 import Vue from 'vue'
@@ -18,6 +21,8 @@ export default new Vuex.Store({
         covidUKGraph: covidUKGraph,
 
         covidDashBoard: covidDashBoard,
+
+        owidVaccination: owidVaccination,
 
         airflowApi: airflowApi
     }

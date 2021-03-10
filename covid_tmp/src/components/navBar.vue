@@ -22,7 +22,7 @@
             </md-list>
 
             <md-list :md-expand-single="true" md-dense>
-                <md-list-item md-expand :md-expanded.sync="expandNews">
+                <md-list-item md-expand>
                     <md-icon>public</md-icon>
                     <span class="md-list-item-text">Global Info</span>
 
@@ -56,6 +56,40 @@
                         <md-list-item to="/uk/graph">
                             <md-icon>timeline</md-icon>
                             <span class="md-list-item-text">UK graph</span>
+                        </md-list-item>
+                    </md-list>
+                </md-list-item>
+            </md-list>
+
+            <md-list :md-expand-single="true" md-dense>
+                <md-list-item md-expand>
+                    <md-icon>schema</md-icon>
+                    <span class="md-list-item-text">Extra Info</span>
+
+                    <md-list slot="md-expand">
+                        <md-list-item to="/post/vaccination">
+                            <md-icon>healing</md-icon>
+                            <span class="md-list-item-text">Vaccination</span>
+                        </md-list-item>
+
+                        <md-list-item to="/post/testing">
+                            <md-icon>biotech</md-icon>
+                            <span class="md-list-item-text">Testing</span>
+                        </md-list-item>
+
+                        <md-list-item to="/post/mortality">
+                            <md-icon>no_accounts</md-icon>
+                            <span class="md-list-item-text">Mortality</span>
+                        </md-list-item>
+
+                        <md-list-item to="/post/region">
+                            <md-icon>map</md-icon>
+                            <span class="md-list-item-text">Region Info</span>
+                        </md-list-item>
+
+                        <md-list-item to="/post/mobility">
+                            <md-icon>directions_run</md-icon>
+                            <span class="md-list-item-text">Mobility Info</span>
                         </md-list-item>
                     </md-list>
                 </md-list-item>
