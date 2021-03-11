@@ -122,6 +122,12 @@
 
                     <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-03-11">
                         <md-steppers md-vertical>
+                            <md-step md-label="COVID-19 Testing Information Dashboard" md-description="(2021-03-10)"><p>
+                                Now COVID-19 Testing Information Dashboard is added.
+                                The dashboard can search every countries.
+                                Short-term positive rate is also provided with {new, cumulative} test counts.
+                            </p></md-step>
+
                             <md-step md-label="Home page update: update history visual update" md-description="(2021-03-11)"><p>
                                     Update list was too verbose. Now the planned update and update history both are organised into stepper so user can see detail when it is selected.
                             </p></md-step>

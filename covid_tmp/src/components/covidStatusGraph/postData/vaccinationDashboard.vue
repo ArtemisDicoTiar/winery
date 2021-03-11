@@ -85,7 +85,7 @@
                         </md-table-row>
 
                         <md-table-row>
-                            <md-table-cell>Last update from <br/> "{{ regionInfo['source_name'] }}"</md-table-cell>
+                            <md-table-cell>Last Information update from <br/> "<a :href="regionInfo['source_website']">{{ regionInfo['source_name'] }}</a>"</md-table-cell>
                             <md-table-cell>{{ regionInfo['last_observation_date'] }}</md-table-cell>
                         </md-table-row>
 

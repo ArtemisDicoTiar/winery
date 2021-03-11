@@ -105,6 +105,7 @@ export default {
                         alert('ERROR: ' + response)
                     } else {
                         commit('SET_REGION_INFO', response.data[0])
+                        console.log(state.region_info)
                         // commit('SET_LOADING', false)
                     }
                 })

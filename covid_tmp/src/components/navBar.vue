@@ -75,17 +75,17 @@
                             <span class="md-list-item-text">Testing</span>
                         </md-list-item>
 
-                        <md-list-item to="/post/mortality">
+                        <md-list-item to="/post/mortality" :disabled="true">
                             <md-icon>no_accounts</md-icon>
                             <span class="md-list-item-text">Mortality</span>
                         </md-list-item>
 
-                        <md-list-item to="/post/region">
+                        <md-list-item to="/post/region" :disabled="true">
                             <md-icon>map</md-icon>
                             <span class="md-list-item-text">Region Info</span>
                         </md-list-item>
 
-                        <md-list-item to="/post/mobility">
+                        <md-list-item to="/post/mobility" :disabled="true">
                             <md-icon>directions_run</md-icon>
                             <span class="md-list-item-text">Mobility Info</span>
                         </md-list-item>
