@@ -45,14 +45,12 @@
                     </md-toolbar>
                     <div class="md-layout md-gutter">
                         <div class="md-layout-item">
+                            <span class="md-body-2">Vaccination Status</span>
                             <div>
-                                <md-switch v-model="fullyDosed">Fully Dosed</md-switch>
+                                <md-radio v-model="fullyDosed" :value="false">vaccination plan started</md-radio>
+                                <md-radio v-model="fullyDosed" :value="true">vaccination plan finished</md-radio>
                             </div>
 
-                            <div>
-                                <md-radio v-model="targetDataType" value="new">New</md-radio>
-                                <md-radio v-model="targetDataType" value="cum">Cumulative</md-radio>
-                            </div>
                             <md-autocomplete v-model.lazy="targetCountry"
                                              :md-options="Object.keys(this.countryList)" :md-open-on-focus="true">
                                 <label>Country</label>
@@ -72,11 +70,30 @@
 
                 </div>
 
+
+
                 <div v-if="dataRequested === true">
                     <md-progress-spinner
                             v-if="this.$store.state.owidVaccination.loading === true"
                             md-mode="indeterminate"
                     />
+
+                    <md-table v-if="this.$store.state.owidVaccination.loading === false">
+                        <md-table-row>
+                            <md-table-head>key</md-table-head>
+                            <md-table-head>value</md-table-head>
+                        </md-table-row>
+
+                        <md-table-row>
+                            <md-table-cell>Last update from <br/> "{{ regionInfo['source_name'] }}"</md-table-cell>
+                            <md-table-cell>{{ regionInfo['last_observation_date'] }}</md-table-cell>
+                        </md-table-row>
+
+                        <md-table-row>
+                            <md-table-cell>Using Vaccines</md-table-cell>
+                            <md-table-cell>{{ regionInfo['vaccines'] }}</md-table-cell>
+                        </md-table-row>
+                    </md-table>
 
                     <Plotly
                             v-if="this.$store.state.owidVaccination.loading === false"
@@ -108,7 +125,6 @@
                 targetCountry: null,
                 fullyDosed: false,
                 targetDataType: 'new',
-                tableData: null,
 
                 dataRequested: false,
 
@@ -117,6 +133,7 @@
         },
         beforeMount() {
             this.$store.dispatch('owidVaccination/GET_REGION_LIST')
+            this.processorStatus = this.$store.state.airflowApi.OWIDUpdateStatus
         },
         mounted () {
 
@@ -134,22 +151,8 @@
                     this.dataRequested = false
                 }
             },
-            targetDataType: function (val) {
-                if (this.fullyDosed) {
-                    this.$store.commit('owidVaccination/SET_QUERY_DATA_TYPE', 'fully_'+val)
-                } else {
-                    this.$store.commit('owidVaccination/SET_QUERY_DATA_TYPE', val)
-                }
-
-                this.targetDataType = val
-            },
             fullyDosed: function (val) {
-                if (this.fullyDosed) {
-                    this.$store.commit('owidVaccination/SET_QUERY_DATA_TYPE', 'fully_'+this.targetDataType)
-                } else {
-                    this.$store.commit('owidVaccination/SET_QUERY_DATA_TYPE', this.targetDataType)
-                }
-
+                this.$store.commit('owidVaccination/SET_FULLY_DOSED', val)
                 this.fullyDosed = val
             },
             menuVisible: function (val) {
@@ -167,16 +170,17 @@
             plotLayout () {
                 return this.$store.state.owidVaccination.plot.layout
             },
+            regionInfo() {
+                return this.$store.state.owidVaccination.region_info
+            },
             requestButtonDisabled () {
                 return this.$store.state.owidVaccination.target_region_code === '' || typeof this.$store.state.owidVaccination.target_region_code === 'undefined'
             },
-            areaNames () {
-                return this.$store.state.covidUKGraph.baseAreas
-            }
         },
         methods: {
             requestData: function() {
                 this.dataRequested = true
+                this.$store.dispatch('owidVaccination/GET_REGION_INFO')
                 this.$store.dispatch('owidVaccination/GET_REGION_DATA')
             },
 
