@@ -59,9 +59,7 @@
                         </md-list-item>
                     </md-list>
                 </md-list-item>
-            </md-list>
 
-            <md-list :md-expand-single="true" md-dense>
                 <md-list-item md-expand>
                     <md-icon>schema</md-icon>
                     <span class="md-list-item-text">Extra Info</span>
@@ -94,6 +92,8 @@
                     </md-list>
                 </md-list-item>
             </md-list>
+
+
 
             <md-list>
                 <md-list-item to="/about">

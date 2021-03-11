@@ -183,16 +183,16 @@ export default {
                 xaxis: {
                     ticks: 'outside',
                     tickcolor: '#000',
-                    range: state.plot.dateRange,
+                    range: [state.plot.dateRange[state.plot.dateRange.length - 14], state.plot.dateRange[state.plot.dateRange.length - 1]],
                 },
                 yaxis: {
                     ticks: 'outside',
-                    title: 'Daily Confirmed',
+                    title: 'Daily Count',
                     color: '#1F77B4',
                 },
                 yaxis2: {
                     ticks: 'outside',
-                    title: 'Cumulative Confirmed',
+                    title: 'Cumulative Count',
                     color: '#000',
                     anchor: 'x',
                     match: 'y',
