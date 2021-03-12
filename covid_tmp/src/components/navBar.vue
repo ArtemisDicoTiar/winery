@@ -96,8 +96,16 @@
 
 
             <md-list>
-                <md-list-item to="/about">
+                <md-list-item href="https://corona-live.com/">
+                    <md-icon>link</md-icon>
+                    <span class="md-list-item-text">South Korea<br/>Information</span>
+                </md-list-item>
+                <md-list-item href="https://nextstrain.org/ncov/global">
                     <md-icon>new_releases</md-icon>
+                    <span class="md-list-item-text">Virus Mutation<br/>Reports</span>
+                </md-list-item>
+                <md-list-item to="/about">
+                    <md-icon>track_changes</md-icon>
                     <span class="md-list-item-text">Producer Info<br/>DataSource Reference</span>
                 </md-list-item>
             </md-list>

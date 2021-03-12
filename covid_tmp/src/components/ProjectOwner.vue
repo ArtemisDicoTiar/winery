@@ -45,6 +45,20 @@
                 </span>
                 <br/>
                 <md-divider/>
+                <br/>
+
+                <span class="md-subheading">
+                    This webpage is version 2 built with Vue-js.<br/>
+                    To enhance User eXperience, the graph will initially show recent 28 days data.<br/>
+                    To widen the time range, double click anywhere of the graph you want to make it widen.<br/>
+                </span>
+                <br/>
+                <span class="md-subheading">
+                    Please have a look on <b><u>left-side drawer</u></b>. <br/>
+                    You can open it my clicking <b><u>left top</u></b>, three lines icon.<br/>
+                </span>
+                <br/>
+                <md-divider/>
                 <span class="md-title">
                     Data Source References<br/>
                 </span>

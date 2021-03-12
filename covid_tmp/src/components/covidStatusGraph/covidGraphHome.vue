@@ -20,58 +20,12 @@
                     COVID DATA Analysis Home page.<br/>
                 </span>
                 <br/>
-                <md-card class="md-accent" md-with-hover>
-
-                    <md-card-header>
-                        <div class="md-title">* NOTICE *</div>
-                        <div class="md-subhead">Project Freeze</div>
-                        <div class="md-subhead">Data will be updated daily <br/>BUT future Updates will not be run on time.</div>
-                    </md-card-header>
-
-                    <md-card-content>
-                        <b>
-                            Due to academic study and final year (Bachelor) project, this project will be paused and frozen for few weeks to months.<br/>
-                            As my academic project is planned to be finished by late April, all the plans on the future plans below will be postponed at least 2 months.<br/>
-                            After project thesis submission, this project will be run again around early May to June.<br/>
-                            Sorry for late updates.<br/>
-                        </b>
-                    </md-card-content>
-
-                </md-card>
-
-                <br/>
-                <h2>Pages connecting to ...</h2>
-                <br/>
-                <p>South Korea Information connects to external page calls 'corona-live' which is well built webpage that shows live status.</p>
-
-                <md-tabs md-sync-route class="md-primary" md-alignment="centered" style="min-width: 100%">
-                    <md-tab id="tab-pages" md-label="Global Information" to="/global"></md-tab>
-                    <md-tab id="tab-posts" md-label="UK Information" to="/uk"></md-tab>
-                </md-tabs>
-                <md-tabs md-sync-route class="md-primary" md-alignment="centered" style="min-width: 100%">
-                    <md-tab id="tab-externalKorea" md-label="South Korea Information" href="https://corona-live.com/"></md-tab>
-                    <md-tab id="tab-external_mutation" md-label="Virus Mutation Reports" href="https://nextstrain.org/ncov/global"></md-tab>
-                </md-tabs>
-                <br/>
                 <md-divider/>
                 <br/>
                 <mainPageProcessorTable/>
 
                 <br/>
-                <md-divider/>
-                <br/>
 
-                <span class="md-subheading">
-                    This page is version 2 built with Vue-js.<br/>
-                    To enhance User eXperience, the graph will initially show recent 28 days data.<br/>
-                    To widen the time range, double click anywhere of the graph you want to make it widen.<br/>
-                </span>
-                <br/>
-                <span class="md-subheading">
-                    Please have a look on <b><u>left-side drawer</u></b>. <br/>
-                    You can open it my clicking <b><u>left top</u></b>, three lines icon.<br/>
-                </span>
-                <br/>
                 <md-divider/>
                 <br/>
                 <span class="md-title">
@@ -103,14 +57,7 @@
                                 This analysis information is planned due by late Spring ~ early Summer (2021).<br/>
                             </md-step>
 
-                            <md-step id="fifth" md-label="Global Vaccination/Testing information and rate" md-description="[NEW]">
-                                Some countries started their vaccination scheme with 1 or more than 1 type of vaccine.<br/>
-                                Providing vaccination rate and the vaccine information and analysing the correlation between this and confirmed case rate will be illustrated on new page shortly.<br/>
-                                This information page is planned due by early Spring (2021) with
-                                "<a href="https://github.com/owid/covid-19-data">owid's Github</a> project".<br/>
-                            </md-step>
-
-                            <md-step id="sixth" md-label="Better prediction using ARIMA and deep-learning" md-description="[NEW]">
+                            <md-step id="fifth" md-label="Better prediction using ARIMA and deep-learning" md-description="[NEW]">
                                 ARIMA model forecast shows the range for prediction. In this web-page, it uses mid-point of 95% of confidence range.<br/>
                                 Deep-learning model with other external information such as news reports related to human activities,
                                 public health information will make the prediction more accurate in the range of 95% confidence range.<br/>

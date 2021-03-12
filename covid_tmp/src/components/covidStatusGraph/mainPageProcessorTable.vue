@@ -4,7 +4,7 @@
                 v-if="this.$store.state.airflowApi.loading === true"
                 md-mode="indeterminate"
         />
-        <md-table md-card v-if="this.$store.state.airflowApi.loading === false">
+        <md-table v-if="this.$store.state.airflowApi.loading === false">
             <md-table-toolbar>
                 <h1 class="md-title">
                     <md-icon>grading</md-icon>
