@@ -14,7 +14,7 @@
                     <span class="md-list-item-text">Home</span>
                 </md-list-item>
 
-                <md-list-item to="/dashboard" exact>
+                <md-list-item to="/dashboard" exact :disabled="true">
                     <md-icon>dashboard</md-icon>
                     <span class="md-list-item-text">Dashboard</span>
                 </md-list-item>
@@ -101,11 +101,11 @@
                     <span class="md-list-item-text">South Korea<br/>Information</span>
                 </md-list-item>
                 <md-list-item href="https://nextstrain.org/ncov/global">
-                    <md-icon>new_releases</md-icon>
+                    <md-icon>track_changes</md-icon>
                     <span class="md-list-item-text">Virus Mutation<br/>Reports</span>
                 </md-list-item>
                 <md-list-item to="/about">
-                    <md-icon>track_changes</md-icon>
+                    <md-icon>new_releases</md-icon>
                     <span class="md-list-item-text">Producer Info<br/>DataSource Reference</span>
                 </md-list-item>
             </md-list>

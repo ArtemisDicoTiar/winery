@@ -10,7 +10,7 @@ import covidGraphbyRegionNews from "@/components/covidStatusGraph/covidGlobal/co
 import covidUKDashboard from "@/components/covidStatusGraph/covidUK/covidUKDashboard";
 import covidGraphbyUKAll from "@/components/covidStatusGraph/covidUK/covidGraphbyUKAll";
 
-// import DashboardView from "@/components/covidRegionDashboard/DashboardView";
+import DashboardView from "@/components/covidRegionDashboard/DashboardView";
 
 import vaccinationDashboard from "@/components/covidStatusGraph/postData/vaccinationDashboard";
 import testingDashboard from "@/components/covidStatusGraph/postData/testingDashboard";
@@ -26,7 +26,7 @@ const routes = [
 
     { path: '/', component: Home },
 
-    // { path: '/dashboard', component: DashboardView},
+    { path: '/dashboard', component: DashboardView},
 
     { path: '/global', redirect: '/global/dashboard'},
     { path: '/global/dashboard', component: covidGlobalDashboard},
