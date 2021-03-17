@@ -15,6 +15,8 @@ import DashboardView from "@/components/covidRegionDashboard/DashboardView";
 import vaccinationDashboard from "@/components/covidStatusGraph/postData/vaccinationDashboard";
 import testingDashboard from "@/components/covidStatusGraph/postData/testingDashboard";
 
+import googleMobilityDashboard from "@/components/covidStatusGraph/postData/googleMobilityDashboard";
+
 import ProjectOwner from "@/components/ProjectOwner";
 import error404 from "@/components/error404";
 
@@ -39,6 +41,7 @@ const routes = [
 
     { path: '/post/vaccination', component: vaccinationDashboard},
     { path: '/post/testing', component: testingDashboard},
+    { path: '/post/mobility', component: googleMobilityDashboard},
 
     { path: '/about', component: ProjectOwner},
     { path: '*', component: error404}

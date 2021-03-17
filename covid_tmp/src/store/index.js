@@ -6,6 +6,9 @@ import covidDashBoard from "@/store/modules/covidDashBoard";
 
 import owidVaccination from "@/store/modules/owidVaccination";
 import owidTesting from "@/store/modules/owidTesting";
+
+import googleMobility from "@/store/modules/googleMobility"
+
 import airflowApi from "@/store/modules/airflowApi";
 
 import Vue from 'vue'
@@ -24,6 +27,8 @@ export default new Vuex.Store({
 
         owidVaccination: owidVaccination,
         owidTesting: owidTesting,
+
+        googleMobility: googleMobility,
 
         airflowApi: airflowApi
     }

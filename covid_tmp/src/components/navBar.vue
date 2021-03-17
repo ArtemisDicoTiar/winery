@@ -85,7 +85,7 @@
                             <span class="md-list-item-text">Region Info</span>
                         </md-list-item>
 
-                        <md-list-item to="/post/mobility" :disabled="true">
+                        <md-list-item to="/post/mobility">
                             <md-icon>directions_run</md-icon>
                             <span class="md-list-item-text">Mobility Info</span>
                         </md-list-item>

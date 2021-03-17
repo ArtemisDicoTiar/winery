@@ -67,8 +67,13 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-03-11">
+                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-03-17">
                         <md-steppers md-vertical>
+                            <md-step md-label="Google Mobility graph page" md-description="(2021-03-17)"><p>
+                                People's Mobility information collected by Google is now available to view as graph.
+                                As the data have some weekly/ monthly pattern, 7/14/28 days moving average selection is also provided.
+                            </p></md-step>
+
                             <md-step md-label="COVID-19 Testing Information Dashboard" md-description="(2021-03-10)"><p>
                                 Now COVID-19 Testing Information Dashboard is added.
                                 The dashboard can search every countries.
