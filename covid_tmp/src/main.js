@@ -10,15 +10,20 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 
 // import 'vue-material/dist/theme/default.css'
-import './assets/customTheme.scss'
+import './assets/scss/customTheme.scss'
 
 import vuetify from './plugins/vuetify';
 
-Vue.use(VueMaterial)
-Vue.use(Vuex)
+// MaterialDashboard plugin
+// import MaterialDashboard from "./material-dashboard";
+
 
 Vue.prototype.$Chartist = Chartist;
-Vue.config.productionTip = false
+
+Vue.use(VueMaterial)
+Vue.use(Vuex)
+// Vue.use(MaterialDashboard);
+
 
 new Vue({
   store,

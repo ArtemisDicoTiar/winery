@@ -16,26 +16,8 @@
                 <navBar/>
             </md-app-drawer>
 
-            <md-app-content>
-                <chart-card
-                        :chart-data="dailySalesChart.data"
-                        :chart-options="dailySalesChart.options"
-                        chart-type="Line"
-                        data-background-color="orange-card">
-                    <template slot="content">
-                        <h4 class="title">Daily Sales</h4>
-                        <p class="category">
-                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
-                        </p>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>access_time</md-icon>
-                            updated 4 minutes ago
-                        </div>
-                    </template>
-                </chart-card>
+            <md-app-content style="margin-right: 16px; margin-left: 16px; overflow: visible;">
+                <dashboard/>
 
             </md-app-content>
         </md-app>
@@ -45,11 +27,10 @@
 <script>
 
     import navBar from "@/components/navBar";
-    // import StatsCard from "@/components/prebuilts/Cards/StatsCard";
-    import ChartCard from "@/components/prebuilts/Cards/ChartCard";
+    import Dashboard from "@/components/covidRegionDashboard/details/dashboard";
     export default {
         components: {
-            ChartCard,
+            Dashboard,
             navBar
         },
         data() {

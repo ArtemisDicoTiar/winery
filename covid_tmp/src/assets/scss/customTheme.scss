@@ -1,3 +1,14 @@
+//variables and mixins
+@import "md/variables";
+@import "md/mixins";
+@import "md/shadows";
+
+//plugin css
+@import "md/plugins/_perfect-scrollbar";
+
+@import "md/chartist";
+@import "md/cards";
+
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
 @include md-register-theme("default", (
@@ -8,3 +19,4 @@
 ));
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
+

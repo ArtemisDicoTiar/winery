@@ -14,7 +14,7 @@
                     <span class="md-list-item-text">Home</span>
                 </md-list-item>
 
-                <md-list-item to="/dashboard" exact :disabled="true">
+                <md-list-item to="/dashboard" exact>
                     <md-icon>dashboard</md-icon>
                     <span class="md-list-item-text">Dashboard</span>
                 </md-list-item>
