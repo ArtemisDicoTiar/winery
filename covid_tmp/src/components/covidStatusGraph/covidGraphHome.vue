@@ -67,8 +67,13 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-03-17">
+                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-03-18">
                         <md-steppers md-vertical>
+                            <md-step md-label="Mortality/p-score graph page" md-description="(2021-03-18)"><p>
+                                People's Mortality information collected by OWID is now available to view..
+                                As the data have some weekly pattern, 7 days moving average selection is also provided.
+                            </p></md-step>
+
                             <md-step md-label="Google Mobility graph page" md-description="(2021-03-17)"><p>
                                 People's Mobility information collected by Google is now available to view as graph.
                                 As the data have some weekly/ monthly pattern, 7/14/28 days moving average selection is also provided.
