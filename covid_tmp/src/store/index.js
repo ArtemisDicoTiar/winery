@@ -6,6 +6,7 @@ import covidDashBoard from "@/store/modules/covidDashBoard";
 
 import owidVaccination from "@/store/modules/owidVaccination";
 import owidTesting from "@/store/modules/owidTesting";
+import owidPscore from "@/store/modules/owidPscore";
 
 import googleMobility from "@/store/modules/googleMobility"
 
@@ -27,6 +28,7 @@ export default new Vuex.Store({
 
         owidVaccination: owidVaccination,
         owidTesting: owidTesting,
+        owidMortality: owidPscore,
 
         googleMobility: googleMobility,
 

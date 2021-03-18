@@ -1,8 +1,12 @@
 <template>
     <div class="content">
         <div class="md-layout">
+            <md-dialog-alert
+                    :md-active.sync="second"
+                    md-title="Post created!"
+                    md-content="Your post <strong>Material Design is awesome</strong> has been created." />
             <div
-                    class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
+                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-33"
             >
                 <chart-card
                         :chart-data="dailySalesChart.data"
@@ -29,7 +33,7 @@
                 </chart-card>
             </div>
             <div
-                    class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
+                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-33"
             >
                 <chart-card
                         :chart-data="emailsSubscriptionChart.data"
@@ -53,8 +57,34 @@
                     </template>
                 </chart-card>
             </div>
+
             <div
-                    class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
+                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-33"
+            >
+                <chart-card
+                        :chart-data="emailsSubscriptionChart.data"
+                        :chart-options="emailsSubscriptionChart.options"
+                        :chart-responsive-options="emailsSubscriptionChart.responsiveOptions"
+                        :chart-type="'Bar'"
+                        data-background-color="orange"
+                >
+                    <template slot="content">
+                        <h4 class="title">Email Subscription</h4>
+                        <p class="category">
+                            Last Campaign Performance
+                        </p>
+                    </template>
+
+                    <template slot="footer">
+                        <div class="stats">
+                            <md-icon>access_time</md-icon>
+                            updated 10 days ago
+                        </div>
+                    </template>
+                </chart-card>
+            </div>
+            <div
+                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-33"
             >
                 <chart-card
                         :chart-data="dataCompletedTasksChart.data"
@@ -78,7 +108,7 @@
                 </chart-card>
             </div>
             <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
             >
                 <stats-card data-background-color="green">
                     <template slot="header">
@@ -99,7 +129,7 @@
                 </stats-card>
             </div>
             <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
             >
                 <stats-card data-background-color="orange">
                     <template slot="header">
@@ -117,13 +147,13 @@
                     <template slot="footer">
                         <div class="stats">
                             <md-icon class="text-danger">warning</md-icon>
-                            <a href="#pablo">Get More Space...</a>
+                            <a href="#test" @click="second = true">Get More Space...</a>
                         </div>
                     </template>
                 </stats-card>
             </div>
             <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
             >
                 <stats-card data-background-color="red">
                     <template slot="header">
@@ -144,11 +174,53 @@
                 </stats-card>
             </div>
             <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
             >
                 <stats-card data-background-color="blue">
                     <template slot="header">
-                        <i class="fab fa-twitter"></i>
+                        <md-icon>no_accounts</md-icon>
+                    </template>
+
+                    <template slot="content">
+                        <p class="category">Folowers</p>
+                        <h3 class="title">+245</h3>
+                    </template>
+
+                    <template slot="footer">
+                        <div class="stats">
+                            <md-icon>update</md-icon>
+                            Just Updated
+                        </div>
+                    </template>
+                </stats-card>
+            </div>
+            <div
+                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
+            >
+                <stats-card data-background-color="blue">
+                    <template slot="header">
+                        <md-icon>map</md-icon>
+                    </template>
+
+                    <template slot="content">
+                        <p class="category">Folowers</p>
+                        <h3 class="title">+245</h3>
+                    </template>
+
+                    <template slot="footer">
+                        <div class="stats">
+                            <md-icon>update</md-icon>
+                            Just Updated
+                        </div>
+                    </template>
+                </stats-card>
+            </div>
+            <div
+                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
+            >
+                <stats-card data-background-color="blue">
+                    <template slot="header">
+                        <md-icon>directions_run</md-icon>
                     </template>
 
                     <template slot="content">
@@ -182,6 +254,7 @@
         },
         data() {
             return {
+                second: false,
                 dailySalesChart: {
                     data: {
                         labels: ["M", "T", "W", "T", "F", "S", "S"],

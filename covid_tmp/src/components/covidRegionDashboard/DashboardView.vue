@@ -17,6 +17,7 @@
             </md-app-drawer>
 
             <md-app-content style="margin-right: 16px; margin-left: 16px; overflow: visible;">
+                <dashboard-search-bar style="margin-bottom: 5%"/>
                 <dashboard/>
 
             </md-app-content>
@@ -28,8 +29,10 @@
 
     import navBar from "@/components/navBar";
     import Dashboard from "@/components/covidRegionDashboard/details/dashboard";
+    import DashboardSearchBar from "@/components/covidRegionDashboard/details/countrySearchBar";
     export default {
         components: {
+            DashboardSearchBar,
             Dashboard,
             navBar
         },

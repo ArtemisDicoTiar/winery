@@ -75,7 +75,7 @@
                             <span class="md-list-item-text">Testing</span>
                         </md-list-item>
 
-                        <md-list-item to="/post/mortality" :disabled="true">
+                        <md-list-item to="/post/mortality">
                             <md-icon>no_accounts</md-icon>
                             <span class="md-list-item-text">Mortality</span>
                         </md-list-item>

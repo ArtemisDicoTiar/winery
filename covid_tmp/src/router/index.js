@@ -14,6 +14,7 @@ import DashboardView from "@/components/covidRegionDashboard/DashboardView";
 
 import vaccinationDashboard from "@/components/covidStatusGraph/postData/vaccinationDashboard";
 import testingDashboard from "@/components/covidStatusGraph/postData/testingDashboard";
+import p_scoreDashboard from "@/components/covidStatusGraph/postData/p_scoreDashboard";
 
 import googleMobilityDashboard from "@/components/covidStatusGraph/postData/googleMobilityDashboard";
 
@@ -41,6 +42,7 @@ const routes = [
 
     { path: '/post/vaccination', component: vaccinationDashboard},
     { path: '/post/testing', component: testingDashboard},
+    { path: '/post/mortality', component: p_scoreDashboard},
     { path: '/post/mobility', component: googleMobilityDashboard},
 
     { path: '/about', component: ProjectOwner},
