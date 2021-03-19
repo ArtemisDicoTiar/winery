@@ -121,7 +121,7 @@ export default {
                             var dates = []
                             for (const date of Object.keys(response.data[0][col]).slice(7)) {
                                 var dateObj = new Date(date)
-                                dates.push(dateObj.getMonth() + '/' + dateObj.getDate())
+                                dates.push((dateObj.getMonth()+1) + '/' + dateObj.getDate())
                             }
 
                         commit('SET_DATE_RANGE', dates)
