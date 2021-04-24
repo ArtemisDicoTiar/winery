@@ -67,8 +67,15 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-03-18">
+                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-04-24">
                         <md-steppers md-vertical>
+                            <md-step md-label="Correlation Data analysis Backup 1" md-description="(2021-04-24)"><p>
+                                Correlation information backup process begins.<br/>
+                                The correlation with world's statistics is now added to new page (visible on tabs).<br/>
+                                However, the automation is delayed due to API server's code refactoring.<br/>
+                                Next data analysis page update will be done with public health data as planned on future updates.<br/>
+                            </p></md-step>
+
                             <md-step md-label="Mortality/p-score graph page" md-description="(2021-03-18)"><p>
                                 People's Mortality information collected by OWID is now available to view..
                                 As the data have some weekly pattern, 7 days moving average selection is also provided.

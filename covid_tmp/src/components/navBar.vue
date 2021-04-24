@@ -91,6 +91,30 @@
                         </md-list-item>
                     </md-list>
                 </md-list-item>
+
+                <md-list-item md-expand>
+                    <md-icon>science</md-icon>
+                    <span class="md-list-item-text">Data Analysis</span>
+
+                    <md-list slot="md-expand">
+                        <md-list-item to="/analysis/corr">
+                            <md-icon>insights</md-icon>
+                            <span class="md-list-item-text">Correlation <br>(World Stats)</span>
+                        </md-list-item>
+
+                        <md-list-item to="" :disabled="true">
+                            <md-icon>local_hospital</md-icon>
+                            <span class="md-list-item-text">Correlation <br>(Public Health)</span>
+                        </md-list-item>
+
+                        <md-list-item to="" :disabled="true">
+                            <md-icon>model_training</md-icon>
+                            <span class="md-list-item-text">Forecasting<br>Model Study</span>
+                        </md-list-item>
+
+                    </md-list>
+                </md-list-item>
+
             </md-list>
 
 

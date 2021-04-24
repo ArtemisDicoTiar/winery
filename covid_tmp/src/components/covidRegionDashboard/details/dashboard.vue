@@ -5,252 +5,123 @@
                     :md-active.sync="second"
                     md-title="Post created!"
                     md-content="Your post <strong>Material Design is awesome</strong> has been created." />
-            <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-            >
-                <chart-card
-                        :chart-data="dailySalesChart.data"
-                        :chart-options="dailySalesChart.options"
-                        :chart-type="'Line'"
-                        data-background-color="blue"
-                >
-                    <template slot="content">
-                        <h4 class="title">Daily Sales</h4>
-                        <p class="category">
-              <span class="text-success"
-              ><i class="fas fa-long-arrow-alt-up"></i> 55%
-              </span>
-                            increase in today sales.
-                        </p>
-                    </template>
+            <graphCardCustom
+                    card-color="purple"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
+            />
+            <graphCardCustom
+                    card-color="blue"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
+            />
+            <graphCardCustom
+                    card-color="red"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="30/03/2021"
+                    graph-type="Bar"
+                    :graph-data="emailsSubscriptionChart.data"
+                    :graph-options="emailsSubscriptionChart.options"
+            />
+            <graphCardCustom
+                    card-color="orange"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
+            />
+            <graphCardCustom
+                    card-color="green"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
+            />
+            <graphCardCustom
+                    card-color="gray"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
+            />
 
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>access_time</md-icon>
-                            updated 4 minutes ago
-                        </div>
-                    </template>
-                </chart-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-            >
-                <chart-card
-                        :chart-data="emailsSubscriptionChart.data"
-                        :chart-options="emailsSubscriptionChart.options"
-                        :chart-responsive-options="emailsSubscriptionChart.responsiveOptions"
-                        :chart-type="'Bar'"
-                        data-background-color="red"
-                >
-                    <template slot="content">
-                        <h4 class="title">Email Subscription</h4>
-                        <p class="category">
-                            Last Campaign Performance
-                        </p>
-                    </template>
 
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>access_time</md-icon>
-                            updated 10 days ago
-                        </div>
-                    </template>
-                </chart-card>
-            </div>
-
-            <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-            >
-                <chart-card
-                        :chart-data="emailsSubscriptionChart.data"
-                        :chart-options="emailsSubscriptionChart.options"
-                        :chart-responsive-options="emailsSubscriptionChart.responsiveOptions"
-                        :chart-type="'Bar'"
-                        data-background-color="orange"
-                >
-                    <template slot="content">
-                        <h4 class="title">Email Subscription</h4>
-                        <p class="category">
-                            Last Campaign Performance
-                        </p>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>access_time</md-icon>
-                            updated 10 days ago
-                        </div>
-                    </template>
-                </chart-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-            >
-                <chart-card
-                        :chart-data="dataCompletedTasksChart.data"
-                        :chart-options="dataCompletedTasksChart.options"
-                        :chart-type="'Line'"
-                        data-background-color="green"
-                >
-                    <template slot="content">
-                        <h4 class="title">Completed Tasks</h4>
-                        <p class="category">
-                            Last Campaign Performance
-                        </p>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>access_time</md-icon>
-                            campaign sent 26 minutes ago
-                        </div>
-                    </template>
-                </chart-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
-            >
-                <stats-card data-background-color="green">
-                    <template slot="header">
-                        <md-icon>store</md-icon>
-                    </template>
-
-                    <template slot="content">
-                        <p class="category">Revenue</p>
-                        <h3 class="title">$34,245</h3>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>date_range</md-icon>
-                            Last 24 Hours
-                        </div>
-                    </template>
-                </stats-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
-            >
-                <stats-card data-background-color="orange">
-                    <template slot="header">
-                        <md-icon>content_copy</md-icon>
-                    </template>
-
-                    <template slot="content">
-                        <p class="category">Used Space</p>
-                        <h3 class="title">
-                            49/50
-                            <small>GB</small>
-                        </h3>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon class="text-danger">warning</md-icon>
-                            <a href="#test" @click="second = true">Get More Space...</a>
-                        </div>
-                    </template>
-                </stats-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
-            >
-                <stats-card data-background-color="red">
-                    <template slot="header">
-                        <md-icon>info_outline</md-icon>
-                    </template>
-
-                    <template slot="content">
-                        <p class="category">Fixed Issues</p>
-                        <h3 class="title">75</h3>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>local_offer</md-icon>
-                            Tracked from Github
-                        </div>
-                    </template>
-                </stats-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
-            >
-                <stats-card data-background-color="blue">
-                    <template slot="header">
-                        <md-icon>no_accounts</md-icon>
-                    </template>
-
-                    <template slot="content">
-                        <p class="category">Folowers</p>
-                        <h3 class="title">+245</h3>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>update</md-icon>
-                            Just Updated
-                        </div>
-                    </template>
-                </stats-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
-            >
-                <stats-card data-background-color="blue">
-                    <template slot="header">
-                        <md-icon>map</md-icon>
-                    </template>
-
-                    <template slot="content">
-                        <p class="category">Folowers</p>
-                        <h3 class="title">+245</h3>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>update</md-icon>
-                            Just Updated
-                        </div>
-                    </template>
-                </stats-card>
-            </div>
-            <div
-                    class="md-layout-item md-medium-size-33 md-xsmall-size-50 md-size-25"
-            >
-                <stats-card data-background-color="blue">
-                    <template slot="header">
-                        <md-icon>directions_run</md-icon>
-                    </template>
-
-                    <template slot="content">
-                        <p class="category">Folowers</p>
-                        <h3 class="title">+245</h3>
-                    </template>
-
-                    <template slot="footer">
-                        <div class="stats">
-                            <md-icon>update</md-icon>
-                            Just Updated
-                        </div>
-                    </template>
-                </stats-card>
-            </div>
+            <statsCardCustom
+                    top-icon="content_copy"
+                    card-color="orange"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="warning"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="info_outline"
+                    card-color="red"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="local_offer"
+                    footer-content="Tracked from Github"
+            />
+            <statsCardCustom
+                    top-icon="no_accounts"
+                    card-color="blue"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="Just Updated"
+            />
+            <statsCardCustom
+                    top-icon="map"
+                    card-color="purple"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="directions_run"
+                    card-color="gray"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="directions_run"
+                    card-color="blue"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
 
         </div>
     </div>
 </template>
 
 <script>
-    import {
-        StatsCard,
-        ChartCard,
-    } from "@/components/prebuilts";
+    import graphCardCustom from "@/components/covidRegionDashboard/details/graphCardCustom";
+    import statsCardCustom from "@/components/covidRegionDashboard/details/statsCardCustom";
 
     export default {
         components: {
-            StatsCard,
-            ChartCard,
+            statsCardCustom,
+            graphCardCustom
         },
         data() {
             return {

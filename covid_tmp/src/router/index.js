@@ -18,6 +18,8 @@ import p_scoreDashboard from "@/components/covidStatusGraph/postData/p_scoreDash
 
 import googleMobilityDashboard from "@/components/covidStatusGraph/postData/googleMobilityDashboard";
 
+import corr from "@/components/covidStatusGraph/analysisPage/corr";
+
 import ProjectOwner from "@/components/ProjectOwner";
 import error404 from "@/components/error404";
 
@@ -45,14 +47,13 @@ const routes = [
     { path: '/post/mortality', component: p_scoreDashboard},
     { path: '/post/mobility', component: googleMobilityDashboard},
 
+    { path: '/analysis/corr', component: corr},
+
     { path: '/about', component: ProjectOwner},
     { path: '*', component: error404}
 
 ]
 
-// 3. `routes` 옵션과 함께 router 인스턴스를 만드세요.
-// 추가 옵션을 여기서 전달해야합니다.
-// 지금은 간단하게 유지하겠습니다.
 const router = new VueRouter({
     mode: 'history',
     routes // `routes: routes`의 줄임
