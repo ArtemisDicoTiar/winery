@@ -20,6 +20,16 @@
                     COVID DATA Analysis Home page.<br/>
                 </span>
                 <br/>
+                <md-toolbar class="md-accent">
+                    <span class="md-title">** Notice **</span>
+                </md-toolbar>
+                <md-toolbar style="margin-bottom: 30px">
+                        <span class="md-subheading">
+                            Maintenance scheduled on May.<br/>
+                            The crawler's data is frozen on 4/30~5/1, due to airflow server is stopped. <br/>
+                            Further update will be processed after maintenance finishes.<br/>
+                        </span>
+                </md-toolbar>
                 <md-divider/>
                 <br/>
                 <mainPageProcessorTable/>

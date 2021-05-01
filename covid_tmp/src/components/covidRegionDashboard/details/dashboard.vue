@@ -1,6 +1,72 @@
 <template>
     <div class="content">
         <div class="md-layout">
+            <statsCardCustom
+                    top-icon="content_copy"
+                    card-color="orange"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="warning"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="info_outline"
+                    card-color="red"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="local_offer"
+                    footer-content="Tracked from Github"
+            />
+            <statsCardCustom
+                    top-icon="no_accounts"
+                    card-color="blue"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="Just Updated"
+            />
+            <statsCardCustom
+                    top-icon="map"
+                    card-color="purple"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="directions_run"
+                    card-color="gray"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="directions_run"
+                    card-color="blue"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="directions_run"
+                    card-color="gray"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+            <statsCardCustom
+                    top-icon="directions_run"
+                    card-color="blue"
+                    title="mobility"
+                    details="+245"
+                    footer-icon="update"
+                    footer-content="23/03/2021"
+            />
+
+
             <md-dialog-alert
                     :md-active.sync="second"
                     md-title="Post created!"
@@ -59,56 +125,28 @@
                     :graph-data="dailySalesChart.data"
                     :graph-options="dailySalesChart.options"
             />
-
-
-            <statsCardCustom
-                    top-icon="content_copy"
-                    card-color="orange"
-                    title="mobility"
-                    details="+245"
-                    footer-icon="warning"
-                    footer-content="23/03/2021"
+            <graphCardCustom
+                    card-color="green"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
             />
-            <statsCardCustom
-                    top-icon="info_outline"
-                    card-color="red"
-                    title="mobility"
-                    details="+245"
-                    footer-icon="local_offer"
-                    footer-content="Tracked from Github"
-            />
-            <statsCardCustom
-                    top-icon="no_accounts"
-                    card-color="blue"
-                    title="mobility"
-                    details="+245"
-                    footer-icon="update"
-                    footer-content="Just Updated"
-            />
-            <statsCardCustom
-                    top-icon="map"
-                    card-color="purple"
-                    title="mobility"
-                    details="+245"
-                    footer-icon="update"
-                    footer-content="23/03/2021"
-            />
-            <statsCardCustom
-                    top-icon="directions_run"
+            <graphCardCustom
                     card-color="gray"
-                    title="mobility"
-                    details="+245"
-                    footer-icon="update"
-                    footer-content="23/03/2021"
+                    title="Confirmed Cases"
+                    details="Reported Confirmed Cases"
+                    updated="29/03/2021"
+                    graph-type="Line"
+                    :graph-data="dailySalesChart.data"
+                    :graph-options="dailySalesChart.options"
             />
-            <statsCardCustom
-                    top-icon="directions_run"
-                    card-color="blue"
-                    title="mobility"
-                    details="+245"
-                    footer-icon="update"
-                    footer-content="23/03/2021"
-            />
+
+
+
+
 
         </div>
     </div>
