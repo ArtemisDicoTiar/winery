@@ -25,9 +25,10 @@
                 </md-toolbar>
                 <md-toolbar style="margin-bottom: 30px">
                         <span class="md-subheading">
-                            Maintenance scheduled on May.<br/>
-                            The crawler's data is frozen on 4/30~5/1, due to airflow server is stopped. <br/>
-                            Further update will be processed after maintenance finishes.<br/>
+                            Now airflow server is fixed. The recent data is now being crawled.<br/>
+                            However, due to enhancement planned for both crawler and API server, both webpage view (node server) and crawler (Airflow ETL) can be unstable at some point.<br/>
+                            If the server does not shows more recent data or view, please wait for few hours~days.<br/>
+                            The issue will be fixed or new feature will be applied ASAP.<br/>
                         </span>
                 </md-toolbar>
                 <md-divider/>
