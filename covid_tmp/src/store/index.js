@@ -12,6 +12,8 @@ import googleMobility from "@/store/modules/googleMobility"
 
 import airflowApi from "@/store/modules/airflowApi";
 
+import totalDashBoard from "@/store/modules/totalDashBoard";
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -31,6 +33,8 @@ export default new Vuex.Store({
         owidMortality: owidPscore,
 
         googleMobility: googleMobility,
+
+        totalDashBoard: totalDashBoard,
 
         airflowApi: airflowApi
     }

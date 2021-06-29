@@ -1,13 +1,13 @@
 //variables and mixins
-@import "md/variables";
-@import "md/mixins";
-@import "md/shadows";
+@import "./scss/md/variables";
+@import "./scss/md/mixins";
+@import "./scss/md/shadows";
 
 //plugin css
-@import "md/plugins/_perfect-scrollbar";
+@import "./scss/md/plugins/_perfect-scrollbar";
 
-@import "md/chartist";
-@import "md/cards";
+@import "./scss/md/chartist";
+@import "./scss/md/cards";
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 

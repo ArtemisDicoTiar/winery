@@ -65,12 +65,9 @@
                     footer-icon="update"
                     footer-content="23/03/2021"
             />
+        </div>
 
-
-            <md-dialog-alert
-                    :md-active.sync="second"
-                    md-title="Post created!"
-                    md-content="Your post <strong>Material Design is awesome</strong> has been created." />
+        <div class="md-layout">
             <graphCardCustom
                     card-color="purple"
                     title="Confirmed Cases"

@@ -8,9 +8,11 @@ import Chartist from "chartist";
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
+import CountryFlag from 'vue-country-flag'
 
+Vue.component('country-flag', CountryFlag)
 // import 'vue-material/dist/theme/default.css'
-import './assets/scss/customTheme.scss'
+import './assets/customTheme.scss'
 
 import vuetify from './plugins/vuetify';
 

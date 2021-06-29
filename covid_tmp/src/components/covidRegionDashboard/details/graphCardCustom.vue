@@ -1,6 +1,6 @@
 <template>
     <div
-            class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+            class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-size-33"
     >
         <chart-card
                 :chart-data="graphData"
