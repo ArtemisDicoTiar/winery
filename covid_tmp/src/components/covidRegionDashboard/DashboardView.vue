@@ -18,7 +18,8 @@
 
             <md-app-content style="margin-right: 16px; margin-left: 16px; overflow: visible;">
                 <dashboard-search-bar style="margin-bottom: 1vh"/>
-                <dashboard style="margin-left: -2vw"/>
+                <dashboard style=""/>
+<!--                margin-left: -1vw-->
 
             </md-app-content>
         </md-app>

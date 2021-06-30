@@ -16,6 +16,7 @@
     "chart.js": "^2.9.4",
     "chartist": "^0.11.4",
     "core-js": "^3.7.0",
+    "easy-circular-progress": "^1.0.4",
     "jquery": "^1.12.4",
     "nouislider": "^14.6.4",
     "sma": "^0.1.1",

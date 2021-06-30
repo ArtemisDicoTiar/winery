@@ -6,6 +6,12 @@ export default {
         loading: false,
         longLat: {},
 
+        location: {
+            continent: '',
+            country: {},
+            sub_division: {}
+        },
+
         continents: {},
         countries: {},
         sub_divisions: {},
@@ -34,9 +40,9 @@ export default {
             state.countries = {}
             state.sub_divisions = {}
 
-            state.continent = ''
-            state.country = ''
-            state.sub_division = ''
+            // state.continent = ''
+            // state.country = ''
+            // state.sub_division = ''
         },
 
         SET_LOADING: (state, status) => {state.loading = status},
@@ -50,6 +56,10 @@ export default {
         SET_CONTINENT: (state, region) => {state.continent = region},
         SET_COUNTRY: (state, region) => {state.country = region},
         SET_SUBDIVISION: (state, region) => {state.sub_division = region},
+
+        SET_LOCATION_CONTINENT: (state, region) => {state.location.continent = region},
+        SET_LOCATION_COUNTRY: (state, region) => {state.location.country = region},
+        SET_LOCATION_SUBDIVISION: (state, region) => {state.location.sub_division = region},
 
     },
     actions: {
@@ -106,8 +116,8 @@ export default {
                     if (response.status !== 200) {
                         alert('ERROR: ' + response)
                     } else {
-                        commit('SET_CONTINENT', response.data.continent)
-                        commit('SET_COUNTRY',
+                        commit('SET_LOCATION_CONTINENT', response.data.continent)
+                        commit('SET_LOCATION_COUNTRY',
                             [response.data.country].map(x=>({
                                 'code':x.code,
                                 'name':x.name,
@@ -115,7 +125,7 @@ export default {
                                 'toString':()=>x.name
                             }))[0]
                         )
-                        commit('SET_SUBDIVISION',
+                        commit('SET_LOCATION_SUBDIVISION',
                             [response.data.sub_region].map(x=>({
                                 'code':x.code,
                                 'name':x.name,

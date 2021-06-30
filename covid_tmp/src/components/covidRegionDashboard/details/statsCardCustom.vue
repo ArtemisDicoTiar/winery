@@ -1,6 +1,6 @@
 <template>
     <div
-            class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-size-33"
+            class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-size-25"
     >
         <stats-card :data-background-color="cardColor">
             <template slot="header">
@@ -10,12 +10,13 @@
             <template slot="content">
                 <p class="category">{{ title }}</p>
                 <h3 class="title">{{ details }}</h3>
+                <slot name="extra"></slot>
             </template>
 
             <template slot="footer">
                 <div class="stats">
                     <md-icon>{{ footerIcon }}</md-icon>
-                    {{ footerContent }}
+                    Last updated: {{ footerContent }}
                 </div>
             </template>
         </stats-card>

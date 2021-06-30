@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+        <covidInfos/>
         <div class="md-layout">
             <statsCardCustom
                     top-icon="content_copy"
@@ -141,10 +142,6 @@
                     :graph-options="dailySalesChart.options"
             />
 
-
-
-
-
         </div>
     </div>
 </template>
@@ -152,26 +149,54 @@
 <script>
     import graphCardCustom from "@/components/covidRegionDashboard/details/graphCardCustom";
     import statsCardCustom from "@/components/covidRegionDashboard/details/statsCardCustom";
+    import covidInfos from "@/components/covidRegionDashboard/details/covidInfos";
 
     export default {
         components: {
             statsCardCustom,
-            graphCardCustom
+            graphCardCustom,
+            covidInfos
+        },
+        computed: {
+            covid_info () {return this.$store.state.totalDashBoardData.covid.info},
+            covid_preds () {return this.$store.state.totalDashBoardData.covid.preds},
+            covid_pred_accuracy () {return this.$store.state.totalDashBoardData.covid.pred_accuracy},
+
+            mobility () {return this.$store.state.totalDashBoardData.mobility},
+
+            owid_health () {return this.$store.state.totalDashBoardData.owid.health},
+            owid_mortality () {return this.$store.state.totalDashBoardData.owid.mortality},
+            owid_testing_data () {return this.$store.state.totalDashBoardData.owid.testing.data},
+            owid_testing_meta () {return this.$store.state.totalDashBoardData.owid.testing.meta},
+            owid_vaccination_data () {return this.$store.state.totalDashBoardData.owid.vaccination.data},
+            owid_vaccination_meta () {return this.$store.state.totalDashBoardData.owid.vaccination.meta},
         },
         data() {
             return {
+                // covid_info: null,
+                // covid_preds: null,
+                // covid_pred_accuracy: null,
+                // mobility: null,
+                // owid_health: null,
+                // owid_mortality: null,
+                // owid_testing_data: null,
+                // owid_testing_meta: null,
+                // owid_vaccination_data: null,
+                // owid_vaccination_meta: null,
+
                 second: false,
                 dailySalesChart: {
                     data: {
-                        labels: ["M", "T", "W", "T", "F", "S", "S"],
-                        series: [[12, 17, 7, 17, 23, 18, 38]]
+                        points: [12, 17, 7, 17, 23, 18, 38, 27, 60],
+                        labels: ["M", "T", "W", "T", "F", "S", "S", "ㅅ", "D"],
+                        series: [[12, 17, 7, 17, 23, 18, 38, 27, 60]]
                     },
                     options: {
                         lineSmooth: this.$Chartist.Interpolation.cardinal({
                             tension: 0
                         }),
                         low: 0,
-                        high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+                        high: Math.max(12, 17, 7, 17, 23, 18, 38, 27, 60) + 5, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
                         chartPadding: {
                             top: 0,
                             right: 0,

@@ -1,6 +1,6 @@
 <template>
     <div
-            class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-size-33"
+            class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-size-25"
     >
         <chart-card
                 :chart-data="graphData"
@@ -17,11 +17,16 @@
 
             <template slot="footer">
                 <div class="stats">
-                    <md-icon>access_time</md-icon>
+                    <md-icon>update</md-icon>
                     Last updated: {{ updated }}
                 </div>
+                <md-button class="md-fab md-dense md-accent" style="min-width: 0%">
+                    <md-tooltip md-direction="buttom"><span class="md-subheading">Details</span></md-tooltip>
+                    <md-icon class="md-size-1x" style="margin-top: 30%">dashboard</md-icon>
+                </md-button>
             </template>
         </chart-card>
+
     </div>
 </template>
 <script>

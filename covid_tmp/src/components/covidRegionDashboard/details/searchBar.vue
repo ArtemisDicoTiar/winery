@@ -24,7 +24,7 @@
             </div>
 
             <div class="md-layout-item md-xsmall-size-80 md-medium-size-25 md-size-25" style="margin-left: 5vw"
-                 v-if="(isContinentSelected(this.continents, this.continent)) || locationClicked"
+                 v-if="(isContinentSelected(this.continents, this.continent))"
             >
                 <md-autocomplete
                         v-if="isContinentSelected(this.continents, this.continent)"
@@ -50,7 +50,7 @@
                 </md-autocomplete>
             </div>
             <div class="md-layout-item md-xsmall-size-80 md-medium-size-25 md-size-25" style="margin-left: 5vw"
-                 v-if="isUKSelected(this.country, this.sub_divisions) || locationClicked"
+                 v-if="isUKSelected(this.country, this.sub_divisions)"
             >
                 <md-autocomplete
                         v-if="isUKSelected(this.country, this.sub_divisions)"
@@ -77,7 +77,7 @@
                 <md-button class="md-fab md-dense" @click="searchRequestedLocation">
                     <md-icon>search</md-icon>
                 </md-button>
-                <md-button class="md-fab md-dense" @click="searchCurrentLocation">
+                <md-button class="md-fab md-dense" @click="currentLocationClicked">
                     <md-tooltip md-direction="top"><span class="md-subheading">Search Current Location</span></md-tooltip>
                     <md-icon>my_location</md-icon>
                 </md-button>
@@ -95,7 +95,7 @@
             this.continent = null
             this.country = null
             this.ukSubdivisionRegion = null
-
+            // this.searchCurrentLocation()
         },
         computed: {
             continents () {
@@ -115,8 +115,8 @@
                     this.continent = null
                     this.country = null
                     this.ukSubdivisionRegion = null
-
                     this.sub_divisions = null
+                    this.$store.commit('totalDashBoardData/SET_CLEAR')
                 } else {
                     if (this.isContinentExist(val, this.continents)) {
                         this.$store.commit('totalDashBoard/SET_CONTINENT', val)
@@ -130,6 +130,7 @@
                     this.$store.commit('totalDashBoard/SET_COUNTRY', null)
                     this.country = null
                     this.ukSubdivisionRegion = null
+                    this.$store.commit('totalDashBoardData/SET_CLEAR')
                 } else {
                     if (this.isIncluded(val.code, this.countries)) {
                         this.$store.commit('totalDashBoard/SET_COUNTRY', val)
@@ -140,10 +141,21 @@
                     }
 
                 }
+            },
+            ukSubdivisionRegion (val) {
+                if (val === '' || val === null) {
+                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', null)
+                    this.ukSubdivisionRegion = null
+                    this.$store.commit('totalDashBoardData/SET_CLEAR')
+                } else {
+                    if (this.isIncluded(val.code, this.sub_divisions)) {
+                        this.$store.commit('totalDashBoard/SET_SUBDIVISION', val)
+                        this.ukSubdivisionRegion = this.$store.state.totalDashBoard.sub_division
+                    }
+                }
             }
         },
         methods: {
-            onSelect () {  },
             isIncluded(code, ary) {
                 for (var i = 0; i < ary.length; i++) {
                     if (ary[i].code === code) return true
@@ -170,9 +182,6 @@
             },
             searchCurrentLocation() {
                 let store = this.$store
-                this.continent = ''
-                this.country = ''
-                this.ukSubdivisionRegion = ''
 
                 if ("geolocation" in navigator) { // check if geolocation is supported
                     navigator.geolocation.getCurrentPosition(
@@ -187,22 +196,39 @@
                         }
                     )
                 }
-                this.continent = ''
-                this.continent = this.$store.state.totalDashBoard.continent
-                this.country = ''
-                this.country = this.$store.state.totalDashBoard.country
-                this.ukSubdivisionRegion = ''
-                this.ukSubdivisionRegion = this.$store.state.totalDashBoard.sub_division
+            },
+            currentLocationClicked() {
+                this.continent = this.$store.state.totalDashBoard.location.continent
+                this.country = this.$store.state.totalDashBoard.location.country
+                this.ukSubdivisionRegion = this.$store.state.totalDashBoard.location.sub_division
+
+                this.$store.commit('totalDashBoard/SET_CONTINENT', this.continent)
+                this.$store.commit('totalDashBoard/SET_COUNTRY', this.country)
+                this.$store.commit('totalDashBoard/SET_SUBDIVISION', this.ukSubdivisionRegion)
+
             },
             searchRequestedLocation() {
+                this.$store.dispatch('totalDashBoardData/REQUEST_COVID_INFO')
+                this.$store.dispatch('totalDashBoardData/REQUEST_COVID_PREDS')
+                this.$store.dispatch('totalDashBoardData/REQUEST_COVID_ACCURACY')
 
+                this.$store.dispatch('totalDashBoardData/REQUEST_GOOGLE_MOBILITY')
+
+                this.$store.dispatch('totalDashBoardData/REQUEST_OWID_HEALTH')
+                this.$store.dispatch('totalDashBoardData/REQUEST_OWID_MORTALITY')
+                this.$store.dispatch('totalDashBoardData/REQUEST_OWID_TESTING')
+                this.$store.dispatch('totalDashBoardData/REQUEST_OWID_VACCINATION')
             }
         },
         data: () => ({
             continent: null,
             country: null,
             ukSubdivisionRegion: null,
-            locationClicked: false,
+            location: {
+                continent: '',
+                country: {},
+                ukSubdivisionRegion: {},
+            }
 
         })
     }
