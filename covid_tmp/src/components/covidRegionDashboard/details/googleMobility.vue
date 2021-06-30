@@ -1,100 +1,123 @@
 <template>
-    <md-card class="content" style="background: #006064; width: 100%; margin-left: 0">
+    <md-card class="content" style="background: #205e82; width: 100%; margin-left: 0">
         <span class="md-title" style="margin-left: 1%">
-                <md-icon>coronavirus</md-icon>
+                <md-icon>directions_run</md-icon>
                 Google Mobility Information
             </span>
         <div style="margin-bottom: 1vh"/>
-        <div style="margin-right: 4%" v-if="isDataLoaded ">
+        <div style="margin-right: 4%" v-if="isDataLoaded">
             <div class="md-layout">
                 <statsCardCustom
-                        top-icon="how_to_reg"
+                        top-icon="storefront"
                         card-color="red"
-                        title="New Confirmed Cases"
-                        :details="covid_confirmed.delta"
+                        title="Retail and Recreation Visit Rate"
+                        :details="(mobility['retail_and_recreation_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
+                        + mobility['retail_and_recreation_percent_change_from_baseline'].slice(-1)[0] + '%'"
                         footer-icon="update"
-                        :footer-content="covid_confirmed.data.labels.slice(-1)[0]"
+                        :footer-content="mobility.date.slice(-1)[0]"
                 />
                 <statsCardCustom
-                        top-icon="person_off"
+                        top-icon="local_grocery_store"
+                        card-color="orange"
+                        title="Grocery and Pharmarcy Visit Rate"
+                        :details="(mobility['grocery_and_pharmacy_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
+                        + mobility['grocery_and_pharmacy_percent_change_from_baseline'].slice(-1)[0] + '%'"
+                        footer-icon="update"
+                        :footer-content="mobility.date.slice(-1)[0]"
+                />
+                <statsCardCustom
+                        top-icon="park"
+                        card-color="green"
+                        title="Park Visit Rate"
+                        :details="(mobility['parks_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
+                        + mobility['parks_percent_change_from_baseline'].slice(-1)[0] + '%'"
+                        footer-icon="update"
+                        :footer-content="mobility.date.slice(-1)[0]"
+                />
+                <statsCardCustom
+                        top-icon="tram"
+                        card-color="blue"
+                        title="Transit Stations Visit Rate"
+                        :details="(mobility['transit_stations_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
+                        + mobility['transit_stations_percent_change_from_baseline'].slice(-1)[0] + '%'"
+                        footer-icon="update"
+                        :footer-content="mobility.date.slice(-1)[0]"
+                />
+                <statsCardCustom
+                        top-icon="work_outline"
                         card-color="purple"
-                        title="New Death Cases"
-                        :details="covid_deaths.delta"
+                        title="Workplace Visit Rate"
+                        :details="(mobility['workplaces_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
+                        + mobility['workplaces_percent_change_from_baseline'].slice(-1)[0] + '%'"
                         footer-icon="update"
-                        :footer-content="covid_deaths.data.labels.slice(-1)[0]"
+                        :footer-content="mobility.date.slice(-1)[0]"
                 />
                 <statsCardCustom
-                        top-icon="person_off"
+                        top-icon="home"
                         card-color="gray"
-                        title="Confirmed Cases Prediction (Today)"
-                        :details="covid_preds.delta"
+                        title="Residential Place Visit Rate"
+                        :details="(mobility['residential_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
+                        + mobility['residential_percent_change_from_baseline'].slice(-1)[0] + '%'"
                         footer-icon="update"
-                        :footer-content="covid_deaths.data.labels.slice(-1)[0]"
+                        :footer-content="mobility.date.slice(-1)[0]"
                 />
-                <statsCardCustom
-                        top-icon="person_off"
-                        card-color="gray"
-                        title="Prediction Accuracy"
-                        details=""
-                        footer-icon="update"
-                        :footer-content="covid_deaths.data.labels.slice(-1)[0]"
-                >
-                    <template slot="extra" style="justify-content: space-between;">
-                        <div style="justify-content: space-around; align-items: center; text-align: center; display: flex;">
-                            <Progress
-                                    :transitionDuration="5000"
-                                    :radius="40"
-                                    :strokeWidth="7"
-                                    strokeColor="#BF360C"
-                                    :value="covid_pred_accuracy.yesterday_accuracy[0]"
-                            >
-                                <template v-slot:footer>
-                                    <b>Yesterday</b>
-                                </template>
-                            </Progress>
-                            <Progress
-                                    :transitionDuration="5000"
-                                    :radius="40"
-                                    :strokeWidth="7"
-                                    :stroke="rgb(255, 153, 153)"
-                                    :value="covid_pred_accuracy.lastweek_accuracy[0]"
-                            >
-                                <template v-slot:footer>
-                                    <b>Lastweek</b>
-                                </template>
-                            </Progress>
-                        </div>
-                    </template>
-                </statsCardCustom>
+
             </div>
 
             <div class="md-layout">
                 <graphCardCustom
                         card-color="red"
-                        :title="'Cumulative Confirmed Cases ['+covid_confirmed.unit.unit+']'"
-                        details="This graph informs the cumulative confirmed cases."
-                        :updated="covid_confirmed.data.labels.slice(-1)[0]"
+                        title="Retail and Recreation Visit Rate"
+                        details=""
+                        :updated="retail.data.labels.slice(-1)[0]"
                         graph-type="Line"
-                        :graph-data="covid_confirmed.data"
-                        :graph-options="covid_confirmed.option"
+                        :graph-data="retail.data"
+                        :graph-options="retail.option"
+                />
+                <graphCardCustom
+                        card-color="orange"
+                        title="Grocery and Pharmarcy Visit Rate"
+                        details="This graph informs the cumulative confirmed cases."
+                        :updated="grocery.data.labels.slice(-1)[0]"
+                        graph-type="Line"
+                        :graph-data="grocery.data"
+                        :graph-options="grocery.option"
+                />
+                <graphCardCustom
+                        card-color="green"
+                        title="Park Visit Rate"
+                        details="This graph informs the cumulative confirmed cases."
+                        :updated="park.data.labels.slice(-1)[0]"
+                        graph-type="Line"
+                        :graph-data="park.data"
+                        :graph-options="park.option"
+                />
+                <graphCardCustom
+                        card-color="blue"
+                        title="Transit Stations Visit Rate"
+                        details="This graph informs the cumulative confirmed cases."
+                        :updated="transit.data.labels.slice(-1)[0]"
+                        graph-type="Line"
+                        :graph-data="transit.data"
+                        :graph-options="transit.option"
                 />
                 <graphCardCustom
                         card-color="purple"
-                        :title="'Cumulative Death Cases ['+covid_deaths.unit.unit+']'"
-                        details="This graph shows the reported cumulative death cases."
-                        :updated="covid_deaths.data.labels.slice(-1)[0]"
+                        title="Workplace Visit Rate"
+                        details="This graph informs the cumulative confirmed cases."
+                        :updated="work.data.labels.slice(-1)[0]"
                         graph-type="Line"
-                        :graph-data="covid_deaths.data"
-                        :graph-options="covid_deaths.option"
+                        :graph-data="work.data"
+                        :graph-options="work.option"
                 />
                 <graphCardCustom
                         card-color="gray"
-                        :title="'Predicted Cumulative Confirmed Cases ['+covid_deaths.unit.unit+']'"
-                        details="This graph illustrates how the confirmed cases increases after 5days since today."
-                        :updated="covid_deaths.data.labels.slice(-1)[0]"
+                        title="Residential Place Visit Rate"
+                        details="This graph informs the cumulative confirmed cases."
+                        :updated="home.data.labels.slice(-1)[0]"
                         graph-type="Line"
-                        :graph-data="covid_preds.data"
-                        :graph-options="covid_preds.option"
+                        :graph-data="home.data"
+                        :graph-options="home.option"
                 />
             </div>
 
@@ -107,56 +130,30 @@
 <script>
     import graphCardCustom from "@/components/covidRegionDashboard/details/graphCardCustom";
     import statsCardCustom from "@/components/covidRegionDashboard/details/statsCardCustom";
-    import Progress from "easy-circular-progress";
+    var sma = require('sma');
 
     export default {
         components: {
             statsCardCustom,
             graphCardCustom,
-            Progress
         },
         methods: {
             dateConvert(dates) {
                 return dates.map(date => date.slice(5))
             },
-            data2PopulationRatio(data, population){
-                return Math.round(data/population *1000)/1000
-            },
-            dataConvert(sum, avg, data){
-                const unit = this.getUnitPrefix(avg)
-                return data.map(point => Math.round(point/unit.num * 1000)/1000)
-            },
-            getUnitPrefix(data) {
-                let units = [
-                    {num: 1, unit: 'None'},
-                    {num: 1000, unit: 'Thousands'},
-                    {num: 1000000, unit: 'Millions'},
-                    {num: 1000000000, unit: 'Billions'},
-                    {num: 1000000000000, unit: 'Trillions'}
-                ]
-                for (var i=0; i < units.length; i++) {
-                    if (data / units[i].num < 1){
-
-                        return units[i-1]
-                    }
-                }
-            },
             getGraphObject(data, field) {
-                const sum = data[field].slice(-7).reduce((a, b) => a + b, 0);
-                const avg = (sum / data[field].slice(-7).length) || 0;
-                const unitObj = this.getUnitPrefix(avg)
-
+                var dataField = sma(data[field], 7).slice(-10)
                 return {
                     data: {
-                        labels: this.dateConvert(data.date.slice(-7)),
-                        series: [this.dataConvert(sum, avg, data[field].slice(-7))]
+                        labels: this.dateConvert(data.date).slice(-10),
+                        series: [dataField]
                     },
                     option: {
                         lineSmooth: this.$Chartist.Interpolation.cardinal({
                             tension: 0
                         }),
-                        low: Math.min.apply(null, this.dataConvert(sum, avg, data[field].slice(-7))),
-                        high: Math.max.apply(null, this.dataConvert(sum, avg, data[field].slice(-7))),
+                        low: Math.min.apply(null, dataField),
+                        high: Math.max.apply(null, dataField),
                         chartPadding: {
                             top: 15,
                             right: 0,
@@ -164,65 +161,25 @@
                             left: 20
                         }
                     },
-                    delta: this.getLastDelta(data[field].slice(-7)),
-                    unit: unitObj
-                }
-
-            },
-            getPredGraphObject(data) {
-                const field = 'confirmed_prediction'
-                const sum = data[field].slice(1).reduce((a, b) => a + b, 0);
-                const avg = (sum / data[field].slice(1).length) || 0;
-                const unitObj = this.getUnitPrefix(avg)
-                const delta = Math.round(
-                    this.dataConvert(sum, avg, data[field].slice(1))[0]*unitObj.num
-                    - this.covid_confirmed.data.series[0].slice(-1)[0]*this.covid_confirmed.unit.num
-                )
-
-                return {
-                    data: {
-                        labels: this.dateConvert(data.date.slice(1)),
-                        series: [this.dataConvert(sum, avg, data[field].slice(1))]
-                    },
-                    option: {
-                        lineSmooth: this.$Chartist.Interpolation.cardinal({
-                            tension: 0
-                        }),
-                        low: Math.min.apply(null, this.dataConvert(sum, avg, data[field].slice(1))),
-                        high: Math.max.apply(null, this.dataConvert(sum, avg, data[field].slice(1))),
-                        chartPadding: {
-                            top: 15,
-                            right: 0,
-                            bottom: 5,
-                            left: 20
-                        }
-                    },
-                    delta: (delta<0?"":"+") + delta,
-                    unit: unitObj
                 }
             },
-            isDataValid(data, population) {
+            isDataValid(data) {
                 return !(data['date'] === undefined
-                    || data['confirmed'] === undefined
-                    || population['population'] === undefined);
+                    || data['retail_and_recreation_percent_change_from_baseline'] === undefined);
 
             },
-            getLastDelta(ary) {
-                var delta = (ary[ary.length - 1] - ary[ary.length - 2]).toString()
-                return (delta<0?"":"+") + delta
-            }
         },
         computed: {
-            isDataLoaded() {return this.isDataValid(this.covid_info, this.owid_health)},
-            covid_info () {return this.$store.state.totalDashBoardData.covid.info},
-            covid_confirmed () {return this.getGraphObject(this.covid_info, 'confirmed')},
-            covid_deaths () {return this.getGraphObject(this.covid_info, 'deaths')},
+            isDataLoaded() {return this.isDataValid(this.mobility)},
+            mobility () {return this.$store.state.totalDashBoardData.mobility},
 
-            covid_preds () {return this.getPredGraphObject(this.$store.state.totalDashBoardData.covid.preds, this.owid_health)},
+            retail () {return this.getGraphObject(this.mobility, 'retail_and_recreation_percent_change_from_baseline')},
+            grocery () {return this.getGraphObject(this.mobility, 'grocery_and_pharmacy_percent_change_from_baseline')},
+            park () {return this.getGraphObject(this.mobility, 'parks_percent_change_from_baseline')},
+            transit () {return this.getGraphObject(this.mobility, 'transit_stations_percent_change_from_baseline')},
+            work () {return this.getGraphObject(this.mobility, 'workplaces_percent_change_from_baseline')},
+            home () {return this.getGraphObject(this.mobility, 'residential_percent_change_from_baseline')},
 
-            covid_pred_accuracy () {return this.$store.state.totalDashBoardData.covid.pred_accuracy},
-
-            owid_health () {return this.$store.state.totalDashBoardData.owid.health},
 
 
         },

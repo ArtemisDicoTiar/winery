@@ -24,7 +24,7 @@
                         :footer-content="covid_deaths.data.labels.slice(-1)[0]"
                 />
                 <statsCardCustom
-                        top-icon="person_off"
+                        top-icon="insights"
                         card-color="gray"
                         title="Confirmed Cases Prediction (Today)"
                         :details="covid_preds.delta"
@@ -32,8 +32,8 @@
                         :footer-content="covid_deaths.data.labels.slice(-1)[0]"
                 />
                 <statsCardCustom
-                        top-icon="person_off"
-                        card-color="gray"
+                        top-icon="data_usage"
+                        card-color="orange"
                         title="Prediction Accuracy"
                         details=""
                         footer-icon="update"
