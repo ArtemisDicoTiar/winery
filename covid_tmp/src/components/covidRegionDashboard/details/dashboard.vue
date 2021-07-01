@@ -3,15 +3,19 @@
         <covidInfos/>
         <div style="margin-top: 5%; margin-bottom: 5%"/>
         <google-mobility/>
+        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <owid-infos/>
     </div>
 </template>
 
 <script>
     import covidInfos from "@/components/covidRegionDashboard/details/covidInfos";
     import GoogleMobility from "@/components/covidRegionDashboard/details/googleMobility";
+    import OwidInfos from "@/components/covidRegionDashboard/details/owidInfos";
 
     export default {
         components: {
+            OwidInfos,
             GoogleMobility,
             covidInfos
         },

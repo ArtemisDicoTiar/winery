@@ -1,6 +1,6 @@
 <template>
     <md-card class="content" style="background: #205e82; width: 100%; margin-left: 0">
-        <span class="md-title" style="margin-left: 1%">
+        <span class="md-title" style="margin-left: 1%;">
                 <md-icon>directions_run</md-icon>
                 Google Mobility Information
             </span>

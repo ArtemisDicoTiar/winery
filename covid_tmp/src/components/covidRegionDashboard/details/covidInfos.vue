@@ -29,7 +29,7 @@
                         title="Confirmed Cases Prediction (Today)"
                         :details="covid_preds.delta"
                         footer-icon="update"
-                        :footer-content="covid_deaths.data.labels.slice(-1)[0]"
+                        :footer-content="covid_preds.data.labels.slice(-1)[0]"
                 />
                 <statsCardCustom
                         top-icon="data_usage"
@@ -69,7 +69,7 @@
             <div class="md-layout">
                 <graphCardCustom
                         card-color="red"
-                        :title="'Cumulative Confirmed Cases ['+covid_confirmed.unit.unit+']'"
+                        :title="'Cumulative Confirmed Cases '+covid_confirmed.unit.unit"
                         details="This graph informs the cumulative confirmed cases."
                         :updated="covid_confirmed.data.labels.slice(-1)[0]"
                         graph-type="Line"
@@ -78,7 +78,7 @@
                 />
                 <graphCardCustom
                         card-color="purple"
-                        :title="'Cumulative Death Cases ['+covid_deaths.unit.unit+']'"
+                        :title="'Cumulative Death Cases '+covid_deaths.unit.unit"
                         details="This graph shows the reported cumulative death cases."
                         :updated="covid_deaths.data.labels.slice(-1)[0]"
                         graph-type="Line"
@@ -87,9 +87,9 @@
                 />
                 <graphCardCustom
                         card-color="gray"
-                        :title="'Predicted Cumulative Confirmed Cases ['+covid_deaths.unit.unit+']'"
+                        :title="'Predicted Cumulative Confirmed Cases '+covid_preds.unit.unit"
                         details="This graph illustrates how the confirmed cases increases after 5days since today."
-                        :updated="covid_deaths.data.labels.slice(-1)[0]"
+                        :updated="covid_preds.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="covid_preds.data"
                         :graph-options="covid_preds.option"
@@ -126,11 +126,11 @@
             },
             getUnitPrefix(data) {
                 let units = [
-                    {num: 1, unit: 'None'},
-                    {num: 1000, unit: 'Thousands'},
-                    {num: 1000000, unit: 'Millions'},
-                    {num: 1000000000, unit: 'Billions'},
-                    {num: 1000000000000, unit: 'Trillions'}
+                    {num: 1, unit: ''},
+                    {num: 1000, unit: '[Thousands]'},
+                    {num: 1000000, unit: '[Millions]'},
+                    {num: 1000000000, unit: '[Billions]'},
+                    {num: 1000000000000, unit: '[Trillions]'}
                 ]
                 for (var i=0; i < units.length; i++) {
                     if (data / units[i].num < 1){
@@ -176,7 +176,6 @@
                     this.dataConvert(sum, avg, data[field].slice(1))[1]*unitObj.num
                     - this.covid_confirmed.data.series[0].slice(-1)[0]*this.covid_confirmed.unit.num
                 )
-
                 return {
                     data: {
                         labels: this.dateConvert(data.date.slice(1)),
@@ -201,7 +200,6 @@
             },
             isDataValid(data, population) {
                 return !(data['date'] === undefined
-                    || data['confirmed'] === undefined
                     || population['population'] === undefined);
 
             },
@@ -213,8 +211,40 @@
         computed: {
             isDataLoaded() {return this.isDataValid(this.covid_info, this.owid_health)},
             covid_info () {return this.$store.state.totalDashBoardData.covid.info},
-            covid_confirmed () {return this.getGraphObject(this.covid_info, 'confirmed')},
-            covid_deaths () {return this.getGraphObject(this.covid_info, 'deaths')},
+            covid_confirmed () {
+                if (this.$store.state.totalDashBoard.sub_division !== undefined
+                    && this.$store.state.totalDashBoard.sub_division.code !== 'all') {
+                    return this.getGraphObject(this.covid_info, 'confirmedCumulative')
+                }
+                return this.getGraphObject(this.covid_info, 'confirmed')
+            },
+            covid_deaths () {
+                if (this.$store.state.totalDashBoard.sub_division !== undefined
+                    && this.$store.state.totalDashBoard.sub_division.code !== 'all') {
+                    return {
+                        data: {
+                            labels: [],
+                            series: [[0, 0, 0, 0, 0, 0, 0]]
+                        },
+                        option: {
+                            lineSmooth: this.$Chartist.Interpolation.cardinal({
+                                tension: 0
+                            }),
+                            low: 0,
+                            high: 1,
+                            chartPadding: {
+                                top: 15,
+                                right: 0,
+                                bottom: 5,
+                                left: 20
+                            }
+                        },
+                        delta: null,
+                        unit: {unit: ''}
+                    }
+                }
+                return this.getGraphObject(this.covid_info, 'deaths')
+            },
 
             covid_preds () {return this.getPredGraphObject(this.$store.state.totalDashBoardData.covid.preds, this.owid_health)},
 
