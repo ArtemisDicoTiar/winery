@@ -1,15 +1,15 @@
 <template>
     <div class="content">
         <covidInfos/>
-        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <div style="margin-top: 2vh; margin-bottom: 2vh"/>
         <google-mobility/>
-        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <div style="margin-top: 2vh; margin-bottom: 2vh"/>
         <vaccinationInfos/>
-        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <div style="margin-top: 2vh; margin-bottom: 2vh"/>
         <testingInfos/>
-        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <div style="margin-top: 2vh; margin-bottom: 2vh"/>
         <mortalityInfos/>
-        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <div style="margin-top: 2vh; margin-bottom: 2vh"/>
         <healthInfos/>
     </div>
 </template>
