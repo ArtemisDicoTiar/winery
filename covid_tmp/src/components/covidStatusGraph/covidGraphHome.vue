@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-headline">COVID - 19 Analysis Home</span>
+                    <span class="md-title">COVID - 19 Analysis Server Status / Update History</span>
                 </div>
             </md-app-toolbar>
 
@@ -20,17 +20,7 @@
                     COVID DATA Analysis Home page.<br/>
                 </span>
                 <br/>
-                <md-toolbar class="md-accent">
-                    <span class="md-title">** Notice **</span>
-                </md-toolbar>
-                <md-toolbar style="margin-bottom: 30px">
-                        <span class="md-subheading">
-                            Now airflow server is fixed. The recent data is now being crawled.<br/>
-                            However, due to enhancement planned for both crawler and API server, both webpage view (node server) and crawler (Airflow ETL) can be unstable at some point.<br/>
-                            If the server does not shows more recent data or view, please wait for few hours~days.<br/>
-                            The issue will be fixed or new feature will be applied ASAP.<br/>
-                        </span>
-                </md-toolbar>
+
                 <md-divider/>
                 <br/>
                 <mainPageProcessorTable/>
@@ -45,27 +35,19 @@
                 <md-steppers md-vertical>
                     <md-step id="first" md-label="Future Updates" md-active-step="true" md-description="Planned features illustrated on this section">
                         <md-steppers md-vertical>
-                            <md-step id="first" md-label="Better API server with Spring(JAVA) and CI/CD with jenkins" md-description="[Back-End Update]">
-                                As Front-End is planning to update, backend api server is planned to update for better appearance not only on code but also on endpoints.<br/>
-                                Furthermore, for convenience, CI/CD tool is going to introduce for building both front-end and back-end.<br/>
-                                This back-end update is planning due by this late Winter (2021-Feb).
-                            </md-step>
-
-                            <md-step id="second" md-label="Better appearance for both desktop and mobile" md-description="[Front-End Update]">
-                                Although this page is built with vuejs ui framework, vue-material, there are some small issues to make the page clear and neat.<br/>
-                                To enhance the readability, pre-built dashboard theme will be applied to this page.<br/>
-                                Even though the pre-built theme is applied internal components will follow my previous components.<br/>
-                                This front-end update is planned due by this late Winter (2021-Feb/Mar).<br/>
+                            <md-step id="second" md-label="API Usage Simplification" md-description="[Front-End Maintenance]">
+                                Currently Two API servers are called for this page: Flask server (old), Django server (new).<br/>
+                                Both server provides same data but with slightly different format.<br/>
+                                To make project service and code more manageable, Flask server will not going to be used for this front-end.<br/>
+                                In addition, two API servers refers different data base as new simplified airflow jobs are built for Django server database.<br/>
+                                Because simplified job finishes faster than old one, Django server prints recent data faster than Flask server.<br/>
+                                After migration to Django is finished, Flask server will be deprecated and closed.<br/>
+                                Moreover, airflow jobs for Flask server database will also be stopped.<br/>
                             </md-step>
 
                             <md-step id="third" md-label="Correlation with Medical Information, Public Health Information" md-description="[Recover from ver1.]">
                                 This correlation analysis WAS on version1 of this project but removed on version2 due to backend server and database have been updated for better organisation.<br/>
                                 This correlation analysis is planning to be on this web-page again due by this Spring (2021).<br/>
-                            </md-step>
-
-                            <md-step id="fourth" md-label="Far future prediction using SEIR" md-description="[Recover from ver1.]">
-                                SEIR model was used to predict far future on version1 but has been removed on version2 due to backend renew.<br/>
-                                This analysis information is planned due by late Spring ~ early Summer (2021).<br/>
                             </md-step>
 
                             <md-step id="fifth" md-label="Better prediction using ARIMA and deep-learning" md-description="[NEW]">
@@ -78,8 +60,20 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-04-24">
+                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-07-01">
                         <md-steppers md-vertical>
+                            <md-step md-label="New Dashboard update! ByeBye old main page~" md-description="(2021-07-01)"><p>
+                                New COVID related data Dashboard is implemented.<br/>
+                                The data visualisation on previous built pages are detailed but hard to understand and hard to reach.<br/>
+                                Therefore, the new dashboard page is implemented.<br/>
+                                New region search bar provides current location search function.<br/>
+                                The dashboard shows all important information on single page as card with data and graph card.<br/>
+                                After building new dashboard, the main start page is changed to this new dashboard.<br/>
+                                The previous main page shows server status and crawler status is now moved to '/updates'<br/>
+                                Although new dashboard is implemented, the pages built previous are going to be remained.<br/>
+                                The planned maintenance for previous graph pages is api usage from flask (previous) to django (new) as django's endpoint crawl data faster.<br/>
+                            </p></md-step>
+
                             <md-step md-label="Correlation Data analysis Backup 1" md-description="(2021-04-24)"><p>
                                 Correlation information backup process begins.<br/>
                                 The correlation with world's statistics is now added to new page (visible on tabs).<br/>
@@ -137,8 +131,14 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="third" md-label="Back-End Update History" md-description="LAST UPDATE: 2021-03-08">
+                    <md-step id="third" md-label="Back-End Update History" md-description="LAST UPDATE: 2021-07-01">
                         <md-steppers md-vertical>
+                            <md-step md-label="New API Server built with Django Rest Framework" md-description="(2021-07-01)"><p>
+                                Previous API endpoint was built with Flask. <br/>
+                                The increase of endpoint led to increase of difficulty of API server code management.<br/>
+                                Now the endpoints are implemented more clear and simple.<br/>
+                                The new API endpoint can be found <a href="http://johnspring.eu.ngrok.io/api/docs/">here</a>.
+                            </p></md-step>
                             <md-step md-label="Vaccination, testing, mortality and mobility information endpoint added on API" md-description="(2021-03-08)"><p>
                                 Now api server provides vaccination, testing and p_score information based on crawled data from OWID.<br/>
                                 regional information is also provided based on OWID data.<br/>

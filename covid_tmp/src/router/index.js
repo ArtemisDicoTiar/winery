@@ -29,9 +29,9 @@ Vue.use(VueRouter)
 
 const routes = [
 
-    { path: '/', component: Home },
+    { path: '/', component: DashboardView },
 
-    { path: '/dashboard', component: DashboardView},
+    { path: '/updates', component: Home},
 
     { path: '/global', redirect: '/global/dashboard'},
     { path: '/global/dashboard', component: covidGlobalDashboard},

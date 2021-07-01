@@ -95,7 +95,7 @@
             this.continent = null
             this.country = null
             this.ukSubdivisionRegion = null
-            // this.searchCurrentLocation()
+            this.searchCurrentLocation()
         },
         computed: {
             continents () {

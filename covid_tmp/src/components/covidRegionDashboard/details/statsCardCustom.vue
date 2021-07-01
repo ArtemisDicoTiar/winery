@@ -2,7 +2,6 @@
     <div
             class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-size-25"
     >
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <stats-card :data-background-color="cardColor">
             <template slot="header">
                 <md-icon v-if="topIcon.includes('fas') || topIcon.includes('fab')" :class="topIcon"></md-icon>

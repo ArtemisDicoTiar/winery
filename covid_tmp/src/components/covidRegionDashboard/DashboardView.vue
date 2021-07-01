@@ -7,7 +7,7 @@
                         <md-icon>menu</md-icon>
                     </md-button>
 
-                    <span class="md-title">COVID - 19 Dashboard</span>
+                    <span class="md-headline">COVID - 19 Dashboard</span>
 
                 </div>
             </md-app-toolbar>
@@ -19,7 +19,6 @@
             <md-app-content style="margin-right: 16px; margin-left: 16px; overflow: visible;">
                 <dashboard-search-bar style="margin-bottom: 1vh"/>
                 <dashboard style=""/>
-<!--                margin-left: -1vw-->
 
             </md-app-content>
         </md-app>
