@@ -4,39 +4,32 @@
         <div style="margin-top: 5%; margin-bottom: 5%"/>
         <google-mobility/>
         <div style="margin-top: 5%; margin-bottom: 5%"/>
-        <owid-infos/>
+        <vaccinationInfos/>
+        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <testingInfos/>
+        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <mortalityInfos/>
+        <div style="margin-top: 5%; margin-bottom: 5%"/>
+        <healthInfos/>
     </div>
 </template>
 
 <script>
     import covidInfos from "@/components/covidRegionDashboard/details/covidInfos";
     import GoogleMobility from "@/components/covidRegionDashboard/details/googleMobility";
-    import OwidInfos from "@/components/covidRegionDashboard/details/owidInfos";
+    import vaccinationInfos from "@/components/covidRegionDashboard/details/owid/vaccinationInfos";
+    import testingInfos from "@/components/covidRegionDashboard/details/owid/testingInfos";
+    import mortalityInfos from "@/components/covidRegionDashboard/details/owid/mortalityInfos";
+    import healthInfos from "@/components/covidRegionDashboard/details/owid/healthInfos";
 
     export default {
         components: {
-            OwidInfos,
+            covidInfos,
             GoogleMobility,
-            covidInfos
+            vaccinationInfos,
+            testingInfos,
+            mortalityInfos,
+            healthInfos,
         },
-        computed: {
-            covid_info () {return this.$store.state.totalDashBoardData.covid.info},
-            covid_preds () {return this.$store.state.totalDashBoardData.covid.preds},
-            covid_pred_accuracy () {return this.$store.state.totalDashBoardData.covid.pred_accuracy},
-
-            mobility () {return this.$store.state.totalDashBoardData.mobility},
-
-            owid_health () {return this.$store.state.totalDashBoardData.owid.health},
-            owid_mortality () {return this.$store.state.totalDashBoardData.owid.mortality},
-            owid_testing_data () {return this.$store.state.totalDashBoardData.owid.testing.data},
-            owid_testing_meta () {return this.$store.state.totalDashBoardData.owid.testing.meta},
-            owid_vaccination_data () {return this.$store.state.totalDashBoardData.owid.vaccination.data},
-            owid_vaccination_meta () {return this.$store.state.totalDashBoardData.owid.vaccination.meta},
-        },
-        data() {
-            return {
-
-            };
-        }
     };
 </script>

@@ -85,16 +85,16 @@ export default {
                 || rootState.totalDashBoard.sub_division.code === 'all'){
                 await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/cases`,
                     {params: {CountryCode: rootState.totalDashBoard.country.code,
-                            startDate: getTargetDate(28),
-                            offset: 28}})
+                            startDate: getTargetDate(14),
+                            offset: 14}})
                     .then(function (response) {
                         commit('SET_COVID_INFO', response.data)
                     }).catch()
             } else {
                 await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/cases`,
                     {params: {regionCode: rootState.totalDashBoard.sub_division.code,
-                            startDate: getTargetDate(28),
-                            offset: 28}})
+                            startDate: getTargetDate(14),
+                            offset: 14}})
                     .then(function (response) {
                         commit('SET_COVID_INFO', response.data)
                     }).catch()
@@ -152,8 +152,8 @@ export default {
 
             await axios.get(process.env.VUE_APP_DJANGO_API + `/google/mobility/info`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
-                        startDate: getTargetDate(30),
-                        offset:28,
+                        startDate: getTargetDate(23),
+                        offset:21,
                     }})
                 .then(function (response) {
                     commit('SET_MOBILITY', response.data)
@@ -172,11 +172,10 @@ export default {
                 }).catch()
         },
         REQUEST_OWID_MORTALITY: async ({commit, rootState}) => {
-
             await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/mortality`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
-                        startDate: getTargetDate(30),
-                        offset:28,
+                        startDate: getTargetDate(70),
+                        offset: 70,
                     }})
                 .then(function (response) {
                     commit('SET_OWID_MORTALITY', response.data)
@@ -187,8 +186,8 @@ export default {
         REQUEST_OWID_TESTING: async ({commit, rootState}) => {
             await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/testing`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
-                        startDate: getTargetDate(30),
-                        offset:28,
+                        startDate: getTargetDate(16),
+                        offset:14,
                     }})
                 .then(function (response) {
                     commit('SET_OWID_TESTING_DATA', response.data)
@@ -203,8 +202,8 @@ export default {
         REQUEST_OWID_VACCINATION: async ({commit, rootState}) => {
             await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/vaccination`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
-                        startDate: getTargetDate(30),
-                        offset:28,
+                        startDate: getTargetDate(16),
+                        offset:14,
                     }})
                 .then(function (response) {
                     commit('SET_OWID_VACCINATION_DATA', response.data)

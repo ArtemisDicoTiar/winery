@@ -42,7 +42,7 @@
                     <template slot="extra" style="justify-content: space-between;">
                         <div style="justify-content: space-around; align-items: center; text-align: center; display: flex;">
                             <Progress
-                                    :transitionDuration="5000"
+                                    :transitionDuration="3000"
                                     :radius="40"
                                     :strokeWidth="7"
                                     :value="covid_pred_accuracy.yesterday_accuracy[0]"
@@ -52,7 +52,7 @@
                                 </template>
                             </Progress>
                             <Progress
-                                    :transitionDuration="5000"
+                                    :transitionDuration="3000"
                                     :radius="40"
                                     :strokeWidth="7"
                                     :value="covid_pred_accuracy.lastweek_accuracy[0]"
@@ -117,9 +117,6 @@
             dateConvert(dates) {
                 return dates.map(date => date.slice(5))
             },
-            data2PopulationRatio(data, population){
-                return Math.round(data/population *1000)/1000
-            },
             dataConvert(sum, avg, data){
                 const unit = this.getUnitPrefix(avg)
                 return data.map(point => Math.round(point/unit.num * 1000)/1000)
@@ -134,7 +131,7 @@
                 ]
                 for (var i=0; i < units.length; i++) {
                     if (data / units[i].num < 1){
-
+                        if (i === 0) return {num: 1, unit: ''}
                         return units[i-1]
                     }
                 }
@@ -159,7 +156,7 @@
                             top: 15,
                             right: 0,
                             bottom: 5,
-                            left: 20
+                            left: 10
                         }
                     },
                     delta: this.getLastDelta(data[field].slice(-7)),
@@ -191,7 +188,7 @@
                             top: 15,
                             right: 0,
                             bottom: 5,
-                            left: 20
+                            left: 10
                         }
                     },
                     delta: (delta<0?"":"+") + delta,
@@ -213,14 +210,16 @@
             covid_info () {return this.$store.state.totalDashBoardData.covid.info},
             covid_confirmed () {
                 if (this.$store.state.totalDashBoard.sub_division !== undefined
-                    && this.$store.state.totalDashBoard.sub_division.code !== 'all') {
+                    && this.$store.state.totalDashBoard.sub_division.code !== 'all'
+                    && this.$store.state.totalDashBoard.country === 'GBR') {
                     return this.getGraphObject(this.covid_info, 'confirmedCumulative')
                 }
                 return this.getGraphObject(this.covid_info, 'confirmed')
             },
             covid_deaths () {
                 if (this.$store.state.totalDashBoard.sub_division !== undefined
-                    && this.$store.state.totalDashBoard.sub_division.code !== 'all') {
+                    && this.$store.state.totalDashBoard.sub_division.code !== 'all'
+                    && this.$store.state.totalDashBoard.country === 'GBR') {
                     return {
                         data: {
                             labels: [],
@@ -236,7 +235,7 @@
                                 top: 15,
                                 right: 0,
                                 bottom: 5,
-                                left: 20
+                                left: 10
                             }
                         },
                         delta: null,

@@ -138,6 +138,8 @@
                         if (this.country.code === 'GBR') {
                             this.$store.dispatch('totalDashBoard/REQUEST_UK_REGIONS')
                         }
+                    } else {
+                        this.$store.commit('totalDashBoardData/SET_CLEAR')
                     }
 
                 }
@@ -151,6 +153,8 @@
                     if (this.isIncluded(val.code, this.sub_divisions)) {
                         this.$store.commit('totalDashBoard/SET_SUBDIVISION', val)
                         this.ukSubdivisionRegion = this.$store.state.totalDashBoard.sub_division
+                    } else {
+                        this.$store.commit('totalDashBoardData/SET_CLEAR')
                     }
                 }
             }

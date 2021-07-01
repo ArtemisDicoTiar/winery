@@ -1,7 +1,7 @@
 <template>
-    <md-card class="content" style="background: #205e82; width: 100%; margin-left: 0">
+    <md-card class="content" style="background: #135c73; width: 100%; margin-left: 0">
         <span class="md-title" style="margin-left: 1%;">
-                <md-icon>directions_run</md-icon>
+                <i class="fas fa-walking"></i>
                 Google Mobility Information
             </span>
         <div style="margin-bottom: 1vh"/>
@@ -44,7 +44,7 @@
                         :footer-content="mobility.date.slice(-1)[0]"
                 />
                 <statsCardCustom
-                        top-icon="work_outline"
+                        top-icon="fas fa-briefcase"
                         card-color="purple"
                         title="Workplace Visit Rate"
                         :details="(mobility['workplaces_percent_change_from_baseline'].slice(-1)[0]<0?'':'+')
@@ -67,8 +67,8 @@
             <div class="md-layout">
                 <graphCardCustom
                         card-color="red"
-                        title="Retail and Recreation Visit Rate"
-                        details=""
+                        title="Retail and Recreation Visit Rate (%)"
+                        details="The data shows how more/less people visits Retail or Recreation site than 2020/01 visit"
                         :updated="retail.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="retail.data"
@@ -76,8 +76,8 @@
                 />
                 <graphCardCustom
                         card-color="orange"
-                        title="Grocery and Pharmarcy Visit Rate"
-                        details="This graph informs the cumulative confirmed cases."
+                        title="Grocery and Pharmacy Visit Rate (%)"
+                        details="The data shows how more/less people visits Grocery and Pharmacy than 2020/01 visit"
                         :updated="grocery.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="grocery.data"
@@ -85,8 +85,8 @@
                 />
                 <graphCardCustom
                         card-color="green"
-                        title="Park Visit Rate"
-                        details="This graph informs the cumulative confirmed cases."
+                        title="Park Visit Rate (%)"
+                        details="The data shows how more/less people visits Park than 2020/01 visit"
                         :updated="park.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="park.data"
@@ -94,8 +94,8 @@
                 />
                 <graphCardCustom
                         card-color="blue"
-                        title="Transit Stations Visit Rate"
-                        details="This graph informs the cumulative confirmed cases."
+                        title="Transit Stations Visit Rate (%)"
+                        details="The data shows how more/less people visits Transit Stations than 2020/01 visit"
                         :updated="transit.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="transit.data"
@@ -103,8 +103,8 @@
                 />
                 <graphCardCustom
                         card-color="purple"
-                        title="Workplace Visit Rate"
-                        details="This graph informs the cumulative confirmed cases."
+                        title="Workplace Visit Rate (%)"
+                        details="The data shows how more/less people visits Workplace than 2020/01 visit"
                         :updated="work.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="work.data"
@@ -112,8 +112,8 @@
                 />
                 <graphCardCustom
                         card-color="gray"
-                        title="Residential Place Visit Rate"
-                        details="This graph informs the cumulative confirmed cases."
+                        title="Residential Place Visit Rate (%)"
+                        details="The data shows how more/less people visits Residential Place than 2020/01 visit"
                         :updated="home.data.labels.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="home.data"
@@ -158,7 +158,7 @@
                             top: 15,
                             right: 0,
                             bottom: 5,
-                            left: 20
+                            left: 10
                         }
                     },
                 }
