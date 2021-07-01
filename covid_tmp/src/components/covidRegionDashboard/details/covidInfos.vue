@@ -211,7 +211,7 @@
             covid_confirmed () {
                 if (this.$store.state.totalDashBoard.sub_division !== undefined
                     && this.$store.state.totalDashBoard.sub_division.code !== 'all'
-                    && this.$store.state.totalDashBoard.country === 'GBR') {
+                    && this.$store.state.totalDashBoard.country.code === 'GBR') {
                     return this.getGraphObject(this.covid_info, 'confirmedCumulative')
                 }
                 return this.getGraphObject(this.covid_info, 'confirmed')
@@ -219,7 +219,7 @@
             covid_deaths () {
                 if (this.$store.state.totalDashBoard.sub_division !== undefined
                     && this.$store.state.totalDashBoard.sub_division.code !== 'all'
-                    && this.$store.state.totalDashBoard.country === 'GBR') {
+                    && this.$store.state.totalDashBoard.country.code === 'GBR') {
                     return {
                         data: {
                             labels: [],
