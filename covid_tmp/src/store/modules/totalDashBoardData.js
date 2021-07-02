@@ -83,7 +83,7 @@ export default {
         REQUEST_COVID_INFO: async ({commit, rootState}) => {
             if (rootState.totalDashBoard.country.code !== 'GBR'
                 || rootState.totalDashBoard.sub_division.code === 'all'){
-                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/cases`,
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/cases/`,
                     {params: {CountryCode: rootState.totalDashBoard.country.code,
                             startDate: getTargetDate(14),
                             offset: 14}})
@@ -91,7 +91,7 @@ export default {
                         commit('SET_COVID_INFO', response.data)
                     }).catch()
             } else {
-                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/cases`,
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/cases/`,
                     {params: {regionCode: rootState.totalDashBoard.sub_division.code,
                             startDate: getTargetDate(14),
                             offset: 14}})
@@ -103,7 +103,7 @@ export default {
         REQUEST_COVID_PREDS: async ({commit, rootState}) => {
             if (rootState.totalDashBoard.country.code !== 'GBR'
                 || rootState.totalDashBoard.sub_division.code === 'all'){
-                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/prediction`,
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/prediction/`,
                     {params: {CountryCode: rootState.totalDashBoard.country.code,
                             startDate: getTargetDate(2),
                             offset:7,
@@ -113,7 +113,7 @@ export default {
                         commit('SET_COVID_PREDS', response.data)
                     }).catch()
             } else {
-                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/prediction`,
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/prediction/`,
                     {params: {regionCode: rootState.totalDashBoard.sub_division.code,
                             startDate: getTargetDate(2),
                             offset:7,
@@ -127,7 +127,7 @@ export default {
         REQUEST_COVID_ACCURACY: async ({commit, rootState}) => {
             if (rootState.totalDashBoard.country.code !== 'GBR'
                 || rootState.totalDashBoard.sub_division.code === 'all'){
-                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/predictionAccuracy`,
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/predictionAccuracy/`,
                     {params: {CountryCode: rootState.totalDashBoard.country.code,
                             startDate: getTargetDate(3),
                             offset:1,
@@ -136,7 +136,7 @@ export default {
                         commit('SET_COVID_PRED_ACCURACY', response.data)
                     }).catch()
             } else {
-                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/predictionAccuracy`,
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/predictionAccuracy/`,
                     {params: {regionCode: rootState.totalDashBoard.sub_division.code,
                             startDate: getTargetDate(3),
                             offset:1,
@@ -150,7 +150,7 @@ export default {
 
         REQUEST_GOOGLE_MOBILITY: async ({commit, rootState}) => {
 
-            await axios.get(process.env.VUE_APP_DJANGO_API + `/google/mobility/info`,
+            await axios.get(process.env.VUE_APP_DJANGO_API + `/google/mobility/info/`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
                         startDate: getTargetDate(23),
                         offset:21,
@@ -172,7 +172,7 @@ export default {
                 }).catch()
         },
         REQUEST_OWID_MORTALITY: async ({commit, rootState}) => {
-            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/mortality`,
+            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/mortality/`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
                         startDate: getTargetDate(70),
                         offset: 70,
@@ -184,7 +184,7 @@ export default {
 
         // BELOW TWO POINTS HAVE META DATA ENDPOINT
         REQUEST_OWID_TESTING: async ({commit, rootState}) => {
-            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/testing`,
+            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/testing/`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
                         startDate: getTargetDate(16),
                         offset:14,
@@ -193,14 +193,14 @@ export default {
                     commit('SET_OWID_TESTING_DATA', response.data)
                 }).catch()
 
-            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/meta/testing`,
+            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/meta/testing/`,
                 {params: {regionCode: rootState.totalDashBoard.country.code}})
                 .then(function (response) {
                     commit('SET_OWID_TESTING_META', response.data)
                 }).catch()
         },
         REQUEST_OWID_VACCINATION: async ({commit, rootState}) => {
-            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/vaccination`,
+            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/data/vaccination/`,
                 {params: {regionCode: rootState.totalDashBoard.country.code,
                         startDate: getTargetDate(16),
                         offset:14,
@@ -209,7 +209,7 @@ export default {
                     commit('SET_OWID_VACCINATION_DATA', response.data)
                 }).catch()
 
-            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/meta/vaccination`,
+            await axios.get(process.env.VUE_APP_DJANGO_API + `/owid/meta/vaccination/`,
                 {params: {regionCode: rootState.totalDashBoard.country.code}})
                 .then(function (response) {
                     commit('SET_OWID_VACCINATION_META', response.data)

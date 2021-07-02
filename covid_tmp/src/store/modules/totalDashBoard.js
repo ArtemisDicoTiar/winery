@@ -65,7 +65,7 @@ export default {
     actions: {
         REQUEST_CONTINENTS: async ({commit}) => {
             commit('SET_LOADING', true)
-            let targetLink = process.env.VUE_APP_DJANGO_API + '/region/global/continent_list'
+            let targetLink = process.env.VUE_APP_DJANGO_API + '/region/global/continent_list/'
 
             await axios.get(targetLink, {})
                 .then(function (response) {
@@ -79,7 +79,7 @@ export default {
         },
         REQUEST_COUNTRIES: async ({commit, state}) => {
             commit('SET_LOADING', true)
-            let targetLink = process.env.VUE_APP_DJANGO_API + `/region/global/country_list`
+            let targetLink = process.env.VUE_APP_DJANGO_API + `/region/global/country_list/`
 
             await axios.get(targetLink, {params: {continent: state.continent}})
                 .then(function (response) {
@@ -93,7 +93,7 @@ export default {
         },
         REQUEST_UK_REGIONS: async ({commit}) => {
             commit('SET_LOADING', true)
-            let targetLink = process.env.VUE_APP_DJANGO_API + `/region/uk/region_list`
+            let targetLink = process.env.VUE_APP_DJANGO_API + `/region/uk/region_list/`
 
             await axios.get(targetLink, {})
                 .then(function (response) {
@@ -108,7 +108,7 @@ export default {
         },
         REQUEST_REGION_FROM_LOCATION: async ({commit, state}) => {
             commit('SET_LOADING', true)
-            let targetLink = process.env.VUE_APP_DJANGO_API + `/region/geoapi/search`
+            let targetLink = process.env.VUE_APP_DJANGO_API + `/region/geoapi/search/`
 
             await axios.get(targetLink,
                 {params: {lat: state.longLat.lat, long: state.longLat.long}})
