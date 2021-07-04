@@ -39,9 +39,10 @@
                     Post-process: Airflow (python3.7)<br/>
                     DataBase: MariaDB<br/>
                     <br/>
-                    Webserver: Docker wrapped nginx web server engine<br/>
+                    Front-server: Docker wrapped nginx web server engine<br/>
                     Webpage(Front): Vuejs Framework (JavaScript, HTML, CSS)<br/>
-                    Webpage(Back) : Flask Framework (python)<br/>
+                    Front-server: Docker wrapped python WGSI server engine<br/>
+                    Webpage(Back) : Django-Rest Framework + Flask Framework (python)<br/>
                 </span>
                 <br/>
                 <md-divider/>
