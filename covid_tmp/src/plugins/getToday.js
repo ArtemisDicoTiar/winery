@@ -1,7 +1,10 @@
 function getTargetDate(delta) {
     var curday = function(sp){
         var today = new Date();
-        if (today.getUTCHours() < 10) {
+        if (today.getUTCHours() < 1) {
+            today.setDate(today.getDate() - delta - 2)
+        }
+        else if (today.getUTCHours() < 10) {
             today.setDate(today.getDate() - delta - 1)
         } else {
             today.setDate(today.getDate() - delta)
