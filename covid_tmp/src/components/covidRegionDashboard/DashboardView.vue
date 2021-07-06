@@ -18,6 +18,21 @@
 
             <md-app-content style="margin-right: 16px; margin-left: 16px; overflow: visible;">
                 <dashboard-search-bar style="margin-bottom: 1vh"/>
+
+                <md-toolbar class="md-accent" style="margin-bottom: 3%">
+                    <h3 class="md-title">
+                        <md-icon>grading</md-icon>
+                        Issue <br/>
+                        <span class="md-subheading">
+                            Currently, the Australia region and some UK sub-region is failing on requesting COVID data to Database.<br/>
+                            This issue is under analysis.<br/>
+                            In addition, some components are not null safe (error occur when data request fail).<br/>
+                            To make the user  know whether the data load is successful or not, the component will also be fixed.<br/>
+
+                        </span>
+                    </h3>
+                </md-toolbar>
+
                 <dashboard style=""/>
 
             </md-app-content>
