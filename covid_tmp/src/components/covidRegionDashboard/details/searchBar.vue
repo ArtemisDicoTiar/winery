@@ -74,7 +74,7 @@
                 </md-autocomplete>
             </div>
             <div class="md-toolbar-section-end md-size-5" style="margin-right: 1vw">
-                <md-button class="md-fab md-dense" @click="searchRequestedLocation">
+                <md-button class="md-fab md-dense" @click="searchRequestedLocation" :disabled="!this.isSearchBarFilled">
                     <md-icon>search</md-icon>
                 </md-button>
                 <md-button class="md-fab md-dense" @click="currentLocationClicked">
@@ -107,6 +107,17 @@
             sub_divisions () {
                 return this.$store.state.totalDashBoard.sub_divisions
             },
+            isSearchBarFilled () {
+                if (this.country !== null){
+                    if (this.country.code === 'GBR'){
+                        return this.ukSubdivisionRegion !== null;
+                    } else {
+                        return true
+                    }
+
+                }
+                return false
+            }
         },
         watch: {
             continent (val) {
