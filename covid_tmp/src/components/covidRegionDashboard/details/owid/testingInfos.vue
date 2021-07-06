@@ -51,6 +51,10 @@
                         graph-type="Line"
                         :graph-data="testing.data"
                         :graph-options="testing.option"
+                        :newValueRequired="true"
+                        dialog-title="Last Daily Test People"
+                        :data4weeks="this.owid_testing_data['Cumulative_total']"
+                        :date4weeks="this.owid_testing_data['Date']"
                 />
                 <graphCardCustom
                         card-color="purple"
@@ -60,6 +64,10 @@
                         graph-type="Line"
                         :graph-data="positiveRate.data"
                         :graph-options="positiveRate.option"
+                        :newValueRequired="false"
+                        dialog-title="Last Daily Test People"
+                        :data4weeks="this.owid_testing_data['Short_term_positive_rate']"
+                        :date4weeks="this.owid_testing_data['Date']"
                 />
             </div>
 

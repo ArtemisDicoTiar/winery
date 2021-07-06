@@ -108,13 +108,19 @@
                 return this.$store.state.totalDashBoard.sub_divisions
             },
             isSearchBarFilled () {
-                if (this.country !== null){
-                    if (this.country.code === 'GBR'){
-                        return this.ukSubdivisionRegion !== null;
-                    } else {
-                        return true
-                    }
+                if (this.country !== null) {
+                    if (this.isIncluded(this.country.code, this.countries)){
+                        if (this.country.code === 'GBR'){
+                            if (this.ukSubdivisionRegion !== null) {
+                                return this.isIncluded(this.ukSubdivisionRegion.code, this.sub_divisions)
+                            } else {
+                                return false
+                            }
+                        } else {
+                            return true
+                        }
 
+                    }
                 }
                 return false
             }
@@ -184,16 +190,24 @@
                 return false
             },
             isContinentSelected(continents, continent) {
-                if (continents === undefined) return false
-                else if (continents === null) return false
-                else return continents.includes(continent)
+                if (continent === undefined) {
+                    return false
+                } else if (continent === null) {
+                    return false
+                } else {
+                    return continents.includes(continent)
+                }
             },
             isUKSelected(country, subDivisions) {
                 if (country === undefined) return false
                 else if (country === null) return false
-                else if (subDivisions === undefined) return false
-                else if (subDivisions === null) return false
-                else if (country.code === 'GBR' && subDivisions.length !== 0) return true
+                else {
+                    if (subDivisions === undefined) return false
+                    else if (subDivisions === null) return false
+                    else {
+                        if (country.code === 'GBR' && subDivisions.length !== 0) return true
+                    }
+                }
             },
             searchCurrentLocation() {
                 let store = this.$store

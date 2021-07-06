@@ -75,6 +75,10 @@
                         graph-type="Line"
                         :graph-data="covid_confirmed.data"
                         :graph-options="covid_confirmed.option"
+                        dialog-title="Confirmed Cases"
+                        :newValueRequired="true"
+                        :data4weeks="confirmed_plotly"
+                        :date4weeks="this.$store.state.totalDashBoardData.covid.info.date"
                 />
                 <graphCardCustom
                         card-color="purple"
@@ -84,6 +88,10 @@
                         graph-type="Line"
                         :graph-data="covid_deaths.data"
                         :graph-options="covid_deaths.option"
+                        dialog-title="Death Cases"
+                        :newValueRequired="true"
+                        :data4weeks="this.$store.state.totalDashBoardData.covid.info.deaths"
+                        :date4weeks="this.$store.state.totalDashBoardData.covid.info.date"
                 />
                 <graphCardCustom
                         card-color="gray"
@@ -93,6 +101,10 @@
                         graph-type="Line"
                         :graph-data="covid_preds.data"
                         :graph-options="covid_preds.option"
+                        dialog-title="Predicted Confirmed Cases"
+                        :newValueRequired="true"
+                        :data4weeks="this.$store.state.totalDashBoardData.covid.preds['confirmed_prediction']"
+                        :date4weeks="this.$store.state.totalDashBoardData.covid.preds['date']"
                 />
             </div>
 
@@ -216,6 +228,14 @@
                 }
                 return this.getGraphObject(this.covid_info, 'confirmed')
             },
+            confirmed_plotly () {
+                if (this.$store.state.totalDashBoard.sub_division !== undefined
+                    && this.$store.state.totalDashBoard.sub_division.code !== 'all'
+                    && this.$store.state.totalDashBoard.country.code === 'GBR') {
+                    return this.covid_info['confirmedCumulative']
+                }
+                return this.covid_info['confirmed']
+            },
             covid_deaths () {
                 if (this.$store.state.totalDashBoard.sub_division !== undefined
                     && this.$store.state.totalDashBoard.sub_division.code !== 'all'
@@ -256,7 +276,12 @@
         data() {
             return {
 
-            };
+            }
         }
-    };
+    }
 </script>
+<style lang="scss" scoped>
+    /*.md-dialog {*/
+    /*    max-width: 768px;*/
+    /*}*/
+</style>

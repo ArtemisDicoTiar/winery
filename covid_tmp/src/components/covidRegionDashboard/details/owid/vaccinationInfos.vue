@@ -50,6 +50,10 @@
                         graph-type="Line"
                         :graph-data="first_vac.data"
                         :graph-options="first_vac.option"
+                        :newValueRequired="true"
+                        dialog-title="First Dose Vaccination"
+                        :data4weeks="this.owid_vaccination_data['people_vaccinated']"
+                        :date4weeks="this.owid_vaccination_data.date"
                 />
                 <graphCardCustom
                         card-color="green"
@@ -59,6 +63,10 @@
                         graph-type="Line"
                         :graph-data="second_vac.data"
                         :graph-options="second_vac.option"
+                        :newValueRequired="true"
+                        dialog-title="Second Dose Vaccination (Final)"
+                        :data4weeks="this.owid_vaccination_data['people_fully_vaccinated']"
+                        :date4weeks="this.owid_vaccination_data.date"
                 />
             </div>
 

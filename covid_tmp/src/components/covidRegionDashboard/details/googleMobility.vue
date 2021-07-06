@@ -73,6 +73,10 @@
                         graph-type="Line"
                         :graph-data="retail.data"
                         :graph-options="retail.option"
+                        :newValueRequired="false"
+                        dialog-title="Retail and Recreation Visit"
+                        :data4weeks="this.$store.state.totalDashBoardData.mobility['retail_and_recreation_percent_change_from_baseline']"
+                        :date4weeks="this.$store.state.totalDashBoardData.mobility.date"
                 />
                 <graphCardCustom
                         card-color="orange"
@@ -82,6 +86,10 @@
                         graph-type="Line"
                         :graph-data="grocery.data"
                         :graph-options="grocery.option"
+                        :newValueRequired="false"
+                        dialog-title="Grocery and Pharmacy Visit"
+                        :data4weeks="this.$store.state.totalDashBoardData.mobility['grocery_and_pharmacy_percent_change_from_baseline']"
+                        :date4weeks="this.$store.state.totalDashBoardData.mobility.date"
                 />
                 <graphCardCustom
                         card-color="green"
@@ -91,6 +99,10 @@
                         graph-type="Line"
                         :graph-data="park.data"
                         :graph-options="park.option"
+                        :newValueRequired="false"
+                        dialog-title="Park Visit"
+                        :data4weeks="this.$store.state.totalDashBoardData.mobility['parks_percent_change_from_baseline']"
+                        :date4weeks="this.$store.state.totalDashBoardData.mobility.date"
                 />
                 <graphCardCustom
                         card-color="blue"
@@ -100,6 +112,10 @@
                         graph-type="Line"
                         :graph-data="transit.data"
                         :graph-options="transit.option"
+                        :newValueRequired="false"
+                        dialog-title="Transit Stations Visit"
+                        :data4weeks="this.$store.state.totalDashBoardData.mobility['transit_stations_percent_change_from_baseline']"
+                        :date4weeks="this.$store.state.totalDashBoardData.mobility.date"
                 />
                 <graphCardCustom
                         card-color="purple"
@@ -109,6 +125,10 @@
                         graph-type="Line"
                         :graph-data="work.data"
                         :graph-options="work.option"
+                        :newValueRequired="false"
+                        dialog-title="Workplace Visit"
+                        :data4weeks="this.$store.state.totalDashBoardData.mobility['workplaces_percent_change_from_baseline']"
+                        :date4weeks="this.$store.state.totalDashBoardData.mobility.date"
                 />
                 <graphCardCustom
                         card-color="gray"
@@ -118,6 +138,10 @@
                         graph-type="Line"
                         :graph-data="home.data"
                         :graph-options="home.option"
+                        :newValueRequired="false"
+                        dialog-title="Residential Place Visit"
+                        :data4weeks="this.$store.state.totalDashBoardData.mobility['residential_percent_change_from_baseline']"
+                        :date4weeks="this.$store.state.totalDashBoardData.mobility.date"
                 />
             </div>
 

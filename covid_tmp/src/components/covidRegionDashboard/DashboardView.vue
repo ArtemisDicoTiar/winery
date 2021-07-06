@@ -21,16 +21,13 @@
 
                 <md-toolbar class="md-accent" style="margin-bottom: 3%">
                     <h3 class="md-title">
-                        <md-icon>grading</md-icon>
-                        Issue <br/>
-                        <span class="md-subheading">
-                            Currently, the Australia region and some UK sub-region is failing on requesting COVID data to Database.<br/>
-                            This issue is under analysis.<br/>
-                            In addition, some components are not null safe (error occur when data request fail).<br/>
-                            To make the user  know whether the data load is successful or not, the component will also be fixed.<br/>
-
-                        </span>
+                        <md-icon>new_releases</md-icon>
+                        Notice <br/>
                     </h3>
+                    <span class="md-subheading" style="margin-left: 7vw">
+                        Other than COVID information, the information is provided based on <b>COUNTRY</b>, not sub-division region.<br/>
+                        * If the <b>card does not expands</b>, the data is <b>not provided</b> on the selected region.
+                    </span>
                 </md-toolbar>
 
                 <dashboard style=""/>
@@ -125,10 +122,9 @@
 </script>
 <style lang="scss" scoped>
 
-    /*.md-card {*/
-    /*    width: 320px;*/
-    /*    margin: 4px;*/
-    /*    display: inline-block;*/
-    /*    vertical-align: top;*/
-    /*}*/
+    // Demo purposes only
+    .md-drawer {
+        width: 230px;
+        max-width: calc(100vw - 125px);
+    }
 </style>
