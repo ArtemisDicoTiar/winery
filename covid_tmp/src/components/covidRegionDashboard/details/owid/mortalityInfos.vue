@@ -11,46 +11,46 @@
                         top-icon="fas fa-users"
                         card-color="red"
                         title="P scores: All ages (%)"
-                        :details="(owid_mortality['p_scores_all_ages'].slice(-1)[0]<0?'':'+')
-                        + owid_mortality['p_scores_all_ages'].slice(-1)[0] + '%'"
+                        :details="(owid_mortality['p_scores_all_ages']<0?'':'+')
+                        + owid_mortality['p_scores_all_ages'] + '%'"
                         footer-icon="update"
-                        :footer-content="owid_mortality.date.slice(-1)[0]"
+                        :footer-content="owid_mortality.date"
                 />
                 <statsCardCustom
                         top-icon="fas fa-child"
                         card-color="orange"
                         title="P scores: 15 ~ 64 (%)"
-                        :details="(owid_mortality['p_scores_15_64'].slice(-1)[0]<0?'':'+')
-                        + owid_mortality['p_scores_15_64'].slice(-1)[0] + '%'"
+                        :details="(owid_mortality['p_scores_15_64']<0?'':'+')
+                        + owid_mortality['p_scores_15_64'] + '%'"
                         footer-icon="update"
-                        :footer-content="owid_mortality.date.slice(-1)[0]"
+                        :footer-content="owid_mortality.date"
                 />
                 <statsCardCustom
                         top-icon="person"
                         card-color="green"
                         title="P scores: 65 ~ 74 (%)"
-                        :details="(owid_mortality['p_scores_65_74'].slice(-1)[0]<0?'':'+')
-                        + owid_mortality['p_scores_65_74'].slice(-1)[0] + '%'"
+                        :details="(owid_mortality['p_scores_65_74']<0?'':'+')
+                        + owid_mortality['p_scores_65_74'] + '%'"
                         footer-icon="update"
-                        :footer-content="owid_mortality.date.slice(-1)[0]"
+                        :footer-content="owid_mortality.date"
                 />
                 <statsCardCustom
                         top-icon="person"
                         card-color="blue"
                         title="P scores: 75 ~ 84 (%)"
-                        :details="(owid_mortality['p_scores_75_84'].slice(-1)[0]<0?'':'+')
-                        + owid_mortality['p_scores_75_84'].slice(-1)[0] + '%'"
+                        :details="(owid_mortality['p_scores_75_84']<0?'':'+')
+                        + owid_mortality['p_scores_75_84'] + '%'"
                         footer-icon="update"
-                        :footer-content="owid_mortality.date.slice(-1)[0]"
+                        :footer-content="owid_mortality.date"
                 />
                 <statsCardCustom
                         top-icon="person"
                         card-color="purple"
                         title="P scores: 85 ~ (%)"
-                        :details="(owid_mortality['p_scores_85plus'].slice(-1)[0]<0?'':'+')
-                        + owid_mortality['p_scores_85plus'].slice(-1)[0] + '%'"
+                        :details="(owid_mortality['p_scores_85plus']<0?'':'+')
+                        + owid_mortality['p_scores_85plus'] + '%'"
                         footer-icon="update"
-                        :footer-content="owid_mortality.date.slice(-1)[0]"
+                        :footer-content="owid_mortality.date"
                 />
             </div>
         </div>
