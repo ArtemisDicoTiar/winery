@@ -131,8 +131,12 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="third" md-label="Back-End Update History" md-description="LAST UPDATE: 2021-07-01">
+                    <md-step id="third" md-label="Back-End Update History" md-description="LAST UPDATE: 2021-07-14">
                         <md-steppers md-vertical>
+                            <md-step md-label="Data collector update" md-description="(2021-07-14)"><p>
+                                Some countries' data were collected in separated rows.<br/>
+                                The ETL logic is updated and now Japan, USA and some other countries will now be crawled properly.
+                            </p></md-step>
                             <md-step md-label="New API Server built with Django Rest Framework" md-description="(2021-07-01)"><p>
                                 Previous API endpoint was built with Flask. <br/>
                                 The increase of endpoint led to increase of difficulty of API server code management.<br/>
