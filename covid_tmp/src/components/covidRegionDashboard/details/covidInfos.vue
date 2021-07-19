@@ -285,24 +285,24 @@
                     }
                 }
                 const field = 'confirmed_prediction'
-                const sum = data[field].slice(1).reduce((a, b) => a + b, 0);
-                const avg = (sum / data[field].slice(1).length) || 0;
+                const sum = data[field].reduce((a, b) => a + b, 0);
+                const avg = (sum / data[field].length) || 0;
                 const unitObj = this.getUnitPrefix(avg)
                 const delta = Math.round(
-                    this.dataConvert(sum, avg, data[field].slice(1))[1]*unitObj.num
+                    this.dataConvert(sum, avg, data[field])[0]*unitObj.num
                     - this.covid_confirmed.data.series[0].slice(-1)[0]*this.covid_confirmed.unit.num
                 )
                 return {
                     data: {
-                        labels: this.dateConvert(data.date.slice(1)).slice(0, 7),
-                        series: [this.dataConvert(sum, avg, data[field].slice(1)).slice(0, 7)]
+                        labels: this.dateConvert(data.date).slice(0, 7),
+                        series: [this.dataConvert(sum, avg, data[field]).slice(0, 7)]
                     },
                     option: {
                         lineSmooth: this.$Chartist.Interpolation.cardinal({
                             tension: 0
                         }),
-                        low: Math.min.apply(null, this.dataConvert(sum, avg, data[field].slice(1))),
-                        high: Math.max.apply(null, this.dataConvert(sum, avg, data[field].slice(1))),
+                        low: Math.min.apply(null, this.dataConvert(sum, avg, data[field])),
+                        high: Math.max.apply(null, this.dataConvert(sum, avg, data[field])),
                         chartPadding: {
                             top: 15,
                             right: 0,
