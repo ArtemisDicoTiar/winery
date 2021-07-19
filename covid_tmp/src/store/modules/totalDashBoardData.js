@@ -111,7 +111,9 @@ export default {
                         }})
                     .then(function (response) {
                         commit('SET_COVID_PREDS', response.data)
-                    }).catch()
+                    }).catch(function () {
+                        commit('SET_COVID_PREDS', null)
+                    })
             } else {
                 await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/prediction/`,
                     {params: {regionCode: rootState.totalDashBoard.sub_division.code,
@@ -121,7 +123,9 @@ export default {
                         }})
                     .then(function (response) {
                         commit('SET_COVID_PREDS', response.data)
-                    }).catch()
+                    }).catch(function () {
+                        commit('SET_COVID_PREDS', null)
+                    })
             }
         },
         REQUEST_COVID_ACCURACY: async ({commit, rootState}) => {
@@ -134,7 +138,9 @@ export default {
                         }})
                     .then(function (response) {
                         commit('SET_COVID_PRED_ACCURACY', response.data)
-                    }).catch()
+                    }).catch(function () {
+                        commit('SET_COVID_PRED_ACCURACY', null)
+                    })
             } else {
                 await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/uk/predictionAccuracy/`,
                     {params: {regionCode: rootState.totalDashBoard.sub_division.code,
@@ -143,7 +149,9 @@ export default {
                         }})
                     .then(function (response) {
                         commit('SET_COVID_PRED_ACCURACY', response.data)
-                    }).catch()
+                    }).catch(function () {
+                        commit('SET_COVID_PRED_ACCURACY', null)
+                    })
             }
         },
         // #############################################
