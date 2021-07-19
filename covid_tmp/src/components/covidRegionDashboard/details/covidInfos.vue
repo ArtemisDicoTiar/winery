@@ -27,7 +27,7 @@
                     <statsCardCustom
                             top-icon="insights"
                             card-color="gray"
-                            title="Confirmed Cases Prediction (Today)"
+                            title="Confirmed Cases ARIMA Prediction (Today)"
                             :details="covid_preds.delta"
                             footer-icon="update"
                             :footer-content="covid_preds.data.labels.slice(-1)[0]"
@@ -37,10 +37,10 @@
                     <statsCardCustom
                             top-icon="data_usage"
                             card-color="orange"
-                            title="Prediction Accuracy"
+                            title="ARIMA Prediction Accuracy"
                             details=""
                             footer-icon="update"
-                            :footer-content="covid_deaths.data.labels.slice(-1)[0]"
+                            :footer-content="covid_preds.data.labels.slice(-1)[0]"
                     >
                         <template slot="extra" style="justify-content: space-between;">
                             <div style="justify-content: space-around; align-items: center; text-align: center; display: flex;">
@@ -62,6 +62,71 @@
                                 >
                                     <template v-slot:footer>
                                         <b>Lastweek</b>
+                                    </template>
+                                </Progress>
+                            </div>
+                        </template>
+                    </statsCardCustom>
+                </div>
+                <div v-if="this.$store.state.totalDashBoardData.covid.lstm_preds !== null">
+                    <statsCardCustom
+                            top-icon="insights"
+                            card-color="gray"
+                            title="Confirmed Cases LSTM Prediction (Today)"
+                            :details="covid_lstm_preds.delta"
+                            footer-icon="update"
+                            :footer-content="covid_lstm_preds.data.labels.slice(-1)[0]"
+                    />
+                </div>
+                <div v-if="this.$store.state.totalDashBoardData.covid.lstm_pred_accuracy !== null">
+                    <statsCardCustom
+                            top-icon="data_usage"
+                            card-color="orange"
+                            title="LSTM Prediction Accuracy"
+                            details=""
+                            footer-icon="update"
+                            :footer-content="covid_lstm_preds.data.labels.slice(-1)[0]"
+                    >
+                        <template slot="extra" style="justify-content: space-between;">
+                            <div style="justify-content: space-around; align-items: center; text-align: center; display: flex;">
+                                <Progress
+                                        :transitionDuration="3000"
+                                        :radius="40"
+                                        :strokeWidth="7"
+                                        :value="covid_lstm_pred_accuracy.yesterday_accuracy[0]"
+                                >
+                                    <template v-slot:footer>
+                                        <b>Yesterday</b>
+                                    </template>
+                                </Progress>
+                                <Progress
+                                        :transitionDuration="3000"
+                                        :radius="40"
+                                        :strokeWidth="7"
+                                        :value="covid_lstm_pred_accuracy.lastweek_accuracy[0]"
+                                >
+                                    <template v-slot:footer>
+                                        <b>Lastweek</b>
+                                    </template>
+                                </Progress>
+                                <Progress
+                                        :transitionDuration="3000"
+                                        :radius="40"
+                                        :strokeWidth="7"
+                                        :value="covid_lstm_pred_accuracy.last2week_accuracy[0]"
+                                >
+                                    <template v-slot:footer>
+                                        <b>2weeks ago</b>
+                                    </template>
+                                </Progress>
+                                <Progress
+                                        :transitionDuration="3000"
+                                        :radius="40"
+                                        :strokeWidth="7"
+                                        :value="covid_lstm_pred_accuracy.last4week_accuracy[0]"
+                                >
+                                    <template v-slot:footer>
+                                        <b>4weeks ago</b>
                                     </template>
                                 </Progress>
                             </div>
@@ -100,7 +165,7 @@
                 <div v-if="this.$store.state.totalDashBoardData.covid.preds !== null">
                     <graphCardCustom
                             card-color="gray"
-                            :title="'Predicted Cumulative Confirmed Cases '+covid_preds.unit.unit"
+                            :title="'ARIMA Predicted Cumulative Confirmed Cases '+covid_preds.unit.unit"
                             details="This graph illustrates how the confirmed cases increases after 5days since today."
                             :updated="covid_preds.data.labels.slice(-1)[0]"
                             graph-type="Line"
@@ -110,6 +175,22 @@
                             :newValueRequired="true"
                             :data4weeks="this.$store.state.totalDashBoardData.covid.preds['confirmed_prediction']"
                             :date4weeks="this.$store.state.totalDashBoardData.covid.preds['date']"
+                    />
+                </div>
+                <div v-if="this.$store.state.totalDashBoardData.covid.lstm_preds !== null">
+                    <graphCardCustom
+                            card-color="gray"
+                            :title="'LSTM Predicted Cumulative Confirmed Cases '+covid_lstm_preds.unit.unit"
+                            details="This graph illustrates how the confirmed cases changes for 28days since today.
+                            (The LSTM model is trained by viewing 8weeks window and predict next 4weeks.)"
+                            :updated="covid_lstm_preds.data.labels.slice(-1)[0]"
+                            graph-type="Line"
+                            :graph-data="covid_lstm_preds.data"
+                            :graph-options="covid_lstm_preds.option"
+                            dialog-title="Predicted Confirmed Cases"
+                            :newValueRequired="true"
+                            :data4weeks="this.$store.state.totalDashBoardData.covid.lstm_preds['confirmed_prediction']"
+                            :date4weeks="this.$store.state.totalDashBoardData.covid.lstm_preds['date']"
                     />
                 </div>
             </div>
@@ -194,7 +275,7 @@
                 return {
                     data: {
                         labels: this.dateConvert(data.date.slice(1)),
-                        series: [this.dataConvert(sum, avg, data[field].slice(1))]
+                        series: [this.dataConvert(sum, avg, data[field].slice(1)).slice(0, 5)]
                     },
                     option: {
                         lineSmooth: this.$Chartist.Interpolation.cardinal({
@@ -271,9 +352,11 @@
                 return this.getGraphObject(this.covid_info, 'deaths')
             },
 
-            covid_preds () {return this.getPredGraphObject(this.$store.state.totalDashBoardData.covid.preds, this.owid_health)},
-
+            covid_preds () {return this.getPredGraphObject(this.$store.state.totalDashBoardData.covid.preds)},
             covid_pred_accuracy () {return this.$store.state.totalDashBoardData.covid.pred_accuracy},
+
+            covid_lstm_preds () {return this.getPredGraphObject(this.$store.state.totalDashBoardData.covid.lstm_preds)},
+            covid_lstm_pred_accuracy () {return this.$store.state.totalDashBoardData.covid.lstm_pred_accuracy},
 
             owid_health () {return this.$store.state.totalDashBoardData.owid.health},
 

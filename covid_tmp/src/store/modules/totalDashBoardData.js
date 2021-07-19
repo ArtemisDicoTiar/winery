@@ -10,6 +10,8 @@ export default {
             info: {},
             preds: {},
             pred_accuracy: {},
+            lstm_preds: {},
+            lstm_pred_accuracy: {}
         },
 
         mobility: {},
@@ -43,6 +45,8 @@ export default {
                 info: {},
                 preds: {},
                 pred_accuracy: {},
+                lstm_preds: {},
+                lstm_pred_accuracy: {}
             }
 
             state.mobility = {}
@@ -66,6 +70,8 @@ export default {
         SET_COVID_INFO: (state, info) => {state.covid.info = info},
         SET_COVID_PREDS: (state, info) => {state.covid.preds = info},
         SET_COVID_PRED_ACCURACY: (state, info) => {state.covid.pred_accuracy = info},
+        SET_COVID_LSTM_PREDS: (state, info) => {state.covid.lstm_preds = info},
+        SET_COVID_LSTM_PRED_ACCURACY: (state, info) => {state.covid.lstm_pred_accuracy = info},
 
         SET_MOBILITY: (state, info) => {state.mobility = info},
 
@@ -152,6 +158,43 @@ export default {
                     }).catch(function () {
                         commit('SET_COVID_PRED_ACCURACY', null)
                     })
+            }
+        },
+        REQUEST_COVID_LSTM_PREDS: async ({commit, rootState}) => {
+            if (rootState.totalDashBoard.country.code !== 'GBR'
+                || rootState.totalDashBoard.sub_division.code === 'all'){
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/lstm_prediction/`,
+                    {params: {CountryCode: rootState.totalDashBoard.country.code,
+                            startDate: getTargetDate(30),
+                            offset:28,
+                            predictedDate: getTargetDate(31)
+                        }})
+                    .then(function (response) {
+                        commit('SET_COVID_LSTM_PREDS', response.data)
+                    }).catch(function () {
+                        commit('SET_COVID_LSTM_PREDS', null)
+                    })
+            } else {
+                // uk region lstm not supported
+                commit('SET_COVID_LSTM_PREDS', null)
+            }
+        },
+        REQUEST_COVID_LSTM_ACCURACY: async ({commit, rootState}) => {
+            if (rootState.totalDashBoard.country.code !== 'GBR'
+                || rootState.totalDashBoard.sub_division.code === 'all'){
+                await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/lstm_predictionAccuracy/`,
+                    {params: {CountryCode: rootState.totalDashBoard.country.code,
+                            startDate: getTargetDate(3),
+                            offset:1,
+                        }})
+                    .then(function (response) {
+                        commit('SET_COVID_LSTM_PRED_ACCURACY', response.data)
+                    }).catch(function () {
+                        commit('SET_COVID_LSTM_PRED_ACCURACY', null)
+                    })
+            } else {
+                // uk region lstm not supported
+                commit('SET_COVID_LSTM_PRED_ACCURACY', null)
             }
         },
         // #############################################

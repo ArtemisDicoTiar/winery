@@ -50,18 +50,21 @@
                                 This correlation analysis is planning to be on this web-page again due by this Spring (2021).<br/>
                             </md-step>
 
-                            <md-step id="fifth" md-label="Better prediction using ARIMA and deep-learning" md-description="[NEW]">
-                                ARIMA model forecast shows the range for prediction. In this web-page, it uses mid-point of 95% of confidence range.<br/>
-                                Deep-learning model with other external information such as news reports related to human activities,
-                                public health information will make the prediction more accurate in the range of 95% confidence range.<br/>
-                                This enhancement is planned due by late Summer (2021).
-                            </md-step>
-
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-07-01">
+                    <md-step id="second" md-label="Front-End Update History" md-description="LAST UPDATE: 2021-07-19">
                         <md-steppers md-vertical>
+                            <md-step md-label="LSTM prediction added." md-description="(2021-07-19)"><p>
+                                Now the LSTM deep-learning model is added to visualised data.<br/>
+                                The model is consist of following layers and trained with 8weeks window to predict next 4weeks data.<br/>
+                                The visualisation is same as ARIMA prediction but due to larger predicting range, it can show next 28 days prediction information.
+                            </p></md-step>
+                            <md-step md-label="COVID card conditional render update." md-description="(2021-07-19)"><p>
+                                The COVID information card is visualised even prediction information is unavailable.<br/>
+                                Although the COVID data is crawled properly by ETL (airflow), the prediction (ARIMA, LSTM) information may be unavailable due to processing time delay.<br/>
+                                To make user to see covid data even without prediction information, conditional render is added to the card.<br/>
+                            </p></md-step>
                             <md-step md-label="New Dashboard update! ByeBye old main page~" md-description="(2021-07-01)"><p>
                                 New COVID related data Dashboard is implemented.<br/>
                                 The data visualisation on previous built pages are detailed but hard to understand and hard to reach.<br/>
@@ -131,8 +134,21 @@
                         </md-steppers>
                     </md-step>
 
-                    <md-step id="third" md-label="Back-End Update History" md-description="LAST UPDATE: 2021-07-14">
+                    <md-step id="third" md-label="Back-End Update History" md-description="LAST UPDATE: 2021-07-19">
                         <md-steppers md-vertical>
+                            <md-step md-label="LSTM model added" md-description="(2021-07-19)"><p>
+                                LSTM prediction model is added. The model view previous 8weeks various data (not only confirmed cases but also other mobility, testing and vaccination information) and predict next 4 weeks confirmed cases.<br/>
+                                The formation of the model is illustrated on following sentences.<br/>
+                                1. 1-Dimension Convolution: 16filters, kernel size of 7, with 'SAME' padding.<br/>
+                                2. LSTM1: 256 hidden units, tanh activation.<br/>
+                                3. LSTM2: 512 hidden units, tanh activation.<br/>
+                                4. Dropout: 0.1rate.<br/>
+                                5. Dense: 256.<br/>
+                                6. Dense: 28(predicting days).<br/>
+                                <br/>
+                                The trained model shows about 92% of training sMAPE and about 93% of validation sMAPE with 300 epochs.<br/>
+                                The model with early stopping showed about 90% of training sMAPE and about 91% of validation sMAPE with less than 100 epochs.<br/>
+                            </p></md-step>
                             <md-step md-label="Data collector update" md-description="(2021-07-14)"><p>
                                 Some countries' data were collected in separated rows.<br/>
                                 The ETL logic is updated and now Japan, USA and some other countries will now be crawled properly.

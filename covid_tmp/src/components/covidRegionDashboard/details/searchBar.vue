@@ -240,6 +240,8 @@
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_INFO')
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_PREDS')
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_ACCURACY')
+                this.$store.dispatch('totalDashBoardData/REQUEST_COVID_LSTM_PREDS')
+                this.$store.dispatch('totalDashBoardData/REQUEST_COVID_LSTM_ACCURACY')
 
                 this.$store.dispatch('totalDashBoardData/REQUEST_GOOGLE_MOBILITY')
 
