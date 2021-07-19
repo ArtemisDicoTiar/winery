@@ -177,7 +177,7 @@
                             :date4weeks="this.$store.state.totalDashBoardData.covid.preds['date']"
                     />
                 </div>
-                <div v-if="this.$store.state.totalDashBoardData.covid.lstm_preds !== null">
+                <div v-if="this.$store.state.totalDashBoardData.covid.lstm_pred_accuracy !== null">
                     <graphCardCustom
                             card-color="gray"
                             :title="'LSTM Predicted Cumulative Confirmed Cases '+covid_lstm_preds.unit.unit"
