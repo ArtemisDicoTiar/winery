@@ -130,7 +130,9 @@
                 if (val === '' || val === null) {
                     this.$store.commit('totalDashBoard/SET_CONTINENT', null)
                     this.continent = null
+                    this.$store.commit('totalDashBoard/SET_COUNTRY', null)
                     this.country = null
+                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', null)
                     this.ukSubdivisionRegion = null
                     this.sub_divisions = null
                     this.$store.commit('totalDashBoardData/SET_CLEAR')
@@ -146,6 +148,7 @@
                 if (val === '' || val === null) {
                     this.$store.commit('totalDashBoard/SET_COUNTRY', null)
                     this.country = null
+                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', null)
                     this.ukSubdivisionRegion = null
                     this.$store.commit('totalDashBoardData/SET_CLEAR')
                 } else {
