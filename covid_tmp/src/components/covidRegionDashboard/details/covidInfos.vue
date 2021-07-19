@@ -264,6 +264,29 @@
 
             },
             getPredGraphObject(data) {
+                if (data === null) {
+                    return {
+                        data: {
+                            labels: [],
+                            series: [[0, 0, 0, 0, 0, 0, 0]]
+                        },
+                        option: {
+                            lineSmooth: this.$Chartist.Interpolation.cardinal({
+                                tension: 0
+                            }),
+                            low: 0,
+                            high: 1,
+                            chartPadding: {
+                                top: 15,
+                                right: 0,
+                                bottom: 5,
+                                left: 10
+                            }
+                        },
+                        delta: null,
+                        unit: {unit: ''}
+                    }
+                }
                 const field = 'confirmed_prediction'
                 const sum = data[field].slice(1).reduce((a, b) => a + b, 0);
                 const avg = (sum / data[field].slice(1).length) || 0;
