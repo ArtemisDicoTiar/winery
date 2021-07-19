@@ -211,7 +211,7 @@
         },
         methods: {
             dateConvert(dates) {
-                return dates.map(date => date.slice(5))
+                return dates.map(date => date.slice(5, 10))
             },
             dataConvert(sum, avg, data){
                 const unit = this.getUnitPrefix(avg)
@@ -261,7 +261,6 @@
 
             },
             getPredGraphObject(data) {
-                console.log(data)
                 if (data === null) {
                     return {
                         data: {
@@ -295,8 +294,8 @@
                 )
                 return {
                     data: {
-                        labels: this.dateConvert(data.date.slice(1)),
-                        series: [this.dataConvert(sum, avg, data[field].slice(1)).slice(0, 5)]
+                        labels: this.dateConvert(data.date.slice(1)).slice(0, 7),
+                        series: [this.dataConvert(sum, avg, data[field].slice(1)).slice(0, 7)]
                     },
                     option: {
                         lineSmooth: this.$Chartist.Interpolation.cardinal({

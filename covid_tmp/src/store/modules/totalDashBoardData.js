@@ -165,9 +165,9 @@ export default {
                 || rootState.totalDashBoard.sub_division.code === 'all'){
                 await axios.get(process.env.VUE_APP_DJANGO_API + `/covid/global/lstm_prediction/`,
                     {params: {CountryCode: rootState.totalDashBoard.country.code,
-                            startDate: getTargetDate(30),
+                            startDate: getTargetDate(0),
                             offset:28,
-                            predictedDate: getTargetDate(31)
+                            predictedDate: getTargetDate(1)
                         }})
                     .then(function (response) {
                         commit('SET_COVID_LSTM_PREDS', response.data)
