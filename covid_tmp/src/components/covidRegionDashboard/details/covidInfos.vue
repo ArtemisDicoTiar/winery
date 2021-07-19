@@ -48,7 +48,7 @@
                                         :transitionDuration="3000"
                                         :radius="40"
                                         :strokeWidth="7"
-                                        :value="covid_pred_accuracy.yesterday_accuracy[0]"
+                                        :value="Number(covid_pred_accuracy.yesterday_accuracy[0])"
                                 >
                                     <template v-slot:footer>
                                         <b>Yesterday</b>
@@ -58,7 +58,7 @@
                                         :transitionDuration="3000"
                                         :radius="40"
                                         :strokeWidth="7"
-                                        :value="covid_pred_accuracy.lastweek_accuracy[0]"
+                                        :value="Number(covid_pred_accuracy.lastweek_accuracy[0])"
                                 >
                                     <template v-slot:footer>
                                         <b>Lastweek</b>
@@ -93,7 +93,7 @@
                                         :transitionDuration="3000"
                                         :radius="40"
                                         :strokeWidth="7"
-                                        :value="covid_lstm_pred_accuracy.yesterday_accuracy[0]"
+                                        :value="Number(covid_lstm_pred_accuracy.yesterday_accuracy[0])"
                                 >
                                     <template v-slot:footer>
                                         <b>Yesterday</b>
@@ -103,7 +103,7 @@
                                         :transitionDuration="3000"
                                         :radius="40"
                                         :strokeWidth="7"
-                                        :value="covid_lstm_pred_accuracy.lastweek_accuracy[0]"
+                                        :value="Number(covid_lstm_pred_accuracy.lastweek_accuracy[0])"
                                 >
                                     <template v-slot:footer>
                                         <b>Lastweek</b>
@@ -113,7 +113,7 @@
                                         :transitionDuration="3000"
                                         :radius="40"
                                         :strokeWidth="7"
-                                        :value="covid_lstm_pred_accuracy.last2week_accuracy[0]"
+                                        :value="Number(covid_lstm_pred_accuracy.last2week_accuracy[0])"
                                 >
                                     <template v-slot:footer>
                                         <b>2weeks ago</b>
@@ -123,7 +123,7 @@
                                         :transitionDuration="3000"
                                         :radius="40"
                                         :strokeWidth="7"
-                                        :value="covid_lstm_pred_accuracy.last4week_accuracy[0]"
+                                        :value="Number(covid_lstm_pred_accuracy.last4week_accuracy[0])"
                                 >
                                     <template v-slot:footer>
                                         <b>4weeks ago</b>
