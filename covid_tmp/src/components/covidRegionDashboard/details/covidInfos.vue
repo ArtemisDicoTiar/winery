@@ -39,7 +39,8 @@
                         details=""
                         footer-icon="update"
                         :footer-content="covid_preds.data.labels.slice(-1)[0]"
-                        v-if="this.$store.state.totalDashBoardData.covid.pred_accuracy !== null"
+                        v-if="this.$store.state.totalDashBoardData.covid.pred_accuracy !== null
+                        && this.$store.state.totalDashBoardData.covid.preds !== null"
                 >
                     <template slot="extra" style="justify-content: space-between;">
                         <div style="justify-content: space-around; align-items: center; text-align: center; display: flex;">
@@ -82,7 +83,8 @@
                         details=""
                         footer-icon="update"
                         :footer-content="covid_lstm_preds.data.labels.slice(-1)[0]"
-                        v-if="this.$store.state.totalDashBoardData.covid.lstm_pred_accuracy !== null"
+                        v-if="this.$store.state.totalDashBoardData.covid.lstm_pred_accuracy !== null
+                        && this.$store.state.totalDashBoardData.covid.lstm_preds !== null"
                 >
                     <template slot="extra" style="justify-content: space-between;">
                         <div style="justify-content: space-around; align-items: center; text-align: center; display: flex;">
