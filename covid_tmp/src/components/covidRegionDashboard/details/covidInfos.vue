@@ -29,7 +29,7 @@
                         title="Confirmed Cases ARIMA Prediction (Today)"
                         :details="covid_preds.delta"
                         footer-icon="update"
-                        :footer-content="covid_preds.data.labels.slice(-1)[0]"
+                        :footer-content="covid_preds.data.labels.slice(0)[0]"
                         v-if="this.$store.state.totalDashBoardData.covid.preds !== null"
                 />
                 <statsCardCustom
@@ -38,7 +38,7 @@
                         title="ARIMA Prediction Accuracy"
                         details=""
                         footer-icon="update"
-                        :footer-content="covid_preds.data.labels.slice(-1)[0]"
+                        :footer-content="covid_preds.data.labels.slice(0)[0]"
                         v-if="this.$store.state.totalDashBoardData.covid.pred_accuracy !== null
                         && this.$store.state.totalDashBoardData.covid.preds !== null"
                 >
@@ -73,7 +73,7 @@
                         title="Confirmed Cases LSTM Prediction (Today)"
                         :details="covid_lstm_preds.delta"
                         footer-icon="update"
-                        :footer-content="covid_lstm_preds.data.labels.slice(-1)[0]"
+                        :footer-content="covid_lstm_preds.data.labels.slice(0)[0]"
                         v-if="this.$store.state.totalDashBoardData.covid.lstm_preds !== null"
                 />
                 <statsCardCustom
@@ -82,7 +82,7 @@
                         title="LSTM Prediction Accuracy"
                         details=""
                         footer-icon="update"
-                        :footer-content="covid_lstm_preds.data.labels.slice(-1)[0]"
+                        :footer-content="covid_lstm_preds.data.labels.slice(0)[0]"
                         v-if="this.$store.state.totalDashBoardData.covid.lstm_pred_accuracy !== null
                         && this.$store.state.totalDashBoardData.covid.lstm_preds !== null"
                 >
@@ -165,7 +165,7 @@
                         card-color="gray"
                         :title="'ARIMA Predicted Cumulative Confirmed Cases '+covid_preds.unit.unit"
                         details="This graph illustrates how the confirmed cases increases after 5days since today."
-                        :updated="covid_preds.data.labels.slice(-1)[0]"
+                        :updated="covid_preds.data.labels.slice(0)[0]"
                         graph-type="Line"
                         :graph-data="covid_preds.data"
                         :graph-options="covid_preds.option"
@@ -180,7 +180,7 @@
                         :title="'LSTM Predicted Cumulative Confirmed Cases '+covid_lstm_preds.unit.unit"
                         details="This graph illustrates how the confirmed cases changes for 28days since today.
                         (The LSTM model is trained by viewing 8weeks window and predict next 4weeks.)"
-                        :updated="covid_lstm_preds.data.labels.slice(-1)[0]"
+                        :updated="covid_lstm_preds.data.labels.slice(0)[0]"
                         graph-type="Line"
                         :graph-data="covid_lstm_preds.data"
                         :graph-options="covid_lstm_preds.option"
