@@ -301,8 +301,8 @@
                         lineSmooth: this.$Chartist.Interpolation.cardinal({
                             tension: 0
                         }),
-                        low: Math.min.apply(null, this.dataConvert(sum, avg, data[field])),
-                        high: Math.max.apply(null, this.dataConvert(sum, avg, data[field])),
+                        low: Math.min.apply(null, this.dataConvert(sum, avg, data[field]).slice(0, 7)),
+                        high: Math.max.apply(null, this.dataConvert(sum, avg, data[field]).slice(0, 7)),
                         chartPadding: {
                             top: 15,
                             right: 0,
