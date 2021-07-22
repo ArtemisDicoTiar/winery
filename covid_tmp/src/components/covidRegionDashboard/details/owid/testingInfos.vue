@@ -65,7 +65,7 @@
                         :graph-data="positiveRate.data"
                         :graph-options="positiveRate.option"
                         :newValueRequired="false"
-                        dialog-title="Last Daily Test People"
+                        dialog-title="Short Term Positive Rate (%)"
                         :data4weeks="this.owid_testing_data['Short_term_positive_rate']"
                         :date4weeks="this.owid_testing_data['Date']"
                 />

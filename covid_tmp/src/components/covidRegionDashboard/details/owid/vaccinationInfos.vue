@@ -44,27 +44,27 @@
             <div class="md-layout">
                 <graphCardCustom
                         card-color="blue"
-                        title="First Dose Vaccinated People"
-                        :details="'Cumulative first dose vaccinated people ' + first_vac.unit.unit"
+                        title="First Dose Vaccinated People (%)"
+                        :details="'Cumulative first dose vaccinated people '"
                         :updated="owid_vaccination_data.date.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="first_vac.data"
                         :graph-options="first_vac.option"
                         :newValueRequired="true"
-                        dialog-title="First Dose Vaccination"
+                        dialog-title="First Dose Vaccination [number of people]"
                         :data4weeks="this.owid_vaccination_data['people_vaccinated']"
                         :date4weeks="this.owid_vaccination_data.date"
                 />
                 <graphCardCustom
                         card-color="green"
-                        title="Second Dose Vaccinated People"
-                        :details="'Cumulative second dose vaccinated people ' + first_vac.unit.unit"
+                        title="Second Dose Vaccinated People (%)"
+                        :details="'Cumulative second dose vaccinated people'"
                         :updated="owid_vaccination_data.date.slice(-1)[0]"
                         graph-type="Line"
                         :graph-data="second_vac.data"
                         :graph-options="second_vac.option"
                         :newValueRequired="true"
-                        dialog-title="Second Dose Vaccination (Final)"
+                        dialog-title="Second Dose Vaccination (Final) [number of people]"
                         :data4weeks="this.owid_vaccination_data['people_fully_vaccinated']"
                         :date4weeks="this.owid_vaccination_data.date"
                 />
@@ -103,8 +103,8 @@
                 }
             },
             dataConvert(sum, avg, data){
-                const unit = this.getUnitPrefix(avg)
-                return data.map(point => Math.round(point/unit.num * 1000)/1000)
+                // const unit = this.getUnitPrefix(avg)
+                return data.map(point => point/this.population * 100)
             },
             getGraphObject(data, field) {
                 var dataField = data[field].slice(-7)
@@ -148,6 +148,7 @@
             first_vac () {return this.getGraphObject(this.owid_vaccination_data, 'people_vaccinated')},
             second_vac () {return this.getGraphObject(this.owid_vaccination_data, 'people_fully_vaccinated')},
             meta () {return this.$store.state.totalDashBoardData.owid.vaccination.meta},
+            population() {return this.$store.state.totalDashBoardData.owid.health['population']}
 
         },
         data() {
