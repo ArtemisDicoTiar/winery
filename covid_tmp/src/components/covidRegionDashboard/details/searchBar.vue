@@ -132,7 +132,7 @@
                     this.continent = null
                     this.$store.commit('totalDashBoard/SET_COUNTRY', null)
                     this.country = null
-                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', null)
+                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', {})
                     this.ukSubdivisionRegion = null
                     this.sub_divisions = null
                     this.$store.commit('totalDashBoardData/SET_CLEAR')
@@ -148,7 +148,7 @@
                 if (val === '' || val === null) {
                     this.$store.commit('totalDashBoard/SET_COUNTRY', null)
                     this.country = null
-                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', null)
+                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', {})
                     this.ukSubdivisionRegion = null
                     this.$store.commit('totalDashBoardData/SET_CLEAR')
                 } else {
@@ -166,7 +166,7 @@
             },
             ukSubdivisionRegion (val) {
                 if (val === '' || val === null) {
-                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', null)
+                    this.$store.commit('totalDashBoard/SET_SUBDIVISION', {})
                     this.ukSubdivisionRegion = null
                     this.$store.commit('totalDashBoardData/SET_CLEAR')
                 } else {
@@ -240,6 +240,8 @@
 
             },
             searchRequestedLocation() {
+                console.log(this.$store.state.totalDashBoard)
+                console.log(this.$store.state.totalDashBoardData.covid.info)
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_INFO')
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_PREDS')
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_ACCURACY')
