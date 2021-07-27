@@ -119,7 +119,6 @@
                         } else {
                             return true
                         }
-
                     }
                 }
                 return false
