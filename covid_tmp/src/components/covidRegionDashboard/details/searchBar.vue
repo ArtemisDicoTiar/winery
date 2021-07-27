@@ -240,8 +240,6 @@
 
             },
             searchRequestedLocation() {
-                console.log(this.$store.state.totalDashBoard)
-                console.log(this.$store.state.totalDashBoardData.covid.info)
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_INFO')
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_PREDS')
                 this.$store.dispatch('totalDashBoardData/REQUEST_COVID_ACCURACY')
