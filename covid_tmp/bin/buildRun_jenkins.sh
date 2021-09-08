@@ -32,7 +32,6 @@ then
     exit 0
 fi
 
-docker run --network=host --rm -d -it -h "$host_name" -p "$port_num":80 --name covid_tmp covid_tmp
-
+docker run --rm -d -it -h "$host_name" -p "$port_num":80 --name covid_tmp covid_tmp --network=host
 
 
