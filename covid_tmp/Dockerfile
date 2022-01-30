@@ -1,5 +1,5 @@
 # packing loading
-FROM node:lts-alpine as loader
+FROM node:lts-gallium as loader
 WORKDIR /covid_tmp
 COPY package.json ./
 RUN npm install
