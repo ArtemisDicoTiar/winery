@@ -2,7 +2,7 @@
 FROM node:lts-alpine as loader
 WORKDIR /covid_tmp
 COPY package.json ./
-RUN npm install --silent
+RUN npm install
 
 # Django application image build
 FROM loader AS builder
